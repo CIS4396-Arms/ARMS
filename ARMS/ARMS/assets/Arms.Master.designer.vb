@@ -32,11 +32,11 @@ Partial Public Class Arms
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''ContentPlaceHolder1 control.
+    '''body control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ContentPlaceHolder1 As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents body As Global.System.Web.UI.WebControls.ContentPlaceHolder
 End Class

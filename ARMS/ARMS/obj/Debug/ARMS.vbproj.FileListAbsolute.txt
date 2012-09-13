@@ -1,0 +1,8 @@
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\bin\ARMS.dll
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\bin\ARMS.pdb
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\bin\ARMS.xml
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\obj\Debug\ARMS.Resources.resources
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\obj\Debug\ARMS.vbproj.GenerateResource.Cache
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\obj\Debug\ARMS.dll
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\obj\Debug\ARMS.xml
+Z:\Windows\CIS4396\ARMS\ARMS\ARMS\obj\Debug\ARMS.pdb

@@ -12,13 +12,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div id="masthead">
+    <div id="masthead" class="container clearfix">
         <h1>Antibody Research Management System</h1>
         <h2>Shriner's Hospital<br /><span>Version 1.0</span></h2>
     </div>
     <div id="content" class="container clearfix">
         <form id="form1" runat="server">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="body" runat="server">
         
             </asp:ContentPlaceHolder>
         </form>
