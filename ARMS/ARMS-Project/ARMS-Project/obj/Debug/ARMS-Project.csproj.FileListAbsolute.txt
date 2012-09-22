@@ -3,3 +3,7 @@ Z:\cis4396\Project\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 Z:\cis4396\Project\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ResolveAssemblyReference.cache
 Z:\cis4396\Project\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 Z:\cis4396\Project\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
+D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
+D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
+D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
+D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
