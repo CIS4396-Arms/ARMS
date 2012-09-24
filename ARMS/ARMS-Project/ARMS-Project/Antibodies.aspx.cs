@@ -13,5 +13,18 @@ namespace ARMS_Project
         {
 
         }
+
+        protected void dbConnTestBTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ARMSDBConnection myConn = new ARMSDBConnection("tuc42419", "nei2neiB", "cis-iis2.temple.edu/Fall2012", "FA12_434218");
+                dbConnTestLBL.Text = "I guess it worked!";
+            }
+            catch (Exception ex)
+            {
+                dbConnTestLBL.Text = "Oops, didn't work.\n"+ex.ToString();
+            }
+        }
     }
 }

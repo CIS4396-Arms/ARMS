@@ -4,5 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="story" id="view">
         <h3>Antibodies</h3>
+        <asp:Button runat="server" ID="dbConnTestBTN" Text="Connect" onclick="dbConnTestBTN_Click" />
+        <asp:Label runat="server" ID="dbConnTestLBL" Text=""></asp:Label>
     </div>
 </asp:Content>
