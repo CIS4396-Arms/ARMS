@@ -7,3 +7,8 @@ D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Pro
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
+C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
+C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
+C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
+C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb

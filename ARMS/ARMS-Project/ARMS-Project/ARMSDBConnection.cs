@@ -15,16 +15,16 @@ namespace ARMS_Project
     {
         public ARMSDBConnection(String username, String password, String serverURL, String database)
         {
-            SqlConnection conn = new SqlConnection("user id=" + username + ";password=" + password + ";server=" + serverURL + ";Trusted_Connection=yes;database=" + database + ";connection timeout=30");
-            //try
-            //{
+            SqlConnection conn = new SqlConnection("user id=" + username + ";password=" + password + ";server=" + serverURL + ";Trusted_Connection=no;database=" + database + ";connection timeout=30");
+            try
+            {
                 conn.Open();
-                //Console.WriteLine("Database connection successfully established.");
-            //}
-            //catch (SqlException e)
-            //{
-              //  Console.WriteLine("Unable to connect to the specified database.  Please check the parameters and try again.\n"+e.ToString());
-            //}
+                Console.WriteLine("Database connection successfully established.");
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Unable to connect to the specified database.  Please check the parameters and try again.\n"+e.ToString());
+            }
         }
     }
 }

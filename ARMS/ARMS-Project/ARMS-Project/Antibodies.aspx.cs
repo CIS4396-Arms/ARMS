@@ -18,7 +18,7 @@ namespace ARMS_Project
         {
             try
             {
-                ARMSDBConnection myConn = new ARMSDBConnection("tuc42419", "nei2neiB", "cis-iis2.temple.edu/Fall2012", "FA12_434218");
+                ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
                 dbConnTestLBL.Text = "I guess it worked!";
             }
             catch (Exception ex)
