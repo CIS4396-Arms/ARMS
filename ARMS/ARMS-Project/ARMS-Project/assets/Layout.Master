@@ -13,9 +13,29 @@
 </head>
 <body>
     <div id="masthead" class="container clearfix">
-        <h1>Antibody Research Management System</h1>
-        <h2>Shriner's Hospital<br /><span>Version 1.0</span></h2>
+        <div class="clearfix">
+            <h1>Antibody Research Management System</h1>
+            <h2>Shriner's Hospital<br /><span>Version 1.0</span></h2>
+        </div>
+        <div id="nav" class="clearfix">
+            <ul>
+                <li><a href="Antibodies">Antibodies</a>
+                    <ul>
+                        <li><a href="Antibodies.aspx">View Antibodies</a></li>
+                        <li><a href="AddAntibody.aspx">New Antibody</a></li>
+                    </ul>
+                </li>
+                <li><a href="Constructs.aspx">Constructs</a>
+                    <ul>
+                        <li><a href="Constrcuts.aspx">View Constructs</a></li>
+                        <li><a href="AddConstruct.aspx">New Construct</a></li>
+                    </ul>   
+                </li>
+                <li><a href="Admin.aspx">Admin</a></li>
+            </ul>
+        </div>
     </div>
+    
     <div id="content" class="container clearfix">
         <form id="form1" runat="server">
             <asp:ContentPlaceHolder ID="body" runat="server">

@@ -51,6 +51,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddAntibody.aspx" />
+    <Content Include="AddConstruct.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\images\body_bg.jpg" />
@@ -74,6 +76,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAntibody.aspx.cs">
+      <DependentUpon>AddAntibody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAntibody.aspx.designer.cs">
+      <DependentUpon>AddAntibody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddConstruct.aspx.cs">
+      <DependentUpon>AddConstruct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddConstruct.aspx.designer.cs">
+      <DependentUpon>AddConstruct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
