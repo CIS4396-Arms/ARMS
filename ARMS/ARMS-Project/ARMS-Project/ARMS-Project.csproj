@@ -119,6 +119,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PrimaryAntibody.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Antibodies.aspx.cs">
       <DependentUpon>Antibodies.aspx</DependentUpon>

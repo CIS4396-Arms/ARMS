@@ -9,16 +9,17 @@ namespace ARMS_Project
 {
     public partial class view : System.Web.UI.Page
     {
+        ARMSDBConnection myConn;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            PrimaryAntibody myAB = new PrimaryAntibody();
         }
 
         protected void dbConnTestBTN_Click(object sender, EventArgs e)
         {
             try
             {
-                ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+                myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
                 dbConnTestLBL.Text = "I guess it worked!";
             }
             catch (Exception ex)

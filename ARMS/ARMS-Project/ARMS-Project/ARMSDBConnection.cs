@@ -14,9 +14,11 @@ namespace ARMS_Project
      **/
     public class ARMSDBConnection
     {
+        SqlConnection conn;
+
         public ARMSDBConnection(String username, String password, String serverURL, String database)
         {
-            SqlConnection conn = new SqlConnection("user id=" + username + ";password=" + password + ";server=" + serverURL + ";Trusted_Connection=no;database=" + database + ";connection timeout=30");
+            conn = new SqlConnection("user id=" + username + ";password=" + password + ";server=" + serverURL + ";Trusted_Connection=no;database=" + database + ";connection timeout=30");
             try
             {
                 conn.Open();
@@ -28,6 +30,14 @@ namespace ARMS_Project
             }
         }
 
+        /// <summary>
+        /// Untested so far.  Checks the database for the next available primary antibody ID.  Used to allow the application to know what the id of a new antibody will be before it's inserted into the database.
+        /// </summary>
+        /// <returns>Integer value the next available primary antibody ID.</returns>
+        public int getNextAvailablePrimaryAntibodyID()
+        {
+            return (int)new SqlCommand("SELECT TOP 1 id from ARMS_Primary_Antibody ORDER BY id DESC;").ExecuteScalar();
+        }
         
         //This function verifies the credential of a user by accessing the DB user table
         //It takes as parameters the username and password and it returns true if the user 
