@@ -34,8 +34,7 @@ namespace ARMS_Project
         //is found
         public bool verifyUserCredentials(string username, string password)
         {
-            bool authorizedUser = false;
-
+            Boolean authorizedUser = false;
             try
             {
                 SqlCommand objCommand = new SqlCommand();
@@ -50,15 +49,10 @@ namespace ARMS_Project
 
                 //if match is found return true, else return false
                 if (dataReader.Read())
-                {
                     authorizedUser = true;
-                }
                 else
-                {
                     authorizedUser = false;
-                }
                 dataReader.Close();
-
             }
             catch (SqlException e)
             {
