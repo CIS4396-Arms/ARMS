@@ -60,9 +60,22 @@ namespace ARMS_Project
             protocolHREF = newProtocolHREF;
         }
 
+        /// <summary>
+        /// Compares the ID of the current PrimaryAntibody object to that of a provided PrimaryAntibody
+        /// </summary>
+        /// <param name="temp">PrimaryAntibody object to be compared to.</param>
+        /// <returns>True if the ID's are equal (meaning the antibodies are the same), false otherwise.</returns>
+        public Boolean Equals(PrimaryAntibody temp)
+        {
+            return this.id == temp.id;
+        }
+
+        /// <summary>
+        /// Returns a text representation of the SecondaryAntibody object.
+        /// </summary>
         public String toString()
         {
-            return("ID: "+id+" || Lot ID: "+lotID+" || Name: "+name+" || Solution: "+solution+" || Host Species: "+hostSpecies+" || Format: "+format+" || Reactive Species: "+reactiveSpecies+" || Concentration: "+concentration+" || Working Dilution: "+workingDilution+" || Antigen: "+antigen+" || Phlourosphore: "+phlourosphore+" || Protocol Location: "+protocolHREF)
+            return("Antobody Type: Primary || ID: "+id+" || Lot ID: "+lotID+" || Name: "+name+" || Solution: "+solution+" || Host Species: "+hostSpecies+" || Format: "+format+" || Reactive Species: "+reactiveSpecies+" || Concentration: "+concentration+" || Working Dilution: "+workingDilution+" || Antigen: "+antigen+" || Phlourosphore: "+phlourosphore+" || Protocol Location: "+protocolHREF)
         }
     }
 }

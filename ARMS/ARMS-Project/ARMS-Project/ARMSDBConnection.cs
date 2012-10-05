@@ -36,8 +36,18 @@ namespace ARMS_Project
         /// <returns>Integer value the next available primary antibody ID.</returns>
         public int getNextAvailablePrimaryAntibodyID()
         {
-            return (int)new SqlCommand("SELECT TOP 1 id from ARMS_Primary_Antibody ORDER BY id DESC;").ExecuteScalar();
+            return (int)new SqlCommand("SELECT TOP 1 ID from ARMS_Primary_Antibody ORDER BY ID DESC;").ExecuteScalar();
         }
+
+        /// <summary>
+        /// Untested so far.  Checks the database for the next available secondary antibody ID.  Used to allow the application to know what the id of a new antibody will be before it's inserted into the database.
+        /// </summary>
+        /// <returns>Integer value the next available primary antibody ID.</returns>
+        public int getNextAvailableSecondaryAntibodyID()
+        {
+            return (int)new SqlCommand("SELECT TOP 1 ID from ARMS_Secondary_Antibody ORDER BY ID DESC;").ExecuteScalar();
+        }
+        
         
         //This function verifies the credential of a user by accessing the DB user table
         //It takes as parameters the username and password and it returns true if the user 

@@ -128,6 +128,7 @@
     <Compile Include="Antibodies.aspx.designer.cs">
       <DependentUpon>Antibodies.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SecondaryAntibody.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Layout.Master" />
