@@ -10,6 +10,7 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
+        public int labID { get; set; }
         public int lotID { get; set; }
         public String name { get; set; }
         public String solution { get; set; }
@@ -28,6 +29,7 @@ namespace ARMS_Project
         public PrimaryAntibody()
         {
             id = myConn.getNextAvailablePrimaryAntibodyID();
+            labID = 0;
             lotID = 0;
             name = "";
             solution = "";
@@ -44,9 +46,10 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Does not auto-assign ID
         /// </summary>
-        public PrimaryAntibody(int newID, int newLotID, String newName, String newSolution, String newHostSpecies, String newFormat, String newReactiveSpecies, double newConcentration, double newWorkingDilution, string newAntigen, String newPhlourosphore, String newProtocolHREF)
+        public PrimaryAntibody(int newID, int newLabID, int newLotID, String newName, String newSolution, String newHostSpecies, String newFormat, String newReactiveSpecies, double newConcentration, double newWorkingDilution, string newAntigen, String newPhlourosphore, String newProtocolHREF)
         {
             id = newID;
+            labID = newLabID;
             lotID = newLotID;
             name = newName;
             solution = newSolution;
@@ -75,7 +78,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return("Antobody Type: Primary || ID: "+id+" || Lot ID: "+lotID+" || Name: "+name+" || Solution: "+solution+" || Host Species: "+hostSpecies+" || Format: "+format+" || Reactive Species: "+reactiveSpecies+" || Concentration: "+concentration+" || Working Dilution: "+workingDilution+" || Antigen: "+antigen+" || Phlourosphore: "+phlourosphore+" || Protocol Location: "+protocolHREF)
+            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot ID: " + lotID + " || Name: " + name + " || Solution: " + solution + " || Host Species: " + hostSpecies + " || Format: " + format + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Antigen: " + antigen + " || Phlourosphore: " + phlourosphore + " || Protocol Location: " + protocolHREF);
         }
     }
 }

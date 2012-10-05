@@ -104,6 +104,7 @@
     <Compile Include="assets\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>
     </Compile>
+    <Compile Include="Construct.cs" />
     <Compile Include="Constructs.aspx.cs">
       <DependentUpon>Constructs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,6 +130,7 @@
       <DependentUpon>Antibodies.aspx</DependentUpon>
     </Compile>
     <Compile Include="SecondaryAntibody.cs" />
+    <Compile Include="Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Layout.Master" />

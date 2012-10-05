@@ -12,7 +12,7 @@ namespace ARMS_Project
         ARMSDBConnection myConn;
         protected void Page_Load(object sender, EventArgs e)
         {
-            PrimaryAntibody myAB = new PrimaryAntibody();
+            
         }
 
         protected void dbConnTestBTN_Click(object sender, EventArgs e)
@@ -21,6 +21,7 @@ namespace ARMS_Project
             {
                 myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
                 dbConnTestLBL.Text = "I guess it worked!";
+                PrimaryAntibody myAB = new PrimaryAntibody();
             }
             catch (Exception ex)
             {
