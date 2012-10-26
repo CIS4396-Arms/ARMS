@@ -4,7 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div class="story" id="view">
         <h3>Antibodies</h3>
-        <asp:Button runat="server" ID="dbConnTestBTN" Text="Connect" onclick="dbConnTestBTN_Click" />
-        <asp:Label runat="server" ID="dbConnTestLBL" Text=""></asp:Label>
+        <asp:GridView ID="gvAntibodies" runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="ID" />
+                <asp:BoundField DataField="name" HeaderText="Name" />
+                <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" />
+                <asp:BoundField DataField="lotID" HeaderText="Lot ID" />
+                <asp:BoundField DataField="format" HeaderText="Clone" />
+                <asp:TemplateField HeaderText="Actions">
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </div>
 </asp:Content>

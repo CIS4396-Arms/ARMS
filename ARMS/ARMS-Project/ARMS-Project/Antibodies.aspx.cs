@@ -9,26 +9,23 @@ namespace ARMS_Project
 {
     public partial class view : System.Web.UI.Page
     {
-        ARMSDBConnection myConn;
+        ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserenzymeName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+
+        //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                ShowAntibodies();
+            }
         }
 
-        protected void dbConnTestBTN_Click(object sender, EventArgs e)
+        //  DataBinds ArrayList to GridView on Antibodies.aspx
+        protected void ShowAntibodies()
         {
-            try
-            {
-                myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-                //PrimaryAntibody myAB = new PrimaryAntibody();
-                ArrayList datArray = myConn.getAllVectors();
-                foreach (Vector temp in datArray)
-                    dbConnTestLBL.Text += "<br />" + temp.toString();
-            }
-            catch (Exception ex)
-            {
-                dbConnTestLBL.Text = "Oops, didn't work.\n"+ex.ToString();
-            }
+            gvAntibodies.DataSource = myConn.getAllPrimaryAntibodies();
+            gvAntibodies.DataBind();
         }
+
     }
 }
