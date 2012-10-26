@@ -32,6 +32,42 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Inserts the provided Construct object as a new record into the database
+        /// </summary>
+        /// <param name="temp">Construct object to be added to the database</param>
+        public void addConstruct(Construct temp)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Inserts the provided PrimaryAntibody object as a new record into the database
+        /// </summary>
+        /// <param name="temp">PrimaryAntibody object to be added to the database</param>
+        public void addPrimaryAntibody(PrimaryAntibody temp)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Inserts the provided SecondaryAntibody object as a new record into the database
+        /// </summary>
+        /// <param name="temp">SecondaryAntibody object to be added to the database</param>
+        public void addSecondaryAntibody(SecondaryAntibody temp)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Inserts the provided Vector object as a new record into the database
+        /// </summary>
+        /// <param name="temp">Vector object to be added to the database</param>
+        public void addVector(Vector temp)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Gets every Construct record in the database, saves each one in a new Construct object, and puts it in an ArrayList.
         /// </summary>
         /// <returns>ArrayList of Construct objects</returns>
