@@ -21,7 +21,6 @@ namespace ARMS_Project
         /// </summary>
         public Vector()
         {
-            id = myConn.getNextAvailableVectorID();
             MCS = "";
             ARS = "";
             promoter = "";
@@ -30,7 +29,19 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Overloaded Constructor.  Does not auto-assign ID
+        /// Overloaded Constructor.  Used for creation of new Vector objects (does not assign value to ID, which is autonumbered in the database).
+        /// </summary>
+        public Vector(String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
+        {
+            MCS = newMCS;
+            ARS = newARS;
+            promoter = newPromoter;
+            sizeVP = newSizeVP;
+            notes = newNotes;
+        }
+
+        /// <summary>
+        /// Overloaded Constructor.  Used for retrieval and storage of Vector records from the database (accounts for autonumbered ID).
         /// </summary>
         public Vector(int newID, String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
         {

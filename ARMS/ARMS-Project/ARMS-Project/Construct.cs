@@ -18,11 +18,10 @@ namespace ARMS_Project
         public String notes { get; set; }
 
         /// <summary>
-        /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
+        /// Default constructor
         /// </summary>
         public Construct()
         {
-            id = myConn.getNextAvailableConstructID();
             name = "";
             source = "";
             digestSite5 = "";
@@ -32,7 +31,20 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Overloaded Constructor.  Does not auto-assign ID
+        /// Overloaded Constructor.  Used for creation of new Construct objects (does not assign value to ID, which is autonumbered in the database).
+        /// </summary>
+        public Construct(String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
+        {
+            name = newName;
+            source = newSource;
+            digestSite5 = newDigestSite5;
+            digestSite3 = newDigestSite3;
+            buffer = newBuffer;
+            notes = newNotes;
+        }
+
+        /// <summary>
+        /// Overloaded Constructor.  Used for retrieval and storage of Construct records from the database (accounts for autonumbered ID). 
         /// </summary>
         public Construct(int newID, String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
         {

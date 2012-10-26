@@ -25,11 +25,10 @@ namespace ARMS_Project
         public String protocolHREF { get; set; }
 
         /// <summary>
-        /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
+        /// Default constructor
         /// </summary>
         public PrimaryAntibody()
         {
-            id = myConn.getNextAvailablePrimaryAntibodyID();
             labID = 0;
             lotNumber = "";
             enzymeName = "";
@@ -46,7 +45,26 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Overloaded Constructor.  Does not auto-assign ID
+        /// Overloaded Constructor.  Used for creation of new Primary Antibody objects (does not assign value to ID, which is autonumbered in the database).
+        /// </summary>
+        public PrimaryAntibody(int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
+        {
+            lotNumber = newLotNumber;
+            enzymeName = newenzymeName;
+            solution = newSolution;
+            clone = newClone;
+            hostSpecies = newHostSpecies;
+            format = newFormat;
+            reactiveSpecies = newReactiveSpecies;
+            concentration = newConcentration;
+            workingDilution = newWorkingDilution;
+            antigen = newAntigen;
+            phlourosphore = newPhlourosphore;
+            protocolHREF = newProtocolHREF;
+        }
+
+        /// <summary>
+        /// Overloaded Constructor.  Used for retrieval and storage of Primary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
         public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
         {

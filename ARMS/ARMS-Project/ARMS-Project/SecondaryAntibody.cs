@@ -16,11 +16,10 @@ namespace ARMS_Project
         public int labID { get; set; }
 
         /// <summary>
-        /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
+        /// Default constructor
         /// </summary>
         public SecondaryAntibody()
         {
-            id = myConn.getNextAvailableSecondaryAntibodyID();
             concentration = "";
             color = "";
             excitation = "";
@@ -28,7 +27,18 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Overloaded Constructor.  Does not auto-assign ID
+        /// Overloaded Constructor.  Used for creation of new Secondary Antibody objects (does not assign value to ID, which is autonumbered in the database).
+        /// </summary>
+        public SecondaryAntibody(String newConcentration, String newColor, String newExcitation, int newLabID)
+        {
+            concentration = newConcentration;
+            color = newColor;
+            excitation = newExcitation;
+            labID = newLabID;
+        }
+
+        /// <summary>
+        /// Overloaded Constructor.  Used for retrieval and storage of Secondary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
         public SecondaryAntibody(int newID, String newConcentration, String newColor, String newExcitation, int newLabID)
         {

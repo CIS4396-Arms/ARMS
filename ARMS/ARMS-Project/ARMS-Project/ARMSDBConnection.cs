@@ -23,6 +23,7 @@ namespace ARMS_Project
             try
             {
                 conn.Open();
+                conn.Close();
                 Console.WriteLine("Database connection successfully established.");
             }
             catch (SqlException e)
@@ -37,7 +38,11 @@ namespace ARMS_Project
         /// <param name="temp">Construct object to be added to the database</param>
         public void addConstruct(Construct temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES('"+temp.name+"','"+temp.source+"','"+temp.digestSite5+"','"+temp.digestSite3+"','"+temp.buffer+"','"+temp.notes+"');", conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         /// <summary>
@@ -46,7 +51,11 @@ namespace ARMS_Project
         /// <param name="temp">PrimaryAntibody object to be added to the database</param>
         public void addPrimaryAntibody(PrimaryAntibody temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES('" + temp.labID + "','" + temp.lotNumber + "','" + temp.enzymeName + "','" + temp.solution + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.format + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.antigen + "','" + temp.phlourosphore + "','" + temp.protocolHREF + "');", conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         /// <summary>
@@ -55,7 +64,11 @@ namespace ARMS_Project
         /// <param name="temp">SecondaryAntibody object to be added to the database</param>
         public void addSecondaryAntibody(SecondaryAntibody temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.SecondaryAntibody VALUES('" + temp.concentration + "','" + temp.color + "','" + temp.excitation + "','" + temp.labID +"');", conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         /// <summary>
@@ -64,7 +77,11 @@ namespace ARMS_Project
         /// <param name="temp">Vector object to be added to the database</param>
         public void addVector(Vector temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES('" + temp.MCS + "','" + temp.ARS + "','" + temp.promoter + "','" + temp.sizeVP + "','" + temp.notes + "');", conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         /// <summary>
@@ -73,6 +90,7 @@ namespace ARMS_Project
         /// <returns>ArrayList of Construct objects</returns>
         public ArrayList getAllConstructs()
         {
+            conn.Open();
             ArrayList temp = new ArrayList();
             SqlCommand cmd = new SqlCommand("dbo.getConstructRecords", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -82,6 +100,7 @@ namespace ARMS_Project
                 Construct tempConstruct = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
                 temp.Add(tempConstruct);
             }
+            conn.Close();
             return temp;
         }
 
@@ -91,6 +110,7 @@ namespace ARMS_Project
         /// <returns>ArrayList of Primary Antibody objects</returns>
         public ArrayList getAllPrimaryAntibodies()
         {
+            conn.Open();
             ArrayList temp = new ArrayList();
             SqlCommand cmd = new SqlCommand("dbo.getPrimaryAntibodyRecords", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -100,6 +120,7 @@ namespace ARMS_Project
                 PrimaryAntibody tempPrimaryAntibody = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString());
                 temp.Add(tempPrimaryAntibody);
             }
+            conn.Close();
             return temp;
         }
 
@@ -109,6 +130,7 @@ namespace ARMS_Project
         /// <returns>ArrayList of Secondary Antibody objects</returns>
         public ArrayList getAllSecondaryAntibodies()
         {
+            conn.Open();
             ArrayList temp = new ArrayList();
             SqlCommand cmd = new SqlCommand("dbo.getSecondaryAntibodyRecords", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -118,6 +140,7 @@ namespace ARMS_Project
                 SecondaryAntibody tempSecondaryAntibody = new SecondaryAntibody(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), Convert.ToInt32(rdr.GetValue(0)));
                 temp.Add(tempSecondaryAntibody);
             }
+            conn.Close();
             return temp;
         }
 
@@ -127,6 +150,7 @@ namespace ARMS_Project
         /// <returns>ArrayList of Vector objects</returns>
         public ArrayList getAllVectors()
         {
+            conn.Open();
             ArrayList temp = new ArrayList();
             SqlCommand cmd = new SqlCommand("dbo.getVectorRecords", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -136,45 +160,9 @@ namespace ARMS_Project
                 Vector tempVector = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
                 temp.Add(tempVector);
             }
+            conn.Close();
             return temp;
         }
-
-        /// <summary>
-        /// Untested so far.  Checks the database for the next available construct ID.  Used to allow the application to know what the id of a new construct will be before it's inserted into the database.
-        /// </summary>
-        /// <returns>Integer value the next available construct ID.</returns>
-        public int getNextAvailableConstructID()
-        {
-            return ((int)new SqlCommand("SELECT TOP 1 ID from Construct ORDER BY ID DESC;").ExecuteScalar())+1;
-        }
-
-        /// <summary>
-        /// Untested so far.  Checks the database for the next available primary antibody ID.  Used to allow the application to know what the id of a new antibody will be before it's inserted into the database.
-        /// </summary>
-        /// <returns>Integer value the next available primary antibody ID.</returns>
-        public int getNextAvailablePrimaryAntibodyID()
-        {
-            return ((int)new SqlCommand("SELECT TOP 1 ID from PrimaryAntibody ORDER BY ID DESC;").ExecuteScalar())+1;
-        }
-
-        /// <summary>
-        /// Untested so far.  Checks the database for the next available secondary antibody ID.  Used to allow the application to know what the id of a new antibody will be before it's inserted into the database.
-        /// </summary>
-        /// <returns>Integer value the next available secondary antibody ID.</returns>
-        public int getNextAvailableSecondaryAntibodyID()
-        {
-            return ((int)new SqlCommand("SELECT TOP 1 ID from SecondaryAntibody ORDER BY ID DESC;").ExecuteScalar())+1;
-        }
-
-        /// <summary>
-        /// Untested so far.  Checks the database for the next available vector ID.  Used to allow the application to know what the id of a new vector will be before it's inserted into the database.
-        /// </summary>
-        /// <returns>Integer value the next available construct ID.</returns>
-        public int getNextAvailableVectorID()
-        {
-            return ((int)new SqlCommand("SELECT TOP 1 ID from Vector ORDER BY ID DESC;").ExecuteScalar()) + 1;
-        }
-
 
         /// <summary>
         ///This function verifies the credential of a user by accessing the DB user table.  It takes as parameters the username and password and it returns true if the user is found.
