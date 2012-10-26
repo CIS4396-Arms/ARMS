@@ -7,18 +7,19 @@ namespace ARMS_Project
 {
     public class PrimaryAntibody
     {
-        ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+        ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserenzymeName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
         public int labID { get; set; }
-        public int lotID { get; set; }
-        public String name { get; set; }
+        public String lotNumber { get; set; }
+        public String enzymeName { get; set; }
         public String solution { get; set; }
+        public String clone { get; set; }
         public String hostSpecies { get; set; }
         public String format { get; set; }
         public String reactiveSpecies { get; set; }
-        public double concentration { get; set; }
-        public double workingDilution { get; set; }
+        public String concentration { get; set; }
+        public String workingDilution { get; set; }
         public String antigen { get; set; }
         public String phlourosphore { get; set; }
         public String protocolHREF { get; set; }
@@ -30,14 +31,15 @@ namespace ARMS_Project
         {
             id = myConn.getNextAvailablePrimaryAntibodyID();
             labID = 0;
-            lotID = 0;
-            name = "";
+            lotNumber = "";
+            enzymeName = "";
             solution = "";
+            clone = "";
             hostSpecies = "";
             format = "";
             reactiveSpecies = "";
-            concentration = 0.0;
-            workingDilution = 0.0;
+            concentration = "";
+            workingDilution = "";
             antigen = "";
             phlourosphore = "";
             protocolHREF = "";
@@ -46,13 +48,14 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Does not auto-assign ID
         /// </summary>
-        public PrimaryAntibody(int newID, int newLabID, int newLotID, String newName, String newSolution, String newHostSpecies, String newFormat, String newReactiveSpecies, double newConcentration, double newWorkingDilution, string newAntigen, String newPhlourosphore, String newProtocolHREF)
+        public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
         {
             id = newID;
             labID = newLabID;
-            lotID = newLotID;
-            name = newName;
+            lotNumber = newLotNumber;
+            enzymeName = newenzymeName;
             solution = newSolution;
+            clone = newClone;
             hostSpecies = newHostSpecies;
             format = newFormat;
             reactiveSpecies = newReactiveSpecies;
@@ -66,7 +69,7 @@ namespace ARMS_Project
         /// <summary>
         /// Compares the ID of the current PrimaryAntibody object to that of a provided PrimaryAntibody
         /// </summary>
-        /// <param name="temp">PrimaryAntibody object to be compared to.</param>
+        /// <param enzymeName="temp">PrimaryAntibody object to be compared to.</param>
         /// <returns>True if the ID's are equal (meaning the antibodies are the same), false otherwise.</returns>
         public Boolean Equals(PrimaryAntibody temp)
         {
@@ -78,7 +81,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot ID: " + lotID + " || Name: " + name + " || Solution: " + solution + " || Host Species: " + hostSpecies + " || Format: " + format + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Antigen: " + antigen + " || Phlourosphore: " + phlourosphore + " || Protocol Location: " + protocolHREF);
+            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot Number: " + lotNumber + " || Enzyme Name: " + enzymeName + " || Solution: " + solution + " || Clone:  "+ clone + " || Host Species: " + hostSpecies + " || Format: " + format + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Antigen: " + antigen + " || Phlourosphore: " + phlourosphore + " || Protocol Location: " + protocolHREF);
         }
     }
 }

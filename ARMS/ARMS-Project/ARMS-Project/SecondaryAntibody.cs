@@ -10,7 +10,7 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
-        public double concentration { get; set; }
+        public String concentration { get; set; }
         public String color { get; set; }
         public String excitation { get; set; }
         public int labID { get; set; }
@@ -21,7 +21,7 @@ namespace ARMS_Project
         public SecondaryAntibody()
         {
             id = myConn.getNextAvailableSecondaryAntibodyID();
-            concentration = 0.0;
+            concentration = "";
             color = "";
             excitation = "";
             labID = 0;
@@ -30,7 +30,7 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Does not auto-assign ID
         /// </summary>
-        public SecondaryAntibody(int newID, double newConcentration, String newColor, String newExcitation, int newLabID)
+        public SecondaryAntibody(int newID, String newConcentration, String newColor, String newExcitation, int newLabID)
         {
             id = newID ;
             concentration = newConcentration;

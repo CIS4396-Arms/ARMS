@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,8 +20,10 @@ namespace ARMS_Project
             try
             {
                 myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-                dbConnTestLBL.Text = "I guess it worked!";
-                PrimaryAntibody myAB = new PrimaryAntibody();
+                //PrimaryAntibody myAB = new PrimaryAntibody();
+                ArrayList datArray = myConn.getAllVectors();
+                foreach (Vector temp in datArray)
+                    dbConnTestLBL.Text += "<br />" + temp.toString();
             }
             catch (Exception ex)
             {
