@@ -7,9 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace ARMS_Project
 {
-    public partial class AddConstruct : System.Web.UI.Page
+    public partial class AddVector : System.Web.UI.Page
     {
-
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,15 +19,14 @@ namespace ARMS_Project
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
-            Construct construct = new Construct();
-            construct.name = txtName.Text;
-            construct.source = txtName.Text;
-            construct.buffer = txtName.Text;
-            construct.digestSite3 = txtDigestSite3.Text;
-            construct.digestSite5 = txtDigestSite5.Text;
-            if (myConn.addConstruct(construct))
+            Vector vector = new Vector();
+            vector.ARS = txtARS.Text;
+            vector.MCS = txtMCS.Text;
+            vector.promoter = txtPromter.Text;
+            vector.sizeVP = txtSizeVP.Text;
+            if (myConn.addVector(vector))
             {
-                Response.Redirect("Constructs.aspx");
+                Response.Redirect("Vectors.aspx");
             }
         }
     }

@@ -36,52 +36,85 @@ namespace ARMS_Project
         /// Inserts the provided Construct object as a new record into the database
         /// </summary>
         /// <param name="temp">Construct object to be added to the database</param>
-        public void addConstruct(Construct temp)
+        public Boolean addConstruct(Construct temp)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES('"+temp.name+"','"+temp.source+"','"+temp.digestSite5+"','"+temp.digestSite3+"','"+temp.buffer+"','"+temp.notes+"');", conn);
             cmd.CommandType = CommandType.Text;
-            cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             conn.Close();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Inserts the provided PrimaryAntibody object as a new record into the database
         /// </summary>
         /// <param name="temp">PrimaryAntibody object to be added to the database</param>
-        public void addPrimaryAntibody(PrimaryAntibody temp)
+        public Boolean addPrimaryAntibody(PrimaryAntibody temp)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES('" + temp.labID + "','" + temp.lotNumber + "','" + temp.enzymeName + "','" + temp.solution + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.format + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.antigen + "','" + temp.phlourosphore + "','" + temp.protocolHREF + "');", conn);
             cmd.CommandType = CommandType.Text;
-            cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
+            Console.WriteLine(i);
             conn.Close();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Inserts the provided SecondaryAntibody object as a new record into the database
         /// </summary>
         /// <param name="temp">SecondaryAntibody object to be added to the database</param>
-        public void addSecondaryAntibody(SecondaryAntibody temp)
+        public Boolean addSecondaryAntibody(SecondaryAntibody temp)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO dbo.SecondaryAntibody VALUES('" + temp.concentration + "','" + temp.color + "','" + temp.excitation + "','" + temp.labID +"');", conn);
             cmd.CommandType = CommandType.Text;
-            cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             conn.Close();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
         /// Inserts the provided Vector object as a new record into the database
         /// </summary>
         /// <param name="temp">Vector object to be added to the database</param>
-        public void addVector(Vector temp)
+        public Boolean addVector(Vector temp)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES('" + temp.MCS + "','" + temp.ARS + "','" + temp.promoter + "','" + temp.sizeVP + "','" + temp.notes + "');", conn);
             cmd.CommandType = CommandType.Text;
-            cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             conn.Close();
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>

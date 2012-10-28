@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Data;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -25,6 +27,14 @@ namespace ARMS_Project
         {
             gvAntibodies.DataSource = myConn.getAllPrimaryAntibodies();
             gvAntibodies.DataBind();
+        }
+
+        // DataBinds Antibody to FormView
+        [WebMethod]
+        public ArrayList GetAntibody()
+        {
+            Console.WriteLine("I'm in here bro");
+            return myConn.getAllPrimaryAntibodies();
         }
 
     }

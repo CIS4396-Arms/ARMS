@@ -10,52 +10,43 @@
 namespace ARMS_Project {
     
     
-    public partial class AddConstruct {
+    public partial class AddVector {
         
         /// <summary>
-        /// txtName control.
+        /// txtMCS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtMCS;
         
         /// <summary>
-        /// txtSource control.
+        /// txtARS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSource;
+        protected global::System.Web.UI.WebControls.TextBox txtARS;
         
         /// <summary>
-        /// txtDigestSite5 control.
+        /// txtPromter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite5;
+        protected global::System.Web.UI.WebControls.TextBox txtPromter;
         
         /// <summary>
-        /// txtDigestSite3 control.
+        /// txtSizeVP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite3;
-        
-        /// <summary>
-        /// txtBuffer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuffer;
+        protected global::System.Web.UI.WebControls.TextBox txtSizeVP;
         
         /// <summary>
         /// btnSubmit control.

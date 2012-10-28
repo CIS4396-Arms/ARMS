@@ -10,24 +10,24 @@
 namespace ARMS_Project {
     
     
-    public partial class view {
+    public partial class SecondaryAntibodies {
         
         /// <summary>
-        /// fvAntibodies control.
+        /// fvSecondaryAntibodies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvAntibodies;
+        protected global::System.Web.UI.WebControls.FormView fvSecondaryAntibodies;
         
         /// <summary>
-        /// gvAntibodies control.
+        /// gvSecondaryAntibodies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAntibodies;
+        protected global::System.Web.UI.WebControls.GridView gvSecondaryAntibodies;
     }
 }

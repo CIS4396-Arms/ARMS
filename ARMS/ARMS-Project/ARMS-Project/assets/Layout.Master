@@ -6,8 +6,9 @@
 <head id="Head1" runat="server">
     <title>Arms - Antibody Research Managment System</title>
     <link rel="Stylesheet" type="text/css" href="css/style.css" />
+    <link rel="Stylesheet" type="text/css" href="fontawesome/css/font-awesome.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
-    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="/assets/js/functions.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,13 +22,15 @@
             <ul>
                 <li><a href="Antibodies">Antibodies</a>
                     <ul>
-                        <li><a href="Antibodies.aspx">View Antibodies</a></li>
-                        <li><a href="AddAntibody.aspx">New Antibody</a></li>
+                        <li><a href="Antibodies.aspx">View Primary Antibodies</a></li>
+                        <li><a href="AddAntibody.aspx">New Primary Antibody</a></li>
+                        <li><a href="SecondaryAntibodies.aspx">View Secondary Antibodies</a></li>
+                        <li><a href="AddSecondaryAntibody.aspx">New Secondary Antibody</a></li>
                     </ul>
                 </li>
                 <li><a href="Constructs.aspx">Constructs</a>
                     <ul>
-                        <li><a href="Constrcuts.aspx">View Constructs</a></li>
+                        <li><a href="Constructs.aspx">View Constructs</a></li>
                         <li><a href="AddConstruct.aspx">New Construct</a></li>
                     </ul>   
                 </li>

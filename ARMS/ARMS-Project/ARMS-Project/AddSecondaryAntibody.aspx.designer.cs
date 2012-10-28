@@ -10,52 +10,43 @@
 namespace ARMS_Project {
     
     
-    public partial class AddConstruct {
+    public partial class AddSecondaryAntibody {
         
         /// <summary>
-        /// txtName control.
+        /// txtLabID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtLabID;
         
         /// <summary>
-        /// txtSource control.
+        /// txtConcentration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSource;
+        protected global::System.Web.UI.WebControls.TextBox txtConcentration;
         
         /// <summary>
-        /// txtDigestSite5 control.
+        /// txtColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite5;
+        protected global::System.Web.UI.WebControls.TextBox txtColor;
         
         /// <summary>
-        /// txtDigestSite3 control.
+        /// txtExcitation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite3;
-        
-        /// <summary>
-        /// txtBuffer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuffer;
+        protected global::System.Web.UI.WebControls.TextBox txtExcitation;
         
         /// <summary>
         /// btnSubmit control.

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ARMS_Project
 {
-    public partial class Constructs : System.Web.UI.Page
+    public partial class SecondaryAntibodies : System.Web.UI.Page
     {
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
@@ -16,15 +16,22 @@ namespace ARMS_Project
         {
             if (!IsPostBack)
             {
-                ShowConstructs();
+                ShowAntibodies();
             }
         }
 
         //  DataBinds ArrayList to GridView on Antibodies.aspx
-        protected void ShowConstructs()
+        protected void ShowAntibodies()
         {
-            gvConstructs.DataSource = myConn.getAllConstructs();
-            gvConstructs.DataBind();
+            gvSecondaryAntibodies.DataSource = myConn.getAllSecondaryAntibodies();
+            gvSecondaryAntibodies.DataBind();
         }
+
+        //  Delete button click
+        protected void Delete_Click()
+        {
+            
+        }
+
     }
 }

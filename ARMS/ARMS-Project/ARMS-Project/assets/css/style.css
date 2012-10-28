@@ -42,9 +42,11 @@ html[xmlns] .clearfix {
 }
 
 .container {
-	width:700px;
+	width:800px;
 	margin:0 auto;
 }
+
+.hide {display:none;}
 
 /* masthead */
 
@@ -95,7 +97,7 @@ html[xmlns] .clearfix {
 #nav li {
 	float:left;
 	position:relative;
-	width:10em;
+	width:11.75em;
 }
 
 #nav a  {
@@ -125,7 +127,7 @@ html[xmlns] .clearfix {
     background:#555;
     border-bottom-left-radius:3px;
     border-bottom-right-radius:3px;
-    width:10em;
+    width:11.75em;
     position:absolute;
     left:-999em;
 }
@@ -176,7 +178,7 @@ html[xmlns] .clearfix {
 	border:1px solid #ccc;
 }
 
-#login input#submit, form.fields input#submit {
+#login input#submit, .form input#body_btnSubmit {
 	background:#820000;
 	padding:5px 15px;
 	-moz-border-radius:20px;
@@ -224,33 +226,43 @@ h3.nomargin {
 
 /* edit */
 
-form.fields {
-	padding:15px 0;
-}
-
-form.fields input, form.fields select, form.fields file  {
+.form input, .form select, .form file  {
 	width:200px;
 	margin-right:5px;
 }
 
-form.fields file {
+.form file {
 	margin-bottom: 10px;
 }
 
-form.fields input:placeholder {
+.form input:placeholder {
 	font-weight:bold;
 	font-style:italic;
 }
 
-table.data {border-left:1px solid #ccc; border-top:1px solid #ccc; font-size:0.8em; width:100%;}
+table.data {border-left:1px solid #ccc; border-top:1px solid #ccc; font-size:0.8em; width:100%;border-spacing:0;border-collapse:collapse;}
 
 table.data th {padding:10px; background:#9b2324; color:#fff; font-weight:bold;}
 table.data td {padding:10px; border-right:1px solid #ccc; border-bottom:1px solid #ccc; color:#333; font-weight:bold; text-align:center; vertical-align:middle;}
-
-table.data td.actions a {display:block;float:left; width:25px; height:25px; text-indent:-9999px;}
-a.view {background:url(../images/icon_view.gif) no-repeat;}
+s
 a.edit {background:url(../images/icon_edit.gif) no-repeat;}
 a.delete, a.viewDelete {background:url(../images/icon_delete.gif) no-repeat;}
+
+table.data td.actions a 
+{
+    text-decoration:none;
+    padding:3px 7px 3px;
+    border-radius:20px;
+    font-weight:normal;
+    font-size:1.5em;
+}
+
+table.data td.actions a:hover 
+{
+    color:#fff !important;
+    background:#9b2324;
+}
+
 
 table.data input {
 	width:300px;
@@ -283,36 +295,6 @@ a.close {
 
 .actions {width:80px;}
 
-.viewWindow {
-	background:#fff;
-	padding:20px;
-	width:500px;
-	-moz-border-radius:15px;
-	border-radius:15px;
-	position:absolute;
-	box-shadow:0 0 5px #666;
-	left:80px;
-	top:0;
-	margin-bottom:20px;
-	z-index: 500;
-}
-
-#mask {
-  position:absolute;
-  z-index:1;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  top:0;
-  bottom:0;
-}
-
-.viewWindow a {
-	text-decoration:none;
-}
-
-.viewWindow a:hover {
-	text-decoration: underline;
-}
 
 a.viewEdit, a.viewSave {
 	font-size:0.8em;
@@ -333,6 +315,46 @@ a.viewSave {
 	-webkit-box-shadow:inset 0 0 7px #ddd;
 	box-shadow:inset 0 0 7px #ddd;
 	border:1px solid #ccc;
+}
+
+#popUp 
+{
+    position:fixed;
+    width:500px;
+    margin:0;
+    left:50%;
+    margin-left:-250px;
+    background:#fff;
+    padding:20px;
+    border:15px solid rgba(0,0,0,0.5);
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+	background-clip: padding-box;
+	border-radius:3px;
+}
+
+#popUp h3 
+{
+    margin:-20px;
+    margin-bottom:15px;
+    padding:20px;
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
+    color:#fff;
+    text-shadow:0 -1px 0 #470007;
+}
+
+#popUp h3 a 
+{
+    color:#C95C5E;
+    text-decoration:none;
+    float:right;
+    text-shadow:0 -1px 0 #930002;
 }
 
 /* add */

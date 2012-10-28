@@ -53,8 +53,12 @@
   <ItemGroup>
     <Content Include="AddAntibody.aspx" />
     <Content Include="AddConstruct.aspx" />
+    <Content Include="AddSecondaryAntibody.aspx" />
+    <Content Include="AddVector.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\fontawesome\css\font-awesome-ie7.css" />
+    <Content Include="assets\fontawesome\css\font-awesome.css" />
     <Content Include="assets\images\body_bg.jpg" />
     <Content Include="assets\images\h1_bg.jpg" />
     <Content Include="assets\images\icon-add.png" />
@@ -67,6 +71,8 @@
     <Content Include="Constructs.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Antibodies.aspx" />
+    <Content Include="SecondaryAntibodies.aspx" />
+    <Content Include="Vectors.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -89,6 +95,20 @@
     </Compile>
     <Compile Include="AddConstruct.aspx.designer.cs">
       <DependentUpon>AddConstruct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddSecondaryAntibody.aspx.cs">
+      <DependentUpon>AddSecondaryAntibody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddSecondaryAntibody.aspx.designer.cs">
+      <DependentUpon>AddSecondaryAntibody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddVector.aspx.cs">
+      <DependentUpon>AddVector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVector.aspx.designer.cs">
+      <DependentUpon>AddVector.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
@@ -129,11 +149,32 @@
     <Compile Include="Antibodies.aspx.designer.cs">
       <DependentUpon>Antibodies.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SecondaryAntibodies.aspx.cs">
+      <DependentUpon>SecondaryAntibodies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SecondaryAntibodies.aspx.designer.cs">
+      <DependentUpon>SecondaryAntibodies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SecondaryAntibody.cs" />
     <Compile Include="Vector.cs" />
+    <Compile Include="Vectors.aspx.cs">
+      <DependentUpon>Vectors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vectors.aspx.designer.cs">
+      <DependentUpon>Vectors.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Layout.Master" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="assets\fontawesome\font\fontawesome-webfont.eot" />
+    <None Include="assets\fontawesome\font\fontawesome-webfont.svg" />
+    <None Include="assets\fontawesome\font\fontawesome-webfont.ttf" />
+    <None Include="assets\fontawesome\font\fontawesome-webfont.woff" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
