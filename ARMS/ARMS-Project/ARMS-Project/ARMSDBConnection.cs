@@ -196,5 +196,56 @@ namespace ARMS_Project
             conn.Close();
             return temp;
         }
+
+        /// <summary>
+        /// Not yet implemented.  Gets the construct denoted by the provided ID
+        /// </summary>
+        /// <param name="id">ID of the construct to be located</param>
+        /// <returns>Construct object if found, -1 if not</returns>
+        public Construct getConstructByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Not yet implemented.  Gets the SecondaryAntibody denoted by the provided ID
+        /// </summary>
+        /// <param name="id">ID of the SecondaryAntibody to be located</param>
+        /// <returns>SecondaryAntibody object if found, -1 if not</returns>
+        public SecondaryAntibodies getSecondaryAntibodyByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Not yet implemented.  Gets the PrimaryAntibody denoted by the provided ID
+        /// </summary>
+        /// <param name="id">ID of the PrimaryAntibody to be located</param>
+        /// <returns>PrimaryAntibody object if found, -1 if not</returns>
+        public PrimaryAntibody getPrimaryAntibodyByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        /// <summary>
+        /// Not yet implemented.  Gets the Vector denoted by the provided ID
+        /// </summary>
+        /// <param name="id">ID of the Vector to be located</param>
+        /// <returns>Vector object if found, -1 if not</returns>
+        public Vector getVectorByID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Not yet implemented.  Takes an accessnet ID of a user and returns that user's lab ID
+        /// </summary>
+        /// <param name="accessNetID">TUid of the user whose lab is to be found</param>
+        /// <returns>Lab ID of the user provided.  0 if global, -1 if not found</returns>
+        public int getLab(String accessNetID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
