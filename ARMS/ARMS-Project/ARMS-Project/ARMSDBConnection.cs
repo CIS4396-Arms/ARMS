@@ -196,40 +196,5 @@ namespace ARMS_Project
             conn.Close();
             return temp;
         }
-
-        /// <summary>
-        ///This function verifies the credential of a user by accessing the DB user table.  It takes as parameters the username and password and it returns true if the user is found.
-        /// </summary>
-        /// <param name="username">Username to be verified</param>
-        /// <param name="password">Password to be verified for the specified user</param>
-        /// <returns></returns>
-        public bool verifyUserCredentials(string username, string password)
-        {
-            Boolean authorizedUser = false;
-            try
-            {
-                SqlCommand objCommand = new SqlCommand();
-                SqlDataReader dataReader = objCommand.ExecuteReader();
-
-                //calling a store procedure that returns the user and password
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "FindUser";
-
-                objCommand.Parameters.AddWithValue("@theUsername", username);
-                objCommand.Parameters.AddWithValue("@thePassword", password);
-
-                //if match is found return true, else return false
-                if (dataReader.Read())
-                    authorizedUser = true;
-                else
-                    authorizedUser = false;
-                dataReader.Close();
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            return authorizedUser;
-        }
     }
 }
