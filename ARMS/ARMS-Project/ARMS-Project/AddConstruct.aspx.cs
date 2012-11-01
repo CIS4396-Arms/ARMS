@@ -14,7 +14,15 @@ namespace ARMS_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                ////Check if User is logged in
+                //if (string.IsNullOrEmpty(Session["UserID"] as string))
+                //{
+                //    //if user not logged in, redirect to Login page
+                //    Response.Redirect("Login.aspx");
+                //}
+            }
         }
 
         //  submit

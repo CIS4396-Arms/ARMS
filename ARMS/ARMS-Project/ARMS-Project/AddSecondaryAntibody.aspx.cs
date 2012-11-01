@@ -12,7 +12,15 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                ////Check if User is logged in
+                //if (string.IsNullOrEmpty(Session["UserID"] as string))
+                //{
+                //    //if user not logged in, redirect to Login page
+                //    Response.Redirect("Login.aspx");
+                //}
+            }
         }
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)

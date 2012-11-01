@@ -246,6 +246,7 @@ namespace ARMS_Project
         public int getLab(String accessNetID)
         {
             throw new NotImplementedException();
+            
         }
     }
 }
