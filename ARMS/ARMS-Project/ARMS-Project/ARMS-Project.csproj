@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,8 +72,10 @@
     <Content Include="assets\images\icon_view.gif" />
     <Content Include="assets\js\functions.js" />
     <Content Include="Constructs.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Antibodies.aspx" />
+    <Content Include="LoginFailure.aspx" />
     <Content Include="SecondaryAntibodies.aspx" />
     <Content Include="Vectors.aspx" />
     <Content Include="Web.config" />
@@ -133,12 +138,26 @@
       <DependentUpon>Constructs.aspx</DependentUpon>
     </Compile>
     <Compile Include="ARMSDBConnection.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFailure.aspx.cs">
+      <DependentUpon>LoginFailure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginFailure.aspx.designer.cs">
+      <DependentUpon>LoginFailure.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrimaryAntibody.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
