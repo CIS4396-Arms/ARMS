@@ -20,7 +20,7 @@
         </div>
         <div id="nav" class="clearfix">
             <ul>
-                <li><a href="Antibodies">Antibodies</a>
+                <li><a href="Antibodies.aspx">Antibodies</a>
                     <ul>
                         <li><a href="Antibodies.aspx">View Primary Antibodies</a></li>
                         <li><a href="AddAntibody.aspx">New Primary Antibody</a></li>
@@ -36,11 +36,13 @@
                 </li>
                 <li><a href="Admin.aspx">Admin</a></li>
             </ul>
+             <form id="form1" runat="server">
+     
+           <asp:Button ID="btnLogout" Text="Log Out" runat="server" 
+                 onclick="btnLogout_Click" />
         </div>
     </div>
-    
     <div id="content" class="container clearfix">
-        <form id="form1" runat="server">
             <asp:ContentPlaceHolder ID="body" runat="server">
         
             </asp:ContentPlaceHolder>

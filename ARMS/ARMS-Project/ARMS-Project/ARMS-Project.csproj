@@ -76,6 +76,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Antibodies.aspx" />
     <Content Include="LoginFailure.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="SecondaryAntibodies.aspx" />
     <Content Include="Vectors.aspx" />
     <Content Include="Web.config" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="LoginFailure.aspx.designer.cs">
       <DependentUpon>LoginFailure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrimaryAntibody.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
