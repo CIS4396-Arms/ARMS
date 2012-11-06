@@ -64,7 +64,6 @@
             </ItemTemplate>
         </asp:FormView>
     </div>
-
     <div id="content">
         <h3>Primary Antibodies</h3>
         <asp:GridView ID="gvAntibodies" runat="server" AutoGenerateColumns="False" CssClass="data">

@@ -239,14 +239,20 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Not yet implemented.  Takes an accessnet ID of a user and returns that user's lab ID
+        /// Takes an accessnet ID of a user and returns that user's lab ID
         /// </summary>
         /// <param name="accessNetID">TUid of the user whose lab is to be found</param>
         /// <returns>Lab ID of the user provided.  0 if global, -1 if not found</returns>
         public int getLab(String accessNetID)
         {
-            throw new NotImplementedException();
-            
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT Lab FROM Authentication WHERE AccessNet='"+accessNetID+"';", conn);
+            object tempObj = cmd.ExecuteScalar();
+            conn.Close();
+            if (tempObj == null)
+                return -1;
+            else
+                return Convert.ToInt32(tempObj);
         }
     }
 }

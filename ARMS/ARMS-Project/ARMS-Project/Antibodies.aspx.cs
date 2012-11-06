@@ -16,7 +16,6 @@ namespace ARMS_Project
         //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 ////Check if User is logged in
