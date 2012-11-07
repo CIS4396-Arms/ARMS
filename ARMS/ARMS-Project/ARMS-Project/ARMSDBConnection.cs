@@ -36,6 +36,7 @@ namespace ARMS_Project
         /// Inserts the provided Construct object as a new record into the database
         /// </summary>
         /// <param name="temp">Construct object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
         public Boolean addConstruct(Construct temp)
         {
             conn.Open();
@@ -44,19 +45,16 @@ namespace ARMS_Project
             int i = cmd.ExecuteNonQuery();
             conn.Close();
             if (i > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
         /// <summary>
         /// Inserts the provided PrimaryAntibody object as a new record into the database
         /// </summary>
         /// <param name="temp">PrimaryAntibody object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
         public Boolean addPrimaryAntibody(PrimaryAntibody temp)
         {
             conn.Open();
@@ -66,19 +64,16 @@ namespace ARMS_Project
             Console.WriteLine(i);
             conn.Close();
             if (i > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
         /// <summary>
         /// Inserts the provided SecondaryAntibody object as a new record into the database
         /// </summary>
         /// <param name="temp">SecondaryAntibody object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
         public Boolean addSecondaryAntibody(SecondaryAntibody temp)
         {
             conn.Open();
@@ -87,19 +82,16 @@ namespace ARMS_Project
             int i = cmd.ExecuteNonQuery();
             conn.Close();
             if (i > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
         /// <summary>
         /// Inserts the provided Vector object as a new record into the database
         /// </summary>
         /// <param name="temp">Vector object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
         public Boolean addVector(Vector temp)
         {
             conn.Open();
@@ -108,13 +100,9 @@ namespace ARMS_Project
             int i = cmd.ExecuteNonQuery();
             conn.Close();
             if (i > 0)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
         /// <summary>
@@ -198,44 +186,79 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Not yet implemented.  Gets the construct denoted by the provided ID
+        /// Gets the construct denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the construct to be located</param>
-        /// <returns>Construct object if found, -1 if not</returns>
+        /// <returns>Construct object if found, null if not</returns>
         public Construct getConstructByID(int id)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE ID="+id+";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            Construct temp; 
+            if (rdr.Read())
+                temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
+            else
+                temp = null;
+            conn.Close();
+            return temp;
         }
 
         /// <summary>
-        /// Not yet implemented.  Gets the SecondaryAntibody denoted by the provided ID
-        /// </summary>
-        /// <param name="id">ID of the SecondaryAntibody to be located</param>
-        /// <returns>SecondaryAntibody object if found, -1 if not</returns>
-        public SecondaryAntibodies getSecondaryAntibodyByID(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Not yet implemented.  Gets the PrimaryAntibody denoted by the provided ID
+        /// Gets the PrimaryAntibody denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the PrimaryAntibody to be located</param>
         /// <returns>PrimaryAntibody object if found, -1 if not</returns>
         public PrimaryAntibody getPrimaryAntibodyByID(int id)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody WHERE ID=" + id + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            PrimaryAntibody temp;
+            if (rdr.Read())
+                temp = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString());
+            else
+                temp = null;
+            conn.Close();
+            return temp;
         }
 
+        /// <summary>
+        /// Gets the SecondaryAntibody denoted by the provided ID
+        /// </summary>
+        /// <param name="id">ID of the SecondaryAntibody to be located</param>
+        /// <returns>SecondaryAntibody object if found, -1 if not</returns>
+        public SecondaryAntibody getSecondaryAntibodyByID(int id)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody WHERE ID=" + id + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            SecondaryAntibody temp;
+            if (rdr.Read())
+                temp = new SecondaryAntibody(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), Convert.ToInt32(rdr.GetValue(0)));
+            else
+                temp = null;
+            conn.Close();
+            return temp;
+        }
 
         /// <summary>
-        /// Not yet implemented.  Gets the Vector denoted by the provided ID
+        /// Gets the Vector denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the Vector to be located</param>
         /// <returns>Vector object if found, -1 if not</returns>
         public Vector getVectorByID(int id)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE ID=" + id + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            Vector temp;
+            if (rdr.Read())
+                temp = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+            else
+                temp = null;
+            conn.Close();
+            return temp;
         }
 
         /// <summary>

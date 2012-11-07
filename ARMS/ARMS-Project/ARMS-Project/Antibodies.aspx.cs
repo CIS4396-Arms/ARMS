@@ -16,6 +16,7 @@ namespace ARMS_Project
         //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblTest.Text = myConn.getVectorByID(3).toString();
             if (!IsPostBack)
             {
                 ////Check if User is logged in

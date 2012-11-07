@@ -81,5 +81,6 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Label runat="server" ID="lblTest" Text="nothing happened yet"></asp:Label>
     </div>
 </asp:Content>
