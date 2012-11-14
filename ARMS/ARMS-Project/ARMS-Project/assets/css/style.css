@@ -248,7 +248,7 @@ s
 a.edit {background:url(../images/icon_edit.gif) no-repeat;}
 a.delete, a.viewDelete {background:url(../images/icon_delete.gif) no-repeat;}
 
-table.data td.actions a 
+table.data td.actions a, a.icon-button 
 {
     text-decoration:none;
     padding:3px 7px 3px;
@@ -257,12 +257,20 @@ table.data td.actions a
     font-size:1.5em;
 }
 
-table.data td.actions a:hover 
+table.data td.actions a:hover, a.icon-button:hover 
 {
     color:#fff !important;
     background:#9b2324;
 }
 
+a.icon-button span 
+{
+    font-size:0.5em;
+    margin-left:5px;
+    top:-3px;
+    position:relative;
+    line-height:0em;
+}
 
 table.data input {
 	width:300px;
@@ -331,6 +339,8 @@ a.viewSave {
 	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
 	background-clip: padding-box;
 	border-radius:3px;
+	top:30px;
+	overflow:auto;
 }
 
 #popUp h3 
@@ -355,6 +365,11 @@ a.viewSave {
     text-decoration:none;
     float:right;
     text-shadow:0 -1px 0 #930002;
+}
+
+#popUp .controls 
+{
+    margin:15px 0;
 }
 
 /* add */

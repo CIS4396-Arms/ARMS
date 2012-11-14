@@ -41,5 +41,14 @@ namespace ARMS_Project
             
         }
 
+        // Returns json object for ajax request
+        [System.Web.Services.WebMethod()]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static SecondaryAntibody GetAntibody(int id)
+        {
+            ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return myConn.getSecondaryAntibodyByID(id);
+        }
+
     }
 }

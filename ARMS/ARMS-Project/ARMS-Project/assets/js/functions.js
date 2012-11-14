@@ -12,25 +12,58 @@ var popUp = {
 
     open: function (popUp, type, id, e) {
         e.preventDefault();
+        $(popUp).height($(window).height() - 120);
         $(popUp).show();
-        BindAntibody(id);
+        if (type == 'PrimaryAntibody') {
+            BindAntibody(id);
+        }
+    },
+
+    edit: function (popup, e) {
+        e.preventDefault();
+        
+        $(popup).find('input').each(function () {
+            $(this).removeAttr('disabled');
+        });
     }
 }
 
 function BindAntibody(id) {
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: "Antibodies.aspx/GetAntibody",
-        data: {id:id},
+        data: "{id:'" + id + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (data) {
-            console.log(data.d);
-        },
-        error: function (data) {
-            console.log("fail");
+        success: function (msg) {
+            populateFields(msg.d);
         }
-    })
+    });
+}
+
+function BindSecondaryAntibody(id) {
+    $.ajax({
+        type: "POST",
+        url: "SecondaryAntibodies.aspx/GetAntibody",
+        data: "{id:'" + id + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            populateFields(msg.d);
+        }
+    });
+}
+
+function populateFields(obj) {
+    console.log(obj);
+    $('#popUp input').each(function () {
+        if ($(this).attr('id').indexOf('txt') != -1) {
+            var attr = $(this).attr('id').replace('body_txt', '');
+            if (obj[attr] != '' && obj[attr] != 'n/a') {
+                $(this).val(obj[attr]);
+            }
+        };
+    });
 }
 
 $(document).ready(function () {
@@ -40,6 +73,12 @@ $(document).ready(function () {
     // open popup
     $('a.view').click(function (e) {
         popUp.open('#popUp', 'PrimaryAntibody', $(this).attr('href'), e);
+    });
+
+    $('a.edit').click(function (e) {
+        $(this).hide();
+        $(this).parent().find('.save').show();
+        popUp.edit('#popUp', e);
     });
 
 });

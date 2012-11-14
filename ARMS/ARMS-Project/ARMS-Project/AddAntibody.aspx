@@ -9,7 +9,7 @@
         <table class="data form">
             <tr>
                 <td>Lab ID:</td>
-                <td><asp:TextBox ID="txtLabID" runat="server" Text='<%# Eval("labID") %>'/></td>
+                <td><asp:TextBox ID="txtLabID" runat="server" Text='<%# Eval("labID") %>' /></td>
             </tr>
             <tr>
                 <td>Lot Number:</td>

@@ -8,10 +8,6 @@ C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-
 C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 C:\Users\tuc72735\Documents\GitHub\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
-\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
-\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
-\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
-\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
 C:\Users\A.J. Harnak\Google Drive\Temple\CIS 4396\Shriner's Hospital Antibody Database\Project Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
 C:\Users\A.J. Harnak\Google Drive\Temple\CIS 4396\Shriner's Hospital Antibody Database\Project Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 C:\Users\A.J. Harnak\Google Drive\Temple\CIS 4396\Shriner's Hospital Antibody Database\Project Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ResolveAssemblyReference.cache
@@ -36,3 +32,7 @@ D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Pro
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
+\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
+\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
+\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
+\\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb

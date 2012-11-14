@@ -12,11 +12,10 @@ namespace ARMS_Project
     public partial class view : System.Web.UI.Page
     {
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-
+        
         //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblTest.Text = myConn.getVectorByID(3).toString();
             if (!IsPostBack)
             {
                 ////Check if User is logged in
@@ -29,6 +28,13 @@ namespace ARMS_Project
             }
         }
 
+        //  save edits
+        protected void btnSave_click(Object sender, EventArgs e)
+        {
+            Console.WriteLine("function called broseph");
+            // call edit antibody function
+        }
+
         //  DataBinds ArrayList to GridView on Antibodies.aspx
         protected void ShowAntibodies()
         {
@@ -36,12 +42,13 @@ namespace ARMS_Project
             gvAntibodies.DataBind();
         }
 
-        // DataBinds Antibody to FormView
-        [WebMethod]
-        public ArrayList GetAntibody()
+        // Returns json object for ajax request
+        [System.Web.Services.WebMethod()]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static PrimaryAntibody GetAntibody(int id)
         {
-            Console.WriteLine("I'm in here bro");
-            return myConn.getAllPrimaryAntibodies();
+            ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return myConn.getPrimaryAntibodyByID(id);
         }
 
     }

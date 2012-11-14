@@ -125,6 +125,9 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Antibodies.aspx.designer.cs">
+      <DependentUpon>Antibodies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="assets\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,9 +177,6 @@
     <Compile Include="Antibodies.aspx.cs">
       <DependentUpon>Antibodies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Antibodies.aspx.designer.cs">
-      <DependentUpon>Antibodies.aspx</DependentUpon>
     </Compile>
     <Compile Include="SecondaryAntibodies.aspx.cs">
       <DependentUpon>SecondaryAntibodies.aspx</DependentUpon>
