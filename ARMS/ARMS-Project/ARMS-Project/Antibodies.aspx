@@ -19,7 +19,7 @@
                 <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' Enabled='false' /></td>
             </tr>
             <tr>
-                <td>Enzyme Name:</td>
+                <td>Antibody Name:</td>
                 <td><asp:TextBox ID="txtenzymeName" runat="server" Text='<%# Eval("enzymeName") %>' Enabled='false' /></td>
             </tr>
             <tr>
@@ -67,20 +67,59 @@
     </div>
     <div id="content">
         <h3>Primary Antibodies</h3>
-        <asp:GridView ID="gvAntibodies" runat="server" AutoGenerateColumns="False" CssClass="data">
+        <div class="filter">
+            <h4>Filter Antibodies</h4>
+            <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
+            <asp:DropDownList ID="ddlFilter" runat="server">
+                <asp:ListItem Value="labID">Lab ID</asp:ListItem>
+                <asp:ListItem Value="enzymeName">Name</asp:ListItem>
+                <asp:ListItem Value="hostSpecies">Host Species</asp:ListItem>
+                <asp:ListItem Value="reactiveSpecies">Reactive Species</asp:ListItem>
+                <asp:ListItem Value="lotNumber">Lot Number</asp:ListItem>
+                <asp:ListItem Value="type">Type</asp:ListItem>
+                <asp:ListItem Value="clone">Clone</asp:ListItem>
+                <asp:ListItem Value="concentration">Concentration</asp:ListItem>
+                <asp:ListItem Value="workingDilution">Working Dilution</asp:ListItem>
+                <asp:ListItem Value="isotype">Isotype</asp:ListItem>
+                <asp:ListItem Value="applications">Applications</asp:ListItem>
+                <asp:ListItem Value="antigen">Antigen</asp:ListItem>
+                <asp:ListItem Value="flurosphore">Flurosphore</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go" OnClick="btnFilter_click" />
+        </div>
+        <asp:objectdatasource
+              id="antibodiesDataSource"
+              runat="server"
+               />
+
+        <asp:GridView ID="gvAntibodies" runat="server" DataSourceID="antibodiesDataSource" AutoGenerateColumns="False" CssClass="data" AllowPaging="true" AllowSorting="true" >
+            <SortedAscendingHeaderStyle CssClass="sortAsc" />
+            <SortedAscendingCellStyle CssClass="cellAsc" />
+            <SortedDescendingHeaderStyle CssClass="sortDesc" />
+            <SortedDescendingCellStyle CssClass="cellDesc" />
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="ID" />
-                <asp:BoundField DataField="enzymeName" HeaderText="Enzyme Name" />
-                <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" />
-                <asp:BoundField DataField="lotNumber" HeaderText="Lot Number" />
-                <asp:BoundField DataField="format" HeaderText="Clone" />
-                <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions">
+                <asp:BoundField DataField="labID" SortExpression="labID" HeaderText="Lab ID" />
+                <asp:BoundField DataField="enzymeName" SortExpression="enzymeName" HeaderText="Name"  />
+                <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" SortExpression="hostSpecies" />
+                <asp:BoundField DataField="reactiveSpecies" HeaderText="Reactive Species" SortExpression="reactiveSpecies" />
+                <asp:BoundField DataField="format" HeaderText="Isotope" />
+                <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions" HeaderStyle-CssClass="actionsHeader">
                     <ItemTemplate>
                         <asp:HyperLink runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
                         <asp:HyperLink ID="deleteButton" runat="server" Text="<i class='icon-trash'></i>" NavigateUrl="#" OnClick="Delete_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
+                
             </Columns>
+
+            <pagersettings mode="Numeric"
+                  position="Bottom"           
+                  pagebuttoncount="3"/>
+
+            <pagerstyle
+                height="30px"
+                verticalalign="Bottom"
+                horizontalalign="Center"/>
         </asp:GridView>
     </div>
 </asp:Content>

@@ -1,10 +1,32 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data;
 using System.Web;
 
 namespace ARMS_Project
 {
+
+    public class PrimaryAntibodyLogic
+    {
+        // Get all antibodies
+        public static DataTable GetPrimaryAntibodies()
+        {
+            ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.getAllPrimaryAntibodies());
+        }
+
+        // Get primary antibodies that match keyword
+        public static DataTable GetPrimaryAntibodies(String filter, String Keyword)
+        {
+            ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.getAllPrimaryAntibodies());
+        }
+
+    }
+
     public class PrimaryAntibody
     {
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);

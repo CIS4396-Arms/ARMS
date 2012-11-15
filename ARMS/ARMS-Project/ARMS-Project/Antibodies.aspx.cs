@@ -11,8 +11,6 @@ namespace ARMS_Project
 {
     public partial class view : System.Web.UI.Page
     {
-        ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-        
         //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,8 +22,21 @@ namespace ARMS_Project
                 //    //if user not logged in, redirect to Login page
                 //    Response.Redirect("Login.aspx");
                 //}
-                ShowAntibodies();
+                
             }
+
+            antibodiesDataSource.TypeName = "ARMS_Project.PrimaryAntibodyLogic";
+            antibodiesDataSource.SelectMethod = "GetPrimaryAntibodies";
+            antibodiesDataSource.DataBind();
+        }
+
+        protected void btnFilter_click(Object sender, EventArgs e)
+        {
+            antibodiesDataSource.SelectParameters.Add("@filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
+            antibodiesDataSource.SelectParameters.Add("@keyword", TypeCode.String, txtFilterKeyword.Text);
+            antibodiesDataSource.DataBind();
+
+            gvAntibodies.DataBind();
         }
 
         //  save edits
@@ -33,13 +44,6 @@ namespace ARMS_Project
         {
             Console.WriteLine("function called broseph");
             // call edit antibody function
-        }
-
-        //  DataBinds ArrayList to GridView on Antibodies.aspx
-        protected void ShowAntibodies()
-        {
-            gvAntibodies.DataSource = myConn.getAllPrimaryAntibodies();
-            gvAntibodies.DataBind();
         }
 
         // Returns json object for ajax request

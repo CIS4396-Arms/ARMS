@@ -52,7 +52,7 @@ function BindSecondaryAntibody(id) {
             populateFields(msg.d);
         }
     });
-}
+} 
 
 function populateFields(obj) {
     console.log(obj);
@@ -72,6 +72,7 @@ $(document).ready(function () {
 
     // open popup
     $('a.view').click(function (e) {
+        
         popUp.open('#popUp', 'PrimaryAntibody', $(this).attr('href'), e);
     });
 

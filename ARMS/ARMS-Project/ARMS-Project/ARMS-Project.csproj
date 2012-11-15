@@ -144,6 +144,7 @@
       <DependentUpon>Constructs.aspx</DependentUpon>
     </Compile>
     <Compile Include="ARMSDBConnection.cs" />
+    <Compile Include="HelperMethods.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
