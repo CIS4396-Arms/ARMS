@@ -13,11 +13,11 @@ namespace ARMS_Project
      *      Date: 9/24/2012
      *      Description: ARMSDBConnection connects and interacts with a specified Microsoft SQL Server Database
      **/
-    public class ARMSDBConnection
+    public class RMSDBConnection
     {
         SqlConnection conn;
 
-        public ARMSDBConnection(String username, String password, String serverURL, String database)
+        public RMSDBConnection(String username, String password, String serverURL, String database)
         {
             conn = new SqlConnection("user id=" + username + ";password=" + password + ";server=" + serverURL + ";Trusted_Connection=no;database=" + database + ";connection timeout=30");
             try
