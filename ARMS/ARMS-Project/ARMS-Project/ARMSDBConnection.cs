@@ -186,6 +186,74 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Gets an ArrayList of all construct objects in the database with the associated Lab ID.
+        /// </summary>
+        /// <param name="labID">ID of the lab that owns the construct</param>
+        /// <returns>ArrayList of construct objects with the associated Lab ID</returns>
+        public ArrayList getConstructsByLabID(int labID)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE LabID=" + labID + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while(rdr.Read())
+                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Gets an ArrayList of all Primary Antibody objects in the database with the associated Lab ID.
+        /// </summary>
+        /// <param name="labID">ID of the lab that owns the construct</param>
+        /// <returns>ArrayList of Primary Antibody objects with the associated Lab ID</returns>
+        public ArrayList getPrimaryAntibodyByLabID(int labID)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody WHERE LabID=" + labID + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while(rdr.Read())
+                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Gets an ArrayList of all Secondary Antibody objects in the database with the associated Lab ID.
+        /// </summary>
+        /// <param name="labID">ID of the lab that owns the construct</param>
+        /// <returns>ArrayList of Secondary Antibody objects with the associated Lab ID</returns>
+        public ArrayList getSecondaryAntibodyByLabID(int labID)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody WHERE LabID=" + labID + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while(rdr.Read())
+                tempList.Add(new SecondaryAntibody(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), Convert.ToInt32(rdr.GetValue(0))));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Gets an ArrayList of all Vector objects in the database with the associated Lab ID.
+        /// </summary>
+        /// <param name="labID">ID of the lab that owns the construct</param>
+        /// <returns>ArrayList of Vector objects with the associated Lab ID</returns>
+        public ArrayList getVectorByLabID(int labID)
+        {
+            conn.Open();
+            ArrayList tempList = new ArrayList();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE LabID=" + labID + ";", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while(rdr.Read())
+                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
         /// Gets the construct denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the construct to be located</param>
@@ -193,9 +261,9 @@ namespace ARMS_Project
         public Construct getConstructByID(int id)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE ID="+id+";", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE ID=" + id + ";", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
-            Construct temp; 
+            Construct temp;
             if (rdr.Read())
                 temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
             else

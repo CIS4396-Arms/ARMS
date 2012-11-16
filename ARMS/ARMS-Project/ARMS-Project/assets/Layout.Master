@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Arms - Antibody Research Managment System</title>
+    <title>RMS - Research Managment System</title>
     <link rel="Stylesheet" type="text/css" href="css/style.css" />
     <link rel="Stylesheet" type="text/css" href="fontawesome/css/font-awesome.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
@@ -15,8 +15,8 @@
 <body>
     <div id="masthead" class="container clearfix">
         <div class="clearfix">
-            <h1>Antibody Research Management System</h1>
-            <h2>Shriner's Hospital<br /><span>Version 1.0</span></h2>
+            <h1>Research Management System</h1>
+            <h2>Shriners Hospital<br /><span>Version 1.0</span></h2>
         </div>
         <div id="nav" class="clearfix">
             <ul>
@@ -49,7 +49,7 @@
         </form>
     </div>
     <div id="footer" class="container clearfix">
-        Antibody Research Management System &copy; 2012, All rights reserved.s
+        Research Management System &copy; 2012, All rights reserved.
     </div>
 </body>
 </html>
