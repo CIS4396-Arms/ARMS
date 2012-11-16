@@ -11,6 +11,8 @@ namespace ARMS_Project
 {
     public partial class view : System.Web.UI.Page
     {
+        RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+
         //  On page load
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +24,7 @@ namespace ARMS_Project
                 //    //if user not logged in, redirect to Login page
                 //    Response.Redirect("Login.aspx");
                 //}
-                
+
             }
 
             antibodiesDataSource.TypeName = "ARMS_Project.PrimaryAntibodyLogic";
@@ -30,6 +32,8 @@ namespace ARMS_Project
             antibodiesDataSource.DataBind();
         }
 
+
+        //  Filter gridview with parameters
         protected void btnFilter_click(Object sender, EventArgs e)
         {
             antibodiesDataSource.SelectParameters.Add("@filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
@@ -39,7 +43,19 @@ namespace ARMS_Project
             gvAntibodies.DataBind();
         }
 
-        //  save edits
+        //  Delete object
+        protected void btnDelete_click(Object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Request.QueryString["Delete"]);
+            bool delete = myConn.deletePrimaryAntibody(id);
+            if (!delete)
+            {
+                // Delete error
+            }
+            gvAntibodies.DataBind();
+        }
+
+        //  Save changes of object
         protected void btnSave_click(Object sender, EventArgs e)
         {
             Console.WriteLine("function called broseph");

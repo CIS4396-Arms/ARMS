@@ -36,3 +36,8 @@ D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\AR
 \\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 \\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 \\vmware-host\Shared Folders\Windows\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
+C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
+C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.dll
+C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
+C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb

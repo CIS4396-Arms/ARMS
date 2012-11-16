@@ -7,60 +7,60 @@
         <h3>Antibody Name<a href="#close"><i class="icon-remove-sign"></i></a></h3>
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
-            <a runat="server" id="btnSave" OnClick="btnSave_click" href="#" class="save icon-button hide"><i class="icon-save"></i><span>Save</span></a>
+            <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
         </div>
         <table class="data form">
             <tr>
                 <td>Lab ID:</td>
-                <td><asp:TextBox ID="txtlabID" runat="server" Text='<%# Eval("labID") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtlabID" runat="server" Text='<%# Eval("labID") %>' /></td>
             </tr>
             <tr>
                 <td>Lot Number:</td>
-                <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
-                <td>Antibody Name:</td>
-                <td><asp:TextBox ID="txtenzymeName" runat="server" Text='<%# Eval("enzymeName") %>' Enabled='false' /></td>
+                <td>Enzyme Name:</td>
+                <td><asp:TextBox ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
-                <td>Solution:</td>
-                <td><asp:TextBox ID="txtsolution" runat="server" Text='<%# Eval("solution") %>' Enabled='false' /></td>
+                <td>Type:</td>
+                <td><asp:TextBox ID="txttype" runat="server" Text='<%# Eval("type") %>' /></td>
             </tr>
             <tr>
                 <td>Clone:</td>
-                <td><asp:TextBox ID="txtclone" runat="server" Text='<%# Eval("clone") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtclone" runat="server" Text='<%# Eval("clone") %>' /></td>
             </tr>
             <tr>
                 <td>Host Species:</td>
-                <td><asp:TextBox ID="txthostSpecies" runat="server" Text='<%# Eval("hostSpecies") %>' Enabled='false' /></td>
-            </tr>
-            <tr>
-                <td>Format:</td>
-                <td><asp:TextBox ID="txtformat" runat="server" Text='<%# Eval("format") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txthostSpecies" runat="server" Text='<%# Eval("hostSpecies") %>' /></td>
             </tr>
             <tr>
                 <td>Reactive Species:</td>
-                <td><asp:TextBox ID="txtreactiveSpecies" runat="server" Text='<%# Eval("reactiveSpecies") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtreactiveSpecies" runat="server" Text='<%# Eval("reactiveSpecies") %>' /></td>
             </tr>
             <tr>
-                <td>Concetration:</td>
-                <td><asp:TextBox ID="txtconcentration" runat="server" Text='<%# Eval("concentration") %>' Enabled='false' /></td>
+                <td>Concentration:</td>
+                <td><asp:TextBox ID="txtconcentration" runat="server" Text='<%# Eval("concentration") %>' /></td>
             </tr>
             <tr>
                 <td>Working Dilution:</td>
-                <td><asp:TextBox ID="txtworkingDilution" runat="server" Text='<%# Eval("workingDilution") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtworkingDilution" runat="server" Text='<%# Eval("workingDilution") %>' /></td>
+            </tr>
+            <tr>
+                <td>Isotype:</td>
+                <td><asp:TextBox ID="txtisotype" runat="server" Text='<%# Eval("isotype") %>' /></td>
             </tr>
             <tr>
                 <td>Antigen:</td>
-                <td><asp:TextBox ID="txtantigen" runat="server" Text='<%# Eval("antigen") %>' Enabled='false' /></td>
+                <td><asp:TextBox ID="txtantigen" runat="server" Text='<%# Eval("antigen") %>' /></td>
             </tr>
             <tr>
-                <td>Phlourosphore:</td>
-                <td><asp:TextBox ID="txtphlourosphore" runat="server" Text='<%# Eval("phlourosphore") %>' Enabled='false' /></td>
+                <td>Fluorophore:</td>
+                <td><asp:TextBox ID="txtfluorophore" runat="server" Text='<%# Eval("fluorophore") %>' /></td>
             </tr>
             <tr>
-                <td>Protocol HREF:</td>
-                <td><asp:TextBox ID="txtprotcolHref" runat="server" Text='<%# Eval("protocolHREF") %>' Enabled='false' /></td>
+                <td>Application</td>
+                <td><asp:TextBox ID="txtapplication" runat="server" Text='<%# Eval("application") %>' /></td>
             </tr>
            
         </table>
@@ -99,14 +99,15 @@
             <SortedDescendingCellStyle CssClass="cellDesc" />
             <Columns>
                 <asp:BoundField DataField="labID" SortExpression="labID" HeaderText="Lab ID" />
-                <asp:BoundField DataField="enzymeName" SortExpression="enzymeName" HeaderText="Name"  />
+                <asp:BoundField DataField="name" SortExpression="name" HeaderText="Name"  />
+                <asp:BoundField DataField="type" SortExpression="type" HeaderText="Type" />
                 <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" SortExpression="hostSpecies" />
                 <asp:BoundField DataField="reactiveSpecies" HeaderText="Reactive Species" SortExpression="reactiveSpecies" />
-                <asp:BoundField DataField="format" HeaderText="Isotope" />
+                <asp:BoundField DataField="applications" SortExpression="applications" HeaderText="Applications" />
                 <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions" HeaderStyle-CssClass="actionsHeader">
                     <ItemTemplate>
-                        <asp:HyperLink runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
-                        <asp:HyperLink ID="deleteButton" runat="server" Text="<i class='icon-trash'></i>" NavigateUrl="#" OnClick="Delete_Click" />
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
+                        <asp:LinkButton ID="deleteButton" runat="server" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 

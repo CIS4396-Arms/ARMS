@@ -30,6 +30,8 @@
                 </li>
                 <li><a href="Constructs.aspx">Constructs</a>
                     <ul>
+                        <li><a href="Vectors.aspx">View Vectors</a></li>
+                        <li><a href="AddVector.aspx">New Vector</a></li>
                         <li><a href="Constructs.aspx">View Constructs</a></li>
                         <li><a href="AddConstruct.aspx">New Construct</a></li>
                     </ul>   

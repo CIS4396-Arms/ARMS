@@ -19,7 +19,7 @@ namespace ARMS_Project {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnSave;
+        protected global::System.Web.UI.WebControls.LinkButton btnSave;
         
         /// <summary>
         /// txtlabID control.
@@ -40,22 +40,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtlotNumber;
         
         /// <summary>
-        /// txtenzymeName control.
+        /// txtname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtenzymeName;
+        protected global::System.Web.UI.WebControls.TextBox txtname;
         
         /// <summary>
-        /// txtsolution control.
+        /// txttype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsolution;
+        protected global::System.Web.UI.WebControls.TextBox txttype;
         
         /// <summary>
         /// txtclone control.
@@ -74,15 +74,6 @@ namespace ARMS_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txthostSpecies;
-        
-        /// <summary>
-        /// txtformat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtformat;
         
         /// <summary>
         /// txtreactiveSpecies control.
@@ -112,6 +103,15 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtworkingDilution;
         
         /// <summary>
+        /// txtisotype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtisotype;
+        
+        /// <summary>
         /// txtantigen control.
         /// </summary>
         /// <remarks>
@@ -121,22 +121,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtantigen;
         
         /// <summary>
-        /// txtphlourosphore control.
+        /// txtfluorophore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtphlourosphore;
+        protected global::System.Web.UI.WebControls.TextBox txtfluorophore;
         
         /// <summary>
-        /// txtprotcolHref control.
+        /// txtapplication control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprotcolHref;
+        protected global::System.Web.UI.WebControls.TextBox txtapplication;
         
         /// <summary>
         /// txtFilterKeyword control.

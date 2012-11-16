@@ -31,17 +31,17 @@ namespace ARMS_Project
             PrimaryAntibody antibody = new PrimaryAntibody();
             antibody.labID = int.Parse(txtLabID.Text);
             antibody.lotNumber = txtLotNumber.Text;
-            antibody.enzymeName = txtEnzymeName.Text;
-            antibody.solution = txtSolution.Text;
+            antibody.name = txtName.Text;
             antibody.clone = txtClone.Text;
+            antibody.type = txtType.Text;
             antibody.hostSpecies = txtHostSpecies.Text;
-            antibody.format = txtFormat.Text;
-            antibody.reactiveSpecies = txtFormat.Text;
+            antibody.reactiveSpecies = txtReactiveSpecies.Text;
             antibody.concentration = txtConcentration.Text;
             antibody.workingDilution = txtWorkingDilution.Text;
+            antibody.isotype = txtIsotype.Text;
             antibody.antigen = txtAntigen.Text;
-            antibody.phlourosphore = txtPhlourosphore.Text;
-            antibody.protocolHREF = txtProtcolHref.Text;
+            antibody.applications = txtApplication.Text;
+            antibody.fluorophore = txtFluorophore.Text;
             if (myConn.addPrimaryAntibody(antibody))
             {
                 Response.Redirect("Antibodies.aspx");

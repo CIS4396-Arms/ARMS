@@ -58,7 +58,7 @@ namespace ARMS_Project
         public Boolean addPrimaryAntibody(PrimaryAntibody temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES(" + temp.labID + "','" + temp.lotNumber + "','" + temp.name + "','" + temp.type + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.applications + "','" + temp.isotype + "','" + temp.antigen + "','" + temp.fluorophore + "','" + temp.protocolHREF + "','" + temp.specSheetHREF + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES(" + temp.labID + ",'" + temp.lotNumber + "','" + temp.name + "','" + temp.type + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.applications + "','" + temp.isotype + "','" + temp.antigen + "','" + temp.fluorophore + "','" + temp.protocolHREF + "','" + temp.specSheetHREF + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             Console.WriteLine(i);
@@ -290,7 +290,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while(rdr.Read())
-                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString());
+                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString()));
             conn.Close();
             return tempList;
         }
