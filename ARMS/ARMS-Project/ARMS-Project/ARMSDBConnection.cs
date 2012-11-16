@@ -208,7 +208,7 @@ namespace ARMS_Project
         /// Gets the PrimaryAntibody denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the PrimaryAntibody to be located</param>
-        /// <returns>PrimaryAntibody object if found, -1 if not</returns>
+        /// <returns>PrimaryAntibody object if found, null if not</returns>
         public PrimaryAntibody getPrimaryAntibodyByID(int id)
         {
             conn.Open();
@@ -227,7 +227,7 @@ namespace ARMS_Project
         /// Gets the SecondaryAntibody denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the SecondaryAntibody to be located</param>
-        /// <returns>SecondaryAntibody object if found, -1 if not</returns>
+        /// <returns>SecondaryAntibody object if found, null if not</returns>
         public SecondaryAntibody getSecondaryAntibodyByID(int id)
         {
             conn.Open();
@@ -246,7 +246,7 @@ namespace ARMS_Project
         /// Gets the Vector denoted by the provided ID
         /// </summary>
         /// <param name="id">ID of the Vector to be located</param>
-        /// <returns>Vector object if found, -1 if not</returns>
+        /// <returns>Vector object if found, null if not</returns>
         public Vector getVectorByID(int id)
         {
             conn.Open();
