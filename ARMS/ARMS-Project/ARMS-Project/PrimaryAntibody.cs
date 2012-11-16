@@ -71,7 +71,6 @@ namespace ARMS_Project
         /// </summary>
         public PrimaryAntibody(int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
         {
-            labID = newLabID;
             lotNumber = newLotNumber;
             enzymeName = newenzymeName;
             solution = newSolution;
