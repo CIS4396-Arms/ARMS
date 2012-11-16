@@ -10,10 +10,11 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
+        public int labID { get; set; }
         public String concentration { get; set; }
         public String color { get; set; }
         public String excitation { get; set; }
-        public int labID { get; set; }
+
 
         /// <summary>
         /// Default constructor
@@ -29,7 +30,7 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Secondary Antibody objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public SecondaryAntibody(String newConcentration, String newColor, String newExcitation, int newLabID)
+        public SecondaryAntibody(int newLabID, String newConcentration, String newColor, String newExcitation)
         {
             concentration = newConcentration;
             color = newColor;
@@ -40,7 +41,7 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Secondary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public SecondaryAntibody(int newID, String newConcentration, String newColor, String newExcitation, int newLabID)
+        public SecondaryAntibody(int newID, int newLabID, String newConcentration, String newColor, String newExcitation)
         {
             id = newID ;
             concentration = newConcentration;
@@ -64,7 +65,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antibody Type: Secondary || ID: " + id + " || Concentration: " + concentration + " || Color: " + color + " || Excitation: " + excitation + " || Lab ID: " + labID);
+            return ("Antibody Type: Secondary || ID: " + id + " || Lab ID: " + labID + " || Concentration: " + concentration + " || Color: " + color + " || Excitation: " + excitation);
         }
     }
 }

@@ -10,10 +10,11 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
+        public int labID { get; set; }
         public String MCS { get; set; }
         public String ARS { get; set; }
         public String promoter { get; set; }
-        public String sizeVP { get; set; }
+        public String size { get; set; }
         public String notes { get; set; }
 
         /// <summary>
@@ -21,35 +22,38 @@ namespace ARMS_Project
         /// </summary>
         public Vector()
         {
+            labID = 0;
             MCS = "";
             ARS = "";
             promoter = "";
-            sizeVP = "";
+            size = "";
             notes = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Vector objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Vector(String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
+        public Vector(int newLabID, String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
         {
+            labID = newLabID;
             MCS = newMCS;
             ARS = newARS;
             promoter = newPromoter;
-            sizeVP = newSizeVP;
+            size = newSizeVP;
             notes = newNotes;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Vector records from the database (accounts for autonumbered ID).
         /// </summary>
-        public Vector(int newID, String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
+        public Vector(int newID, int newLabID, String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
         {
             id = newID;
+            labID = newLabID;
             MCS = newMCS;
             ARS = newARS;
             promoter = newPromoter;
-            sizeVP = newSizeVP;
+            size = newSizeVP;
             notes = newNotes;
         }
 
@@ -68,7 +72,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Vector || ID: " + id + " || MCS : " + MCS + " || ARS: " + ARS + " || Promoter: " + promoter + " || SizeVP: " + sizeVP + " || Notes: " + notes);
+            return ("Vector || ID: " + id + " || Lab ID: " + labID + " || MCS : " + MCS + " || ARS: " + ARS + " || Promoter: " + promoter + " || Size: " + size + " || Notes: " + notes);
         }
     }
 }

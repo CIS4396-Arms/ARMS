@@ -10,6 +10,7 @@ namespace ARMS_Project
         ARMSDBConnection myConn = new ARMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
+        public int labID { get; set; }
         public String name { get; set; }
         public String source { get; set; }
         public String digestSite5 { get; set; }
@@ -22,6 +23,7 @@ namespace ARMS_Project
         /// </summary>
         public Construct()
         {
+            labID = 0;
             name = "";
             source = "";
             digestSite5 = "";
@@ -33,8 +35,9 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Construct objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Construct(String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
+        public Construct(int newLabID, String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
         {
+            labID = newLabID;
             name = newName;
             source = newSource;
             digestSite5 = newDigestSite5;
@@ -46,9 +49,10 @@ namespace ARMS_Project
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Construct records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public Construct(int newID, String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
+        public Construct(int newID, int newLabID, String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
         {
             id = newID;
+            labID = newLabID;
             name = newName;
             source = newSource;
             digestSite5 = newDigestSite5;
@@ -72,7 +76,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Construct || ID: " + id + " || Name = " + name + " || Source = " + source + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Buffer: " + buffer + " || Notes: " + notes);
+            return ("Construct || ID: " + id + " || Lab ID: " + labID + " || Name = " + name + " || Source = " + source + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Buffer: " + buffer + " || Notes: " + notes);
         }
     }
 }
