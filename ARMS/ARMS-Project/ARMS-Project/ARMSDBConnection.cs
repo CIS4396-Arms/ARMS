@@ -106,6 +106,82 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Deletes the construct record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the construct to be deleted</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        public Boolean deleteConstruct(int id)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Construct WHERE ID="+id+";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            Console.WriteLine(i);
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Delete the primary antibody record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the primary antibody to be deleted</param>
+        /// /// <returns>True if successful, false otherwise.</returns>
+        public Boolean deletePrimaryAntibody(int id)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM dbo.PrimaryAntibody WHERE ID=" + id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            Console.WriteLine(i);
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Deletes the secondary antibody record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the secondary antibody to be deleted</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        public Boolean deleteSecondaryAntibody(int id)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM dbo.SecondaryAntibody WHERE ID=" + id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            Console.WriteLine(i);
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Deletes the vector record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the vector to be deleted</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        public Boolean deleteVector(int id)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM dbo.Vector WHERE ID=" + id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            Console.WriteLine(i);
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Gets every Construct record in the database, saves each one in a new Construct object, and puts it in an ArrayList.
         /// </summary>
         /// <returns>ArrayList of Construct objects</returns>
@@ -344,6 +420,42 @@ namespace ARMS_Project
                 return -1;
             else
                 return Convert.ToInt32(tempObj);
+        }
+
+        /// <summary>
+        /// Updates the construct record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the construct to be updated</param>
+        public void updateConstruct(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates the primary antibody record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the primary antibody to be updated</param>
+        public void updatePrimaryAntibody(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates the secondary antibody record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the secondary antibody to be updated</param>
+        public void updateSecondaryAntibody(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates the vector record with the specified ID
+        /// </summary>
+        /// <param name="id">ID of the vector to be updated</param>
+        public void updateVector(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
