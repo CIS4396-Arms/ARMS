@@ -58,7 +58,7 @@ namespace ARMS_Project
         public Boolean addPrimaryAntibody(PrimaryAntibody temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES('" + temp.labID + "','" + temp.lotNumber + "','" + temp.enzymeName + "','" + temp.solution + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.format + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.antigen + "','" + temp.phlourosphore + "','" + temp.protocolHREF + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.PrimaryAntibody VALUES(" + temp.labID + "','" + temp.lotNumber + "','" + temp.name + "','" + temp.type + "','" + temp.clone + "','" + temp.hostSpecies + "','" + temp.reactiveSpecies + "','" + temp.concentration + "','" + temp.workingDilution + "','" + temp.applications + "','" + temp.isotype + "','" + temp.antigen + "','" + temp.fluorophore + "','" + temp.protocolHREF + "','" + temp.specSheetHREF + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             Console.WriteLine(i);
@@ -214,7 +214,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                PrimaryAntibody tempPrimaryAntibody = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString());
+                PrimaryAntibody tempPrimaryAntibody = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString());
                 temp.Add(tempPrimaryAntibody);
             }
             conn.Close();
@@ -290,7 +290,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while(rdr.Read())
-                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString()));
+                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString());
             conn.Close();
             return tempList;
         }
@@ -360,7 +360,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             PrimaryAntibody temp;
             if (rdr.Read())
-                temp = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString());
+                temp = new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString());
             else
                 temp = null;
             conn.Close();

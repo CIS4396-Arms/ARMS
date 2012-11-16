@@ -34,17 +34,19 @@ namespace ARMS_Project
         public int id { get; set; }
         public int labID { get; set; }
         public String lotNumber { get; set; }
-        public String enzymeName { get; set; }
-        public String solution { get; set; }
+        public String name { get; set; }
+        public String type { get; set; }
         public String clone { get; set; }
         public String hostSpecies { get; set; }
-        public String format { get; set; }
         public String reactiveSpecies { get; set; }
         public String concentration { get; set; }
         public String workingDilution { get; set; }
+        public String applications { get; set; }
+        public String isotype { get; set; }
         public String antigen { get; set; }
-        public String phlourosphore { get; set; }
+        public String fluorophore { get; set; }
         public String protocolHREF { get; set; }
+        public String specSheetHREF { get; set; }
 
         /// <summary>
         /// Default constructor
@@ -53,57 +55,63 @@ namespace ARMS_Project
         {
             labID = 0;
             lotNumber = "";
-            enzymeName = "";
-            solution = "";
+            name = "";
+            type = "";
             clone = "";
             hostSpecies = "";
-            format = "";
             reactiveSpecies = "";
             concentration = "";
             workingDilution = "";
+            applications = "";
+            isotype = "";
             antigen = "";
-            phlourosphore = "";
+            fluorophore = "";
             protocolHREF = "";
+            specSheetHREF = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Primary Antibody objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public PrimaryAntibody(int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
+        public PrimaryAntibody(int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF)
         {
             lotNumber = newLotNumber;
-            enzymeName = newenzymeName;
-            solution = newSolution;
+            name = newName;
+            type = newType;
             clone = newClone;
             hostSpecies = newHostSpecies;
-            format = newFormat;
             reactiveSpecies = newReactiveSpecies;
             concentration = newConcentration;
             workingDilution = newWorkingDilution;
+            applications = newApplications;
+            isotype = newIsotype;
             antigen = newAntigen;
-            phlourosphore = newPhlourosphore;
+            fluorophore = newFluorophore;
             protocolHREF = newProtocolHREF;
+            specSheetHREF = newSpecSheetHREF;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Primary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newenzymeName, String newSolution, String newClone, String newHostSpecies, String newFormat, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newAntigen, String newPhlourosphore, String newProtocolHREF)
+        public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF)
         {
             id = newID;
             labID = newLabID;
             lotNumber = newLotNumber;
-            enzymeName = newenzymeName;
-            solution = newSolution;
+            name = newName;
+            type = newType;
             clone = newClone;
             hostSpecies = newHostSpecies;
-            format = newFormat;
             reactiveSpecies = newReactiveSpecies;
             concentration = newConcentration;
             workingDilution = newWorkingDilution;
+            applications = newApplications;
+            isotype = newIsotype;
             antigen = newAntigen;
-            phlourosphore = newPhlourosphore;
+            fluorophore = newFluorophore;
             protocolHREF = newProtocolHREF;
+            specSheetHREF = newSpecSheetHREF;
         }
 
         /// <summary>
@@ -121,7 +129,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot Number: " + lotNumber + " || Enzyme Name: " + enzymeName + " || Solution: " + solution + " || Clone:  "+ clone + " || Host Species: " + hostSpecies + " || Format: " + format + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Antigen: " + antigen + " || Phlourosphore: " + phlourosphore + " || Protocol Location: " + protocolHREF);
+            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot Number: " + lotNumber + " || Name: " + name + " || Type: " + type + " || Clone:  " + clone + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Applications: " + applications + " || Isotype: " + isotype + " || Antigen: " + antigen + " || Fluorophore: " + fluorophore + " || Protocol Location: " + protocolHREF + " || Spec Sheet Location : " + specSheetHREF);
         }
     }
 }
