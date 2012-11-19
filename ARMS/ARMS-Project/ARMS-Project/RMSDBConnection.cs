@@ -95,7 +95,7 @@ namespace ARMS_Project
         public Boolean addVector(Vector temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES('" + temp.MCS + "','" + temp.ARS + "','" + temp.promoter + "','" + temp.sizeVP + "','" + temp.notes + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES(" + temp.id + "," + temp.labID + ",'" + temp.vectorName + "','" + temp.multipleCloningSite + "','" + temp.antibioticResistance + "','" + temp.vectorSize + "','" + temp.promoter + "','" + temp.notes + "','" + temp.specSheetHREF + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -254,7 +254,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Vector tempVector = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+                Vector tempVector = new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString());
                 temp.Add(tempVector);
             }
             conn.Close();
@@ -324,7 +324,7 @@ namespace ARMS_Project
             SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE LabID=" + labID + ";", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             while(rdr.Read())
-                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString()));
+                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString()));
             conn.Close();
             return tempList;
         }
@@ -398,7 +398,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             Vector temp;
             if (rdr.Read())
-                temp = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+                temp = new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString());
             else
                 temp = null;
             conn.Close();
