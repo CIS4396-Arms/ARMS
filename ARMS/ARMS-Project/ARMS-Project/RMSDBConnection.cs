@@ -223,7 +223,7 @@ namespace ARMS_Project
         /// Gets an ArrayList of all Lab objects in the database
         /// </summary>
         /// <returns>ArrayList of all labs in the database</returns>
-        public ArrayList getAllLabs()
+        /*public ArrayList getAllLabs()
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_Lab;", conn);
@@ -233,7 +233,7 @@ namespace ARMS_Project
                 tempList.Add(new Lab(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString()));
             conn.Close();
             return tempList;
-        }
+        }*/
 
         /// <summary>
         /// Gets every Primary Antibody record in the database, saves each one in a new Primary Antibody object, and puts it in an ArrayList.

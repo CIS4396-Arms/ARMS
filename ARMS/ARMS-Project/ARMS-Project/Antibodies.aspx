@@ -10,6 +10,7 @@
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
         </div>
         <table class="data form">
+           <asp:HiddenField ID="txtid" runat="server" />
             <tr>
                 <td>Lab ID:</td>
                 <td><asp:TextBox ID="txtlabID" runat="server" Text='<%# Eval("labID") %>' /></td>

@@ -45,8 +45,21 @@ namespace ARMS_Project
         //  Save changes of object
         protected void btnSave_click(Object sender, EventArgs e)
         {
-            Console.WriteLine("function called broseph");
-            // call edit antibody function
+            SecondaryAntibody temp = new SecondaryAntibody();
+            temp.id = int.Parse(txtid.Value);
+            temp.antibodyName = txtantibodyName.Text;
+            temp.antigen = txtantigen.Text;
+            temp.applications = txtapplications.Text;
+            temp.concentration = txtconcentration.Text;
+            temp.excitation = txtexcitation.Text;
+            temp.flourophore = txtflourophore.Text;
+            temp.hostSpecies = txthostSpecies.Text;
+            temp.labID = int.Parse(txtlabID.Text);
+            temp.lotNumber = txtlotNumber.Text;
+            temp.reactiveSpecies = txtreactiveSpecies.Text;
+            temp.workingDilution = txtworkingDilution.Text;
+            myConn.updateSecondaryAntibody(temp);
+            gvSecondaryAntibodies.DataBind();
         }
 
         // Returns json object for ajax request

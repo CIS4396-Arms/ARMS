@@ -89,6 +89,7 @@ namespace ARMS_Project
         protected void btnSave_click(Object sender, EventArgs e)
         {
             PrimaryAntibody temp = new PrimaryAntibody();
+            temp.id = int.Parse(txtid.Value);
             temp.antigen = txtantigen.Text;
             temp.applications = txtapplications.Text;
             temp.clone = txtclone.Text;
