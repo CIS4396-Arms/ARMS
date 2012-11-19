@@ -199,7 +199,9 @@
   <ItemGroup>
     <Content Include="assets\Layout.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="assets\fontawesome\font\fontawesome-webfont.eot" />
     <None Include="assets\fontawesome\font\fontawesome-webfont.svg" />

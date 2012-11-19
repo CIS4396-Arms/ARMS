@@ -16,12 +16,15 @@
                 <td><asp:TextBox ID="txtLotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
-                <td>Enzyme Name:</td>
+                <td>Name:</td>
                 <td><asp:TextBox ID="txtName" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Type:</td>
-                <td><asp:TextBox ID="txtType" runat="server" Text='<%# Eval("type") %>' /></td>
+                <td>
+                    <asp:RadioButton id="rbMono" CssClass="radio" Text="Monoclonal" Checked="True" GroupName="cloneType" runat="server" />
+                    <asp:RadioButton id="rbPoly" CssClass="radio" Text="Polyclonal" GroupName="cloneType" runat="server" />
+                </td>
             </tr>
             <tr>
                 <td>Clone:</td>
@@ -58,6 +61,31 @@
             <tr>
                 <td>Application</td>
                 <td><asp:TextBox ID="txtApplication" runat="server" Text='<%# Eval("application") %>' /></td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>
+                    
+                    <ul id="protocol">
+                    
+                    </ul>
+
+                    <asp:FileUpload id="ProtcolUpload"                 
+                       runat="server">
+                   </asp:FileUpload>
+
+                   <br /><br />
+
+                   <asp:Button id="btnProtocolUpload" 
+                       Text="Upload file"
+                       OnClick="ProtcolUpload_Click"
+                       runat="server">
+                   </asp:Button>
+                   
+                   <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
+
+                   <asp:HiddenField ID="protocolHREF" runat="server" />
+                </td>
             </tr>
             <tr>
                 <td colspan="2">

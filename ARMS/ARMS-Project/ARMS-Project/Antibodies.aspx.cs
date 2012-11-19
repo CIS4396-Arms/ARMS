@@ -32,6 +32,34 @@ namespace ARMS_Project
             antibodiesDataSource.DataBind();
         }
 
+        //  handle protocol file upload
+        protected void ProtcolUpload_Click(object sender, EventArgs e)
+        {
+            string saveDir = @"\Uploads\";
+
+            // Get the physical file system path for the currently
+            // executing application.
+            string appPath = Request.PhysicalApplicationPath;
+
+            // Before attempting to save the file, verify
+            // that the FileUpload control contains a file.
+            if (ProtcolUpload.HasFile)
+            {
+                string savePath = appPath + saveDir +
+                    Server.HtmlEncode(ProtcolUpload.FileName);
+
+                ProtcolUpload.SaveAs(savePath);
+                string files = protocolHREF.Value + savePath + ",";
+                protocolHREF.Value = files;
+
+                lblProtcolUpload.Text = "File has been successfully uploaded, you may upload another";
+            }
+            else
+            {
+                lblProtcolUpload.Text = "File upload failed.";
+            }
+        }
+
 
         //  Filter gridview with parameters
         protected void btnFilter_click(Object sender, EventArgs e)

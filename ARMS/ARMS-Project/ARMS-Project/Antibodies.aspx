@@ -19,12 +19,15 @@
                 <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
-                <td>Enzyme Name:</td>
+                <td>Name:</td>
                 <td><asp:TextBox ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Type:</td>
-                <td><asp:TextBox ID="txttype" runat="server" Text='<%# Eval("type") %>' /></td>
+                <td>
+                    <asp:RadioButton id="rbmonoclonal" CssClass="radio" Text="Monoclonal" Enabled="false" GroupName="cloneType" runat="server" />
+                    <asp:RadioButton id="rbpolyclonal" CssClass="radio" Text="Polyclonal" Enabled="false" GroupName="cloneType" runat="server" />
+                </td>
             </tr>
             <tr>
                 <td>Clone:</td>
@@ -60,7 +63,34 @@
             </tr>
             <tr>
                 <td>Application</td>
-                <td><asp:TextBox ID="txtapplication" runat="server" Text='<%# Eval("application") %>' /></td>
+                <td><asp:TextBox ID="txtapplications" runat="server" Text='<%# Eval("applications") %>' /></td>
+            </tr>
+
+            <tr>
+                <td>Protocol:</td>
+                <td>
+
+                    <ul id="protocol">
+                        
+                    </ul>
+                    
+                    <asp:FileUpload id="ProtcolUpload"                 
+                       runat="server">
+                   </asp:FileUpload>
+
+                   <br /><br />
+
+                   <asp:Button id="btnProtocolUpload" 
+                       Text="Upload file"
+                       OnClick="ProtcolUpload_Click"
+                       runat="server">
+                   </asp:Button>
+                   
+                   <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
+
+                   <asp:HiddenField ID="protocolHREF" runat="server" />
+                
+                </td>
             </tr>
            
         </table>
@@ -106,7 +136,9 @@
                 <asp:BoundField DataField="applications" SortExpression="applications" HeaderText="Applications" />
                 <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions" HeaderStyle-CssClass="actionsHeader">
                     <ItemTemplate>
-                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
+                        <span id="openAntibodies">
+                            <asp:HyperLink ID="openAntibodies" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
+                        </span>
                         <asp:LinkButton ID="deleteButton" runat="server" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
                     </ItemTemplate>
                 </asp:TemplateField>

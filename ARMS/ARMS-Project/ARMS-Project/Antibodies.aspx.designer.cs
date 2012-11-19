@@ -49,13 +49,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtname;
         
         /// <summary>
-        /// txttype control.
+        /// rbmonoclonal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttype;
+        protected global::System.Web.UI.WebControls.RadioButton rbmonoclonal;
+        
+        /// <summary>
+        /// rbpolyclonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbpolyclonal;
         
         /// <summary>
         /// txtclone control.
@@ -130,13 +139,49 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtfluorophore;
         
         /// <summary>
-        /// txtapplication control.
+        /// txtapplications control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtapplication;
+        protected global::System.Web.UI.WebControls.TextBox txtapplications;
+        
+        /// <summary>
+        /// ProtcolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ProtcolUpload;
+        
+        /// <summary>
+        /// btnProtocolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProtocolUpload;
+        
+        /// <summary>
+        /// lblProtcolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProtcolUpload;
+        
+        /// <summary>
+        /// protocolHREF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField protocolHREF;
         
         /// <summary>
         /// txtFilterKeyword control.

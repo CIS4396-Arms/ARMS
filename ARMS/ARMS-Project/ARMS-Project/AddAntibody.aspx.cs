@@ -25,6 +25,34 @@ namespace ARMS_Project
             }
         }
 
+        //  handle protocol file upload
+        protected void ProtcolUpload_Click(object sender, EventArgs e)
+        {
+            string saveDir = @"\Uploads\";
+
+            // Get the physical file system path for the currently
+            // executing application.
+            string appPath = Request.PhysicalApplicationPath;
+
+            // Before attempting to save the file, verify
+            // that the FileUpload control contains a file.
+            if (ProtcolUpload.HasFile)
+            {
+                string savePath = appPath + saveDir +
+                    Server.HtmlEncode(ProtcolUpload.FileName);
+
+                ProtcolUpload.SaveAs(savePath);
+                string files = protocolHREF.Value + savePath + ",";
+                protocolHREF.Value = files;
+
+                lblProtcolUpload.Text = "File has been successfully uploaded, you may upload another";
+            }
+            else
+            {
+                lblProtcolUpload.Text = "File upload failed.";
+            }
+        }
+
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
@@ -33,7 +61,14 @@ namespace ARMS_Project
             antibody.lotNumber = txtLotNumber.Text;
             antibody.name = txtName.Text;
             antibody.clone = txtClone.Text;
-            antibody.type = txtType.Text;
+            if (rbMono.Checked)
+            {
+                antibody.type = "Monoclonal";
+            }
+            else
+            {
+                antibody.type = "Polyclonal";
+            }
             antibody.hostSpecies = txtHostSpecies.Text;
             antibody.reactiveSpecies = txtReactiveSpecies.Text;
             antibody.concentration = txtConcentration.Text;
@@ -42,6 +77,7 @@ namespace ARMS_Project
             antibody.antigen = txtAntigen.Text;
             antibody.applications = txtApplication.Text;
             antibody.fluorophore = txtFluorophore.Text;
+            antibody.protocolHREF = protocolHREF.Value;
             if (myConn.addPrimaryAntibody(antibody))
             {
                 Response.Redirect("Antibodies.aspx");

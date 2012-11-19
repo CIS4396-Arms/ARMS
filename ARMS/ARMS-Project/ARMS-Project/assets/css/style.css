@@ -241,6 +241,11 @@ h3.nomargin {
 	font-style:italic;
 }
 
+.form input[type=radio]
+{
+    width:20px;
+}
+
 /* FILTER */
 
 .filter 
