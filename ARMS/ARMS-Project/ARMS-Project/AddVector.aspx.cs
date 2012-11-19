@@ -27,7 +27,7 @@ namespace ARMS_Project
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
-            Vector vector = new Vector();
+            /*Vector vector = new Vector();
             vector.ARS = txtARS.Text;
             vector.MCS = txtMCS.Text;
             vector.promoter = txtPromter.Text;
@@ -35,7 +35,7 @@ namespace ARMS_Project
             if (myConn.addVector(vector))
             {
                 Response.Redirect("Vectors.aspx");
-            }
+            }*/
         }
     }
 }

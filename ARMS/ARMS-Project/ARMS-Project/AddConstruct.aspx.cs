@@ -28,7 +28,7 @@ namespace ARMS_Project
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
-            Construct construct = new Construct();
+            /*Construct construct = new Construct();
             construct.name = txtName.Text;
             construct.source = txtName.Text;
             construct.buffer = txtName.Text;
@@ -37,7 +37,7 @@ namespace ARMS_Project
             if (myConn.addConstruct(construct))
             {
                 Response.Redirect("Constructs.aspx");
-            }
+            }*/
         }
     }
 }

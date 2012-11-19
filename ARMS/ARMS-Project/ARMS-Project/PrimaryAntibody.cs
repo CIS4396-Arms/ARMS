@@ -19,10 +19,10 @@ namespace ARMS_Project
         }
 
         // Get primary antibodies that match keyword
-        public static DataTable GetPrimaryAntibodies(String filter, String Keyword)
+        public static DataTable GetPrimaryAntibodies(String filter, String keyword)
         {
             RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-            return HelperMethods.ConvertArrayListToDataTable(myConn.getAllPrimaryAntibodies());
+            return HelperMethods.ConvertArrayListToDataTable(myConn.searchForPrimaryAntibodies(@filter, @keyword));
         }
 
     }

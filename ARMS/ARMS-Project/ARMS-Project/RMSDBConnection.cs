@@ -535,6 +535,7 @@ namespace ARMS_Project
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("UPDATE dbo.PrimaryAntibody SET LabID='" + temp.labID + "', LotNumber='" + temp.lotNumber + "', AntibodyName='" + temp.name + "', Type='" + temp.type + "', Clone='" + temp.clone + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Concentration='" + temp.concentration + "', WorkingDilution='" + temp.workingDilution + "', Applications='" + temp.applications + "', AntibodyIsotype='" + temp.isotype + "', Antigen='" + temp.antigen + "', Fluorophore='" + temp.fluorophore + "', ProtocolAttachments='" + temp.protocolHREF + "', SpecSheet='" + temp.specSheetHREF + "' WHERE ID=" + temp.id + ";", conn);
+            Console.WriteLine(cmd);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();

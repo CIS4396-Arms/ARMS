@@ -49,8 +49,8 @@ namespace ARMS_Project
                     Server.HtmlEncode(ProtcolUpload.FileName);
 
                 ProtcolUpload.SaveAs(savePath);
-                string files = protocolHREF.Value + savePath + ",";
-                protocolHREF.Value = files;
+                string files = txtprotocolHREF.Value + savePath + ",";
+                txtprotocolHREF.Value = files;
 
                 lblProtcolUpload.Text = "File has been successfully uploaded, you may upload another";
             }
@@ -64,11 +64,13 @@ namespace ARMS_Project
         //  Filter gridview with parameters
         protected void btnFilter_click(Object sender, EventArgs e)
         {
-            antibodiesDataSource.SelectParameters.Add("@filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
-            antibodiesDataSource.SelectParameters.Add("@keyword", TypeCode.String, txtFilterKeyword.Text);
+            antibodiesDataSource.TypeName = "ARMS_Project.PrimaryAntibodyLogic";
+            antibodiesDataSource.SelectMethod = "GetPrimaryAntibodies";
+            antibodiesDataSource.SelectParameters.Remove(antibodiesDataSource.SelectParameters["filter"]);
+            antibodiesDataSource.SelectParameters.Remove(antibodiesDataSource.SelectParameters["keyword"]);
+            antibodiesDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
+            antibodiesDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
             antibodiesDataSource.DataBind();
-
-            gvAntibodies.DataBind();
         }
 
         //  Delete object
@@ -86,8 +88,29 @@ namespace ARMS_Project
         //  Save changes of object
         protected void btnSave_click(Object sender, EventArgs e)
         {
-            Console.WriteLine("function called broseph");
-            // call edit antibody function
+            PrimaryAntibody temp = new PrimaryAntibody();
+            temp.antigen = txtantigen.Text;
+            temp.applications = txtapplications.Text;
+            temp.clone = txtclone.Text;
+            temp.concentration = txtconcentration.Text;
+            temp.fluorophore = txtfluorophore.Text;
+            temp.hostSpecies = txthostSpecies.Text;
+            temp.isotype = txtisotype.Text;
+            temp.lotNumber = txtlotNumber.Text;
+            temp.labID = int.Parse(txtlabID.Text);
+            temp.name = txtname.Text;
+            temp.reactiveSpecies = txtreactiveSpecies.Text;
+            temp.workingDilution = txtworkingDilution.Text;
+            if (rbmonoclonal.Checked)
+            {
+                temp.type = "Monoclonal";
+            }
+            else
+            {
+                temp.type = "Polyclonal";
+            }
+            myConn.updatePrimaryAntibody(temp);
+            gvAntibodies.DataBind();
         }
 
         // Returns json object for ajax request

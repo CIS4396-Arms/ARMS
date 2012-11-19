@@ -88,7 +88,7 @@
                    
                    <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
 
-                   <asp:HiddenField ID="protocolHREF" runat="server" />
+                   <asp:HiddenField ID="txtprotocolHREF" runat="server" />
                 
                 </td>
             </tr>
@@ -102,7 +102,7 @@
             <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
             <asp:DropDownList ID="ddlFilter" runat="server">
                 <asp:ListItem Value="labID">Lab ID</asp:ListItem>
-                <asp:ListItem Value="enzymeName">Name</asp:ListItem>
+                <asp:ListItem Value="antibodyName">Name</asp:ListItem>
                 <asp:ListItem Value="hostSpecies">Host Species</asp:ListItem>
                 <asp:ListItem Value="reactiveSpecies">Reactive Species</asp:ListItem>
                 <asp:ListItem Value="lotNumber">Lot Number</asp:ListItem>

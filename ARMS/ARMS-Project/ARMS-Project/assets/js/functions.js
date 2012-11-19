@@ -63,7 +63,7 @@ function BindSecondaryAntibody(id) {
 function populateFields(obj) {
     console.log(obj);
     $('#popUp input').each(function () {
-        if ($(this).attr('type') == 'text') {
+        if ($(this).attr('type') == 'text' || $(this).attr('type') == 'hidden') {
             $(this).attr('disabled', 'disabled');
             if ($(this).attr('id').indexOf('txt') != -1) {
                 var attr = $(this).attr('id').replace('body_txt', '');

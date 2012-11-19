@@ -175,13 +175,13 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.Label lblProtcolUpload;
         
         /// <summary>
-        /// protocolHREF control.
+        /// txtprotocolHREF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField protocolHREF;
+        protected global::System.Web.UI.WebControls.HiddenField txtprotocolHREF;
         
         /// <summary>
         /// txtFilterKeyword control.
