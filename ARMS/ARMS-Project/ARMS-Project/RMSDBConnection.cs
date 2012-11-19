@@ -88,6 +88,24 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Inserts the provided User object as a new record into the database
+        /// </summary>
+        /// <param name="temp">User object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
+        public Boolean addUser(User temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO ARMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "');", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Inserts the provided Vector object as a new record into the database
         /// </summary>
         /// <param name="temp">Vector object to be added to the database</param>
@@ -255,6 +273,22 @@ namespace ARMS_Project
             }
             conn.Close();
             return temp;
+        }
+
+        /// <summary>
+        /// Gets an ArrayList of all Users in the database
+        /// </summary>
+        /// <returns>ArrayList of all users in the database</returns>
+        public ArrayList getAllLabs()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_User;", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new User(rdr.GetValue(0).ToString(), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString()));
+            conn.Close();
+            return tempList;
         }
 
         /// <summary>
