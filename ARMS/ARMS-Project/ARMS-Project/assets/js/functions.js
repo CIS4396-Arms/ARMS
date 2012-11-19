@@ -18,6 +18,8 @@ var popUp = {
         $(popUp).show();
         if (type == 'openAntibodies') {
             BindAntibody(id);
+        } else if (type == 'openSecondaryAntibodies') {
+            BindSecondaryAntibody(id);
         }
     },
 
@@ -59,18 +61,19 @@ function BindSecondaryAntibody(id) {
 
 //  popuplate popup fields
 function populateFields(obj) {
+    console.log(obj);
     $('#popUp input').each(function () {
         if ($(this).attr('type') == 'text') {
+            $(this).attr('disabled', 'disabled');
             if ($(this).attr('id').indexOf('txt') != -1) {
                 var attr = $(this).attr('id').replace('body_txt', '');
                 if (obj[attr] != '' && obj[attr] != 'n/a') {
                     $(this).val(obj[attr]);
-                    $(this).attr('disabled', 'disabled');
                 }
             };
         }
     });
-    if (obj.protocolHREF != '') {
+    if (obj.protocolHREF != '' && obj.protocolHREF) {
         var protocol = obj.protocolHREF.substring(0, obj.protocolHREF.length - 1).split(",");
         var html = "";
         for (var i = 0; i < protocol.length; i++) {
@@ -79,7 +82,7 @@ function populateFields(obj) {
         }
         $('#popUp #protocol').html(html);
     }
-    if (obj.type != '') {
+    if (obj.type != '' && obj.type) {
         var attr = obj.type.toLowerCase().replace(" antibody", "");
         $("#body_rb" + attr).attr('checked', 'checked');
     }

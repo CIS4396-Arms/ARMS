@@ -26,9 +26,17 @@ namespace ARMS_Project
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
             SecondaryAntibody antibody = new SecondaryAntibody();
-            antibody.color = txtColor.Text;
-            antibody.concentration = txtConcentration.Text;
             antibody.labID = int.Parse(txtLabID.Text);
+            antibody.antibodyName = txtName.Text;
+            antibody.antigen = txtAntigen.Text;
+            antibody.applications = txtApplications.Text;
+            antibody.concentration = txtConcentration.Text;
+            antibody.excitation = txtExcitation.Text;
+            antibody.flourophore = txtFlourophore.Text;
+            antibody.hostSpecies = txtHostSpecies.Text;
+            antibody.lotNumber = txtLotNumber.Text;
+            antibody.reactiveSpecies = txtReactiveSpecies.Text;
+            antibody.workingDilution = txtWorkingDilution.Text;
             if (myConn.addSecondaryAntibody(antibody))
             {
                 Response.Redirect("SecondaryAntibodies.aspx");

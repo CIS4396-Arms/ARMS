@@ -16,7 +16,6 @@ namespace ARMS_Project
         {
             if (!IsPostBack)
             {
-                ShowAntibodies();
              
                     ////Check if User is logged in
                     //if (string.IsNullOrEmpty(Session["UserID"] as string))
@@ -24,21 +23,30 @@ namespace ARMS_Project
                     //    //if user not logged in, redirect to Login page
                     //    Response.Redirect("Login.aspx");
                     //}
-
+                
             }
+           secondaryAntibodiesDataSource.TypeName = "ARMS_Project.SecondaryAntibodyLogic";
+           secondaryAntibodiesDataSource.SelectMethod = "GetSecondaryAntibodies";
+           secondaryAntibodiesDataSource.DataBind();
         }
 
-        //  DataBinds ArrayList to GridView on Antibodies.aspx
-        protected void ShowAntibodies()
+        //  Delete object
+        protected void btnDelete_click(Object sender, EventArgs e)
         {
-            gvSecondaryAntibodies.DataSource = myConn.getAllSecondaryAntibodies();
+            int id = Convert.ToInt32(Request.QueryString["Delete"]);
+            bool delete = myConn.deleteSecondaryAntibody(id);
+            if (!delete)
+            {
+                // Delete error
+            }
             gvSecondaryAntibodies.DataBind();
         }
 
-        //  Delete button click
-        protected void Delete_Click()
+        //  Save changes of object
+        protected void btnSave_click(Object sender, EventArgs e)
         {
-            
+            Console.WriteLine("function called broseph");
+            // call edit antibody function
         }
 
         // Returns json object for ajax request
