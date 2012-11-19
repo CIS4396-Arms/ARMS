@@ -23,6 +23,9 @@ namespace ARMS_Project
                 //    Response.Redirect("Login.aspx");
                 //}
             }
+
+            ddlLabID.DataSource = myConn.getAllLabs();
+
         }
 
         //  handle protocol file upload
@@ -57,7 +60,7 @@ namespace ARMS_Project
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
             PrimaryAntibody antibody = new PrimaryAntibody();
-            antibody.labID = int.Parse(txtLabID.Text);
+            antibody.labID = int.Parse(ddlLabID.SelectedValue);
             antibody.lotNumber = txtLotNumber.Text;
             antibody.name = txtName.Text;
             antibody.clone = txtClone.Text;
