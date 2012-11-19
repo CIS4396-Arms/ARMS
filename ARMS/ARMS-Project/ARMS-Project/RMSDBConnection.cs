@@ -423,6 +423,78 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Returns an ArrayList full of Construct objects where the search terms with matches in the specified column 
+        /// </summary>
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching construct objects</returns>
+        public ArrayList searchForConstructs(String colName, String searchTerms)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Returns an ArrayList full of PrimaryAntibody objects where the search terms with matches in the specified column 
+        /// </summary>
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching PrimaryAntibody objects</returns>
+        public ArrayList searchForPrimaryAntibodies(String colName, String searchTerms)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Returns an ArrayList full of SecondaryAntibody objects where the search terms with matches in the specified column 
+        /// </summary>
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching SecondaryAntibody objects</returns>
+        public ArrayList searchForSecondaryAntibodies(String colName, String searchTerms)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new SecondaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Returns an ArrayList full of Vector objects where the search terms with matches in the specified column 
+        /// </summary>
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching Vector objects</returns>
+        public ArrayList searchForVectors(String colName, String searchTerms)
+        {
+            conn.Open();
+            ArrayList tempList = new ArrayList();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
         /// Updates the construct record with the matching ID
         /// </summary>
         /// <param name="temp">Construct object to be written to the database</param>
