@@ -423,39 +423,71 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Updates the construct record with the specified ID
+        /// Updates the construct record with the matching ID
         /// </summary>
-        /// <param name="id">ID of the construct to be updated</param>
-        public void updateConstruct(int id)
+        /// <param name="temp">Construct object to be written to the database</param>
+        public Boolean updateConstruct(Construct temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.Construct SET LabID='" + temp.labID + "', Name='" + temp.name + "', Insert='" + temp.insert + "', Vector='" + temp.vector + "', Species='" + temp.species + "', AntibioticResistance='" + temp.antibioticResistance + "', 3'DigestSite='" + temp.digestSite3 + "', 5'DigestSite='" + temp.digestSite5 + "', Note='" + temp.notes + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
-        /// Updates the primary antibody record with the specified ID
+        /// Updates the primary antibody record with the matching ID
         /// </summary>
-        /// <param name="id">ID of the primary antibody to be updated</param>
-        public void updatePrimaryAntibody(int id)
+        /// <param name="temp">PrimaryAntibody object to be written to the database</param>
+        public Boolean updatePrimaryAntibody(PrimaryAntibody temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.PrimaryAntibody SET LabID='" + temp.labID + "', LotNumber='" + temp.lotNumber + "', AntibodyName='" + temp.name + "', Type='" + temp.type + "', Clone='" + temp.clone + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Concentration='" + temp.concentration + "', WorkingDilution='" + temp.workingDilution + "', Applications='" + temp.applications + "', AntibodyIsotype='" + temp.isotype + "', Antigen='" + temp.antigen + "', Fluorophore='" + temp.fluorophore + "', ProtocolAttachments='" + temp.protocolHREF + "', SpecSheet='" + temp.specSheetHREF + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
-        /// Updates the secondary antibody record with the specified ID
+        /// Updates the secondary antibody record with the matching ID
         /// </summary>
-        /// <param name="id">ID of the secondary antibody to be updated</param>
-        public void updateSecondaryAntibody(int id)
+        /// <param name="temp">SecondaryAntibody object to be written to the database</param>
+        public Boolean updateSecondaryAntibody(SecondaryAntibody temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.SecondaryAntibody SET LabID='" + temp.labID + "', Concentration='" + temp.concentration + "', Excitation='" + temp.excitation + "', AntibodyName='" + temp.antibodyName + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Fluorophore='" + temp.flourophore + "', WorkingDilution='" + temp.workingDilution + "', LotNumber='" + temp.lotNumber + "', Antigen='" + temp.antigen + "', Applications='" + temp.applications + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
         /// Updates the vector record with the specified ID
         /// </summary>
-        /// <param name="id">ID of the vector to be updated</param>
-        public void updateVector(int id)
+        /// <param name="temp">Vector object to be written to the database</param>
+        public Boolean updateVector(Vector temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.Vector SET LabID='" + temp.labID + "', VectorName='" + temp.vectorName + "', MultipleCloningSite='" + temp.multipleCloningSite + "', AntibioticResistance='" + temp.antibioticResistance + "', VectorSize='" + temp.vectorSize + "', Promoter='" + temp.promoter + "', Note='" + temp.notes + "', SpecSheet='" + temp.specSheetHREF + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
     }
 }
