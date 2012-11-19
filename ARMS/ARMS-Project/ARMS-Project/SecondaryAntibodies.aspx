@@ -61,6 +61,25 @@
     <div id="content">
         <h3>Secondary Antibodies</h3>
 
+        <div class="filter">
+            <h4>Filter Secondary Antibodies</h4>
+            <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
+            <asp:DropDownList ID="ddlFilter" runat="server">
+                <asp:ListItem Value="labID">Lab ID</asp:ListItem>
+                <asp:ListItem Value="antibodyName">Name</asp:ListItem>
+                <asp:ListItem Value="hostSpecies">Host Species</asp:ListItem>
+                <asp:ListItem Value="reactiveSpecies">Reactive Species</asp:ListItem>
+                <asp:ListItem Value="lotNumber">Lot Number</asp:ListItem>
+                <asp:ListItem Value="concentration">Concentration</asp:ListItem>
+                <asp:ListItem Value="workingDilution">Working Dilution</asp:ListItem>
+                <asp:ListItem Value="applications">Applications</asp:ListItem>
+                <asp:ListItem Value="antigen">Antigen</asp:ListItem>
+                <asp:ListItem Value="fluorophore">Fluorophore</asp:ListItem>
+                <asp:ListItem Value="excitation">Excitation</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go" OnClick="btnFilter_click" />
+        </div>
+
         <asp:objectdatasource
               id="secondaryAntibodiesDataSource"
               runat="server"

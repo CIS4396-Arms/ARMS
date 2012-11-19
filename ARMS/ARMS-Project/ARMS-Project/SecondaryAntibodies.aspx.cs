@@ -62,6 +62,18 @@ namespace ARMS_Project
             gvSecondaryAntibodies.DataBind();
         }
 
+        //  Filter gridview with parameters
+        protected void btnFilter_click(Object sender, EventArgs e)
+        {
+            secondaryAntibodiesDataSource.TypeName = "ARMS_Project.SecondaryAntibodyLogic";
+            secondaryAntibodiesDataSource.SelectMethod = "GetSecondaryAntibodies";
+            secondaryAntibodiesDataSource.SelectParameters.Remove(secondaryAntibodiesDataSource.SelectParameters["filter"]);
+            secondaryAntibodiesDataSource.SelectParameters.Remove(secondaryAntibodiesDataSource.SelectParameters["keyword"]);
+            secondaryAntibodiesDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
+            secondaryAntibodiesDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
+            secondaryAntibodiesDataSource.DataBind();
+        }
+
         // Returns json object for ajax request
         [System.Web.Services.WebMethod()]
         [System.Web.Script.Services.ScriptMethod()]
