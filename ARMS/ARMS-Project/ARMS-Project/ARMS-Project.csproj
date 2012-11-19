@@ -143,6 +143,7 @@
     <Compile Include="Constructs.aspx.designer.cs">
       <DependentUpon>Constructs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Lab.cs" />
     <Compile Include="RMSDBConnection.cs" />
     <Compile Include="HelperMethods.cs" />
     <Compile Include="Home.aspx.cs">

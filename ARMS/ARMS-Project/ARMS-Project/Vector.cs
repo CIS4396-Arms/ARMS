@@ -10,47 +10,61 @@ namespace ARMS_Project
         RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
-        public String MCS { get; set; }
-        public String ARS { get; set; }
+        public int labID { get; set; }
+        public String vectorName { get; set; }
+        public String multipleCloningSite { get; set; }
+        public String antibioticResistance { get; set; }
+        public String vectorSize { get; set; }
         public String promoter { get; set; }
-        public String sizeVP { get; set; }
         public String notes { get; set; }
+        public String specSheetHREF { get; set; }
 
         /// <summary>
         /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
         /// </summary>
         public Vector()
         {
-            MCS = "";
-            ARS = "";
+            id = 0;
+            labID = 0;
+            vectorName = "";
+            multipleCloningSite = "";
+            antibioticResistance = "";
+            vectorSize = "";
             promoter = "";
-            sizeVP = "";
             notes = "";
+            specSheetHREF = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Vector objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Vector(String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
+        public Vector(int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF)
         {
-            MCS = newMCS;
-            ARS = newARS;
+            id = 0;
+            labID = newLabID;
+            vectorName = newVectorName;
+            multipleCloningSite = newMultipleCloningSite;
+            antibioticResistance = newAntibioticResistance;
+            vectorSize = newVectorSize;
             promoter = newPromoter;
-            sizeVP = newSizeVP;
             notes = newNotes;
+            specSheetHREF = newSpecSheetHREF;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Vector records from the database (accounts for autonumbered ID).
         /// </summary>
-        public Vector(int newID, String newMCS, String newARS, String newPromoter, String newSizeVP, String newNotes)
+        public Vector(int newID, int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF)
         {
             id = newID;
-            MCS = newMCS;
-            ARS = newARS;
+            labID = newLabID;
+            vectorName = newVectorName;
+            multipleCloningSite = newMultipleCloningSite;
+            antibioticResistance = newAntibioticResistance;
+            vectorSize = newVectorSize;
             promoter = newPromoter;
-            sizeVP = newSizeVP;
             notes = newNotes;
+            specSheetHREF = newSpecSheetHREF;
         }
 
         /// <summary>
@@ -68,7 +82,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Vector || ID: " + id + " || MCS : " + MCS + " || ARS: " + ARS + " || Promoter: " + promoter + " || SizeVP: " + sizeVP + " || Notes: " + notes);
+            return ("Vector || ID: " + id + " || Lab ID: " + labID + " || Vector Name: " + vectorName + " || Multiple Cloning Site: " + multipleCloningSite + " || Antibiotic Resistance: " + antibioticResistance + " || Vector Size: " + vectorSize + " || Promoter: " + promoter + " || Notes: " + notes + " || Spec Sheet HREF: " + specSheetHREF);
         }
     }
 }

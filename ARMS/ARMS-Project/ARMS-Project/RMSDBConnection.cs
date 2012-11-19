@@ -40,7 +40,7 @@ namespace ARMS_Project
         public Boolean addConstruct(Construct temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES('"+temp.name+"','"+temp.source+"','"+temp.digestSite5+"','"+temp.digestSite3+"','"+temp.buffer+"','"+temp.notes+"');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES(" + temp.labID + ",'" + temp.name + "','" + temp.insert + "','" + temp.vector + "','" + temp.species + "','" + temp.antibioticResistance + "','" + temp.digestSite5 + "','" + temp.digestSite3 + "','" + temp.notes + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -95,7 +95,7 @@ namespace ARMS_Project
         public Boolean addVector(Vector temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES('" + temp.MCS + "','" + temp.ARS + "','" + temp.promoter + "','" + temp.sizeVP + "','" + temp.notes + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Vector VALUES(" + temp.id + "," + temp.labID + ",'" + temp.vectorName + "','" + temp.multipleCloningSite + "','" + temp.antibioticResistance + "','" + temp.vectorSize + "','" + temp.promoter + "','" + temp.notes + "','" + temp.specSheetHREF + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -194,11 +194,27 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Construct tempConstruct = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
+                Construct tempConstruct = new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString());
                 temp.Add(tempConstruct);
             }
             conn.Close();
             return temp;
+        }
+
+        /// <summary>
+        /// Gets an ArrayList of all Lab objects in the database
+        /// </summary>
+        /// <returns>ArrayList of all labs in the database</returns>
+        public ArrayList getAllLabs()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_Lab;", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new Lab(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString()));
+            conn.Close();
+            return tempList;
         }
 
         /// <summary>
@@ -254,7 +270,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Vector tempVector = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+                Vector tempVector = new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString());
                 temp.Add(tempVector);
             }
             conn.Close();
@@ -273,7 +289,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while(rdr.Read())
-                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString()));
+                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString()));
             conn.Close();
             return tempList;
         }
@@ -324,7 +340,7 @@ namespace ARMS_Project
             SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE LabID=" + labID + ";", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             while(rdr.Read())
-                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString()));
+                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString()));
             conn.Close();
             return tempList;
         }
@@ -341,7 +357,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             Construct temp;
             if (rdr.Read())
-                temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
+                temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString());
             else
                 temp = null;
             conn.Close();
@@ -398,7 +414,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             Vector temp;
             if (rdr.Read())
-                temp = new Vector(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString());
+                temp = new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString());
             else
                 temp = null;
             conn.Close();
@@ -423,39 +439,143 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Updates the construct record with the specified ID
+        /// Returns an ArrayList full of Construct objects where the search terms with matches in the specified column 
         /// </summary>
-        /// <param name="id">ID of the construct to be updated</param>
-        public void updateConstruct(int id)
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching construct objects</returns>
+        public ArrayList searchForConstructs(String colName, String searchTerms)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString()));
+            conn.Close();
+            return tempList;
         }
 
         /// <summary>
-        /// Updates the primary antibody record with the specified ID
+        /// Returns an ArrayList full of PrimaryAntibody objects where the search terms with matches in the specified column 
         /// </summary>
-        /// <param name="id">ID of the primary antibody to be updated</param>
-        public void updatePrimaryAntibody(int id)
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching PrimaryAntibody objects</returns>
+        public ArrayList searchForPrimaryAntibodies(String colName, String searchTerms)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new PrimaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString(), rdr.GetValue(12).ToString(), rdr.GetValue(13).ToString(), rdr.GetValue(14).ToString(), rdr.GetValue(15).ToString()));
+            conn.Close();
+            return tempList;
         }
 
         /// <summary>
-        /// Updates the secondary antibody record with the specified ID
+        /// Returns an ArrayList full of SecondaryAntibody objects where the search terms with matches in the specified column 
         /// </summary>
-        /// <param name="id">ID of the secondary antibody to be updated</param>
-        public void updateSecondaryAntibody(int id)
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching SecondaryAntibody objects</returns>
+        public ArrayList searchForSecondaryAntibodies(String colName, String searchTerms)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new SecondaryAntibody(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString(), rdr.GetValue(10).ToString(), rdr.GetValue(11).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Returns an ArrayList full of Vector objects where the search terms with matches in the specified column 
+        /// </summary>
+        /// <param name="colName">Database column name to be searched</param>
+        /// <param name="searchTerms">Words to be searched for</param>
+        /// <returns>ArrayList of matching Vector objects</returns>
+        public ArrayList searchForVectors(String colName, String searchTerms)
+        {
+            conn.Open();
+            ArrayList tempList = new ArrayList();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+                tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
+        /// Updates the construct record with the matching ID
+        /// </summary>
+        /// <param name="temp">Construct object to be written to the database</param>
+        public Boolean updateConstruct(Construct temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.Construct SET LabID='" + temp.labID + "', Name='" + temp.name + "', Insert='" + temp.insert + "', Vector='" + temp.vector + "', Species='" + temp.species + "', AntibioticResistance='" + temp.antibioticResistance + "', 3'DigestSite='" + temp.digestSite3 + "', 5'DigestSite='" + temp.digestSite5 + "', Note='" + temp.notes + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Updates the primary antibody record with the matching ID
+        /// </summary>
+        /// <param name="temp">PrimaryAntibody object to be written to the database</param>
+        public Boolean updatePrimaryAntibody(PrimaryAntibody temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.PrimaryAntibody SET LabID='" + temp.labID + "', LotNumber='" + temp.lotNumber + "', AntibodyName='" + temp.name + "', Type='" + temp.type + "', Clone='" + temp.clone + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Concentration='" + temp.concentration + "', WorkingDilution='" + temp.workingDilution + "', Applications='" + temp.applications + "', AntibodyIsotype='" + temp.isotype + "', Antigen='" + temp.antigen + "', Fluorophore='" + temp.fluorophore + "', ProtocolAttachments='" + temp.protocolHREF + "', SpecSheet='" + temp.specSheetHREF + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Updates the secondary antibody record with the matching ID
+        /// </summary>
+        /// <param name="temp">SecondaryAntibody object to be written to the database</param>
+        public Boolean updateSecondaryAntibody(SecondaryAntibody temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.SecondaryAntibody SET LabID='" + temp.labID + "', Concentration='" + temp.concentration + "', Excitation='" + temp.excitation + "', AntibodyName='" + temp.antibodyName + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Fluorophore='" + temp.flourophore + "', WorkingDilution='" + temp.workingDilution + "', LotNumber='" + temp.lotNumber + "', Antigen='" + temp.antigen + "', Applications='" + temp.applications + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         /// <summary>
         /// Updates the vector record with the specified ID
         /// </summary>
-        /// <param name="id">ID of the vector to be updated</param>
-        public void updateVector(int id)
+        /// <param name="temp">Vector object to be written to the database</param>
+        public Boolean updateVector(Vector temp)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.Vector SET LabID='" + temp.labID + "', VectorName='" + temp.vectorName + "', MultipleCloningSite='" + temp.multipleCloningSite + "', AntibioticResistance='" + temp.antibioticResistance + "', VectorSize='" + temp.vectorSize + "', Promoter='" + temp.promoter + "', Note='" + temp.notes + "', SpecSheet='" + temp.specSheetHREF + "' WHERE ID=" + temp.id + ";", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
     }
 }
