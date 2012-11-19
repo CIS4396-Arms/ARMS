@@ -84,8 +84,8 @@
                    <asp:Button id="btnProtocolUpload" 
                        Text="Upload file"
                        OnClick="ProtcolUpload_Click"
-                       runat="server">
-                   </asp:Button>
+                       runat="server"
+                       CssClass="btn btn-success" />
                    
                    <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
 
@@ -116,14 +116,14 @@
                 <asp:ListItem Value="antigen">Antigen</asp:ListItem>
                 <asp:ListItem Value="flurosphore">Flurosphore</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go" OnClick="btnFilter_click" />
+            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go btn btn-success" OnClick="btnFilter_click" />
         </div>
         <asp:objectdatasource
               id="antibodiesDataSource"
               runat="server"
                />
 
-        <asp:GridView ID="gvAntibodies" runat="server" DataSourceID="antibodiesDataSource" AutoGenerateColumns="False" CssClass="data" AllowPaging="true" AllowSorting="true" >
+        <asp:GridView ID="gvAntibodies" runat="server" DataSourceID="antibodiesDataSource" AutoGenerateColumns="False" CssClass="data table" AllowPaging="true" AllowSorting="true">
             <SortedAscendingHeaderStyle CssClass="sortAsc" />
             <SortedAscendingCellStyle CssClass="cellAsc" />
             <SortedDescendingHeaderStyle CssClass="sortDesc" />

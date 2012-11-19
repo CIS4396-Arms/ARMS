@@ -6,7 +6,7 @@
     
     <div id="content">
         <h3>Add Antibody</h3>
-        <table class="data form">
+        <table class="data form table table-striped table-bordered">
             <tr>
                 <td>Lab ID:</td>
                 <td>
@@ -81,8 +81,9 @@
                    <asp:Button id="btnProtocolUpload" 
                        Text="Upload file"
                        OnClick="ProtcolUpload_Click"
-                       runat="server">
-                   </asp:Button>
+                       runat="server" 
+                       CssClass="btn btn-primary" />
+                   
                    
                    <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
 
@@ -91,7 +92,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_click" Text="Submit" />
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-success" runat="server" OnClick="btnSubmit_click" Text="Submit" />
                 </td>
             </tr>
         </table>

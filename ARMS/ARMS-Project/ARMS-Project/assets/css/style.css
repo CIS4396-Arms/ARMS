@@ -178,21 +178,6 @@ html[xmlns] .clearfix {
 	border:1px solid #ccc;
 }
 
-#login input#submit, .form input#body_btnSubmit, .btn {
-	background:#820000 !important;
-	padding:5px 15px !important;
-	-moz-border-radius:20px !important;
-	-webkit-border-radius:20px !important;
-	border-radius:20px !important;
-	color:#fff !important;
-	font-weight:bold !important;
-	border:none !important;
-	margin:0 auto !important;
-	cursor:pointer !important;
-	box-shadow:none !important;
-	width:auto !important;
-	font-size:0.85em !important;
-}
 
 td.submit {text-align:center;}
 
@@ -227,7 +212,7 @@ h3.nomargin {
 
 /* edit */
 
-.form input, .form select, .form file, .form textarea  {
+.form input[type="text"], .form select, .form file, .form textarea  {
 	width:200px;
 	margin-right:5px;
 }
@@ -241,10 +226,7 @@ h3.nomargin {
 	font-style:italic;
 }
 
-.form input[type=radio]
-{
-    width:20px;
-}
+
 
 /* FILTER */
 
@@ -261,7 +243,7 @@ h3.nomargin {
     color:#333;
 }
 
-.filter input, .filter select
+.filter input[type="text"], .filter select
 {
     padding:5px;
     font-size:1em;
@@ -270,9 +252,10 @@ h3.nomargin {
 .filter input.go 
 {
     cursor:pointer;
+    margin-top:-10px;
 }
 
-/* TABLE */
+/* TABLE */ 
 
 table.data {border-left:1px solid #ccc; border-top:1px solid #ccc; font-size:0.8em; width:100%;border-spacing:0;border-collapse:collapse;}
 
@@ -312,7 +295,7 @@ a.icon-button span
     line-height:0em;
 }
 
-table.data input, table.data textarea {
+table.data input[type="text"], table.data textarea {
 	width:300px;
 }
 
@@ -469,4 +452,16 @@ table.form td.center {text-align: center;}
 	border-top:1px solid #ccc;
 	text-align:center;
 	margin-top:50px;
+}
+
+label 
+{
+    display:inline;
+    float:none;
+}
+
+input[type="radio"]
+{
+    float:none !important;
+    margin-right:10px;
 }
