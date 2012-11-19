@@ -20,12 +20,14 @@ var popUp = {
             BindAntibody(id);
         } else if (type == 'openSecondaryAntibodies') {
             BindSecondaryAntibody(id);
+        } else if (type == 'openVectors') {
+            BindVector(id);
         }
     },
 
     edit: function (popup, e) {
         e.preventDefault();
-        
+
         $(popup).find('input').each(function () {
             $(this).removeAttr('disabled');
         });
@@ -57,7 +59,20 @@ function BindSecondaryAntibody(id) {
             populateFields(msg.d);
         }
     });
-} 
+}
+
+function BindVector(id) {
+    $.ajax({
+        type: "POST",
+        url: "Vectors.aspx/GetVector",
+        data: "{id:'" + id + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            populateFields(msg.d);
+        }
+    });
+}
 
 //  popuplate popup fields
 function populateFields(obj) {

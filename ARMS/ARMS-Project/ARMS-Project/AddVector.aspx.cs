@@ -24,18 +24,50 @@ namespace ARMS_Project
             }
         }
 
+        //  handle protocol file upload
+        protected void SpecUpload_Click(object sender, EventArgs e)
+        {
+            string saveDir = @"\Uploads\";
+
+            // Get the physical file system path for the currently
+            // executing application.
+            string appPath = Request.PhysicalApplicationPath;
+
+            // Before attempting to save the file, verify
+            // that the FileUpload control contains a file.
+            if (SpecUpload.HasFile)
+            {
+                string savePath = appPath + saveDir +
+                    Server.HtmlEncode(SpecUpload.FileName);
+
+                SpecUpload.SaveAs(savePath);
+                string files = specSheetHREF.Value + savePath + ",";
+                specSheetHREF.Value = files;
+
+                lblSpecUpload.Text = "File has been successfully uploaded, you may upload another";
+            }
+            else
+            {
+                lblSpecUpload.Text = "File upload failed.";
+            }
+        }
+
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
-            /*Vector vector = new Vector();
-            vector.ARS = txtARS.Text;
-            vector.MCS = txtMCS.Text;
-            vector.promoter = txtPromter.Text;
-            vector.sizeVP = txtSizeVP.Text;
+            Vector vector = new Vector();
+            vector.antibioticResistance = txtantibioticResistance.Text;
+            vector.labID = int.Parse(txtlabID.Text);
+            vector.multipleCloningSite = txtmultipleCloningSite.Text;
+            vector.notes = txtnotes.Text;
+            vector.promoter = txtpromter.Text;
+            vector.specSheetHREF = specSheetHREF.Value;
+            vector.vectorName = txtvectorName.Text;
+            vector.vectorSize = txtvectorSize.Text;
             if (myConn.addVector(vector))
             {
                 Response.Redirect("Vectors.aspx");
-            }*/
+            }
         }
     }
 }

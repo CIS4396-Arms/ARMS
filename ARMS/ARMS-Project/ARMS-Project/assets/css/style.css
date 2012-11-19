@@ -227,7 +227,7 @@ h3.nomargin {
 
 /* edit */
 
-.form input, .form select, .form file  {
+.form input, .form select, .form file, .form textarea  {
 	width:200px;
 	margin-right:5px;
 }
@@ -312,7 +312,7 @@ a.icon-button span
     line-height:0em;
 }
 
-table.data input {
+table.data input, table.data textarea {
 	width:300px;
 }
 

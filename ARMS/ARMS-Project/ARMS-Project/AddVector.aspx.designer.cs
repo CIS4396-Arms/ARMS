@@ -13,40 +13,103 @@ namespace ARMS_Project {
     public partial class AddVector {
         
         /// <summary>
-        /// txtMCS control.
+        /// txtlabID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMCS;
+        protected global::System.Web.UI.WebControls.TextBox txtlabID;
         
         /// <summary>
-        /// txtARS control.
+        /// txtvectorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtARS;
+        protected global::System.Web.UI.WebControls.TextBox txtvectorName;
         
         /// <summary>
-        /// txtPromter control.
+        /// txtmultipleCloningSite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPromter;
+        protected global::System.Web.UI.WebControls.TextBox txtmultipleCloningSite;
         
         /// <summary>
-        /// txtSizeVP control.
+        /// txtantibioticResistance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSizeVP;
+        protected global::System.Web.UI.WebControls.TextBox txtantibioticResistance;
+        
+        /// <summary>
+        /// txtpromter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtpromter;
+        
+        /// <summary>
+        /// txtvectorSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtvectorSize;
+        
+        /// <summary>
+        /// txtnotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtnotes;
+        
+        /// <summary>
+        /// SpecUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload SpecUpload;
+        
+        /// <summary>
+        /// btnSpecUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSpecUpload;
+        
+        /// <summary>
+        /// lblSpecUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSpecUpload;
+        
+        /// <summary>
+        /// specSheetHREF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField specSheetHREF;
         
         /// <summary>
         /// btnSubmit control.

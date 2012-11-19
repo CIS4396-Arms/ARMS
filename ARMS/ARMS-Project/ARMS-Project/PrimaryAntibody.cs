@@ -22,7 +22,7 @@ namespace ARMS_Project
         public static DataTable GetPrimaryAntibodies(String filter, String keyword)
         {
             RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
-            return HelperMethods.ConvertArrayListToDataTable(myConn.searchForPrimaryAntibodies(@filter, @keyword));
+            return HelperMethods.ConvertArrayListToDataTable(myConn.searchForPrimaryAntibodies(filter, keyword));
         }
 
     }

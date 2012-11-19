@@ -2,9 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace ARMS_Project
 {
+
+    public class VectorLogic
+    {
+        // Get all antibodies
+        public static DataTable GetVectors()
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.getAllVectors());
+        }
+
+        // Get primary antibodies that match keyword
+        public static DataTable GetVectors(String filter, String keyword)
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.searchForVectors(filter, keyword));
+        }
+
+    }
+
     public class Vector
     {
         RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
