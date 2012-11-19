@@ -258,6 +258,22 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Gets an ArrayList of all Users in the database
+        /// </summary>
+        /// <returns>ArrayList of all users in the database</returns>
+        public ArrayList getAllLabs()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_User;", conn);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            ArrayList tempList = new ArrayList();
+            while (rdr.Read())
+                tempList.Add(new User(rdr.GetValue(0).ToString(), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString()));
+            conn.Close();
+            return tempList;
+        }
+
+        /// <summary>
         /// Gets every Vector record in the database, saves each one in a new Vector object, and puts it in an ArrayList.
         /// </summary>
         /// <returns>ArrayList of Vector objects</returns>

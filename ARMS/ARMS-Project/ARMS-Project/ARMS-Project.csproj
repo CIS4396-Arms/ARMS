@@ -143,7 +143,7 @@
     <Compile Include="Constructs.aspx.designer.cs">
       <DependentUpon>Constructs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Lab.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="RMSDBConnection.cs" />
     <Compile Include="HelperMethods.cs" />
     <Compile Include="Home.aspx.cs">
@@ -188,6 +188,7 @@
       <DependentUpon>SecondaryAntibodies.aspx</DependentUpon>
     </Compile>
     <Compile Include="SecondaryAntibody.cs" />
+    <Compile Include="Lab.cs" />
     <Compile Include="Vector.cs" />
     <Compile Include="Vectors.aspx.cs">
       <DependentUpon>Vectors.aspx</DependentUpon>
