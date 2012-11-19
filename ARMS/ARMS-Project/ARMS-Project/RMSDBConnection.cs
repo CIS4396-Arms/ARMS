@@ -40,7 +40,7 @@ namespace ARMS_Project
         public Boolean addConstruct(Construct temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES('"+temp.name+"','"+temp.source+"','"+temp.digestSite5+"','"+temp.digestSite3+"','"+temp.buffer+"','"+temp.notes+"');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Construct VALUES(" + temp.labID + ",'" + temp.name + "','" + temp.insert + "','" + temp.vector + "','" + temp.species + "','" + temp.antibioticResistance + "','" + temp.digestSite5 + "','" + temp.digestSite3 + "','" + temp.notes + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -194,7 +194,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                Construct tempConstruct = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
+                Construct tempConstruct = new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString());
                 temp.Add(tempConstruct);
             }
             conn.Close();
@@ -273,7 +273,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while(rdr.Read())
-                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString()));
+                tempList.Add(new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString()));
             conn.Close();
             return tempList;
         }
@@ -341,7 +341,7 @@ namespace ARMS_Project
             SqlDataReader rdr = cmd.ExecuteReader();
             Construct temp;
             if (rdr.Read())
-                temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString());
+                temp = new Construct(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(9).ToString());
             else
                 temp = null;
             conn.Close();

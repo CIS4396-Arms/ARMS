@@ -10,11 +10,14 @@ namespace ARMS_Project
         RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
         public int id { get; set; }
+        public int labID { get; set; }
         public String name { get; set; }
-        public String source { get; set; }
+        public String insert { get; set; }
+        public String vector { get; set; }
+        public String species { get; set; }
+        public String antibioticResistance { get; set; }
         public String digestSite5 { get; set; }
         public String digestSite3 { get; set; }
-        public String buffer { get; set; }
         public String notes { get; set; }
 
         /// <summary>
@@ -22,38 +25,49 @@ namespace ARMS_Project
         /// </summary>
         public Construct()
         {
+            id = 0;
+            labID = 0;
             name = "";
-            source = "";
+            insert = "";
+            vector = "";
+            species = "";
+            antibioticResistance = "";
             digestSite5 = "";
             digestSite3 = "";
-            buffer = "";
             notes = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Construct objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Construct(String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
+        public Construct(int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes)
         {
+            id = 0;
+            labID = newLabID;
             name = newName;
-            source = newSource;
+            insert = newInsert;
+            vector = newVector;
+            species = newSpecies;
+            antibioticResistance = newAntibioticResistance;
             digestSite5 = newDigestSite5;
             digestSite3 = newDigestSite3;
-            buffer = newBuffer;
-            notes = newNotes;
+            notes = newNotes; 
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Construct records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public Construct(int newID, String newName, String newSource, String newDigestSite5, String newDigestSite3, String newBuffer, String newNotes)
+        public Construct(int newID, int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes)
         {
             id = newID;
+            labID = newLabID;
             name = newName;
-            source = newSource;
+            insert = newInsert;
+            vector = newVector;
+            species = newSpecies;
+            antibioticResistance = newAntibioticResistance;
             digestSite5 = newDigestSite5;
             digestSite3 = newDigestSite3;
-            buffer = newBuffer;
             notes = newNotes;
         }
 
@@ -72,7 +86,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Construct || ID: " + id + " || Name = " + name + " || Source = " + source + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Buffer: " + buffer + " || Notes: " + notes);
+            return ("Construct || ID: " + id + " || Lab ID: " + labID + " || Name: " + name + " || Insert: " + insert + " || Vector: " + vector + " || Species: " + species + " || Antibiotic Resistance: " + antibioticResistance + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Notes: " + notes);
         }
     }
 }
