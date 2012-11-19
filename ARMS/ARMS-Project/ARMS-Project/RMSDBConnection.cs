@@ -88,6 +88,24 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Inserts the provided User object as a new record into the database
+        /// </summary>
+        /// <param name="temp">User object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
+        public Boolean addUser(User temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO ARMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "');", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Inserts the provided Vector object as a new record into the database
         /// </summary>
         /// <param name="temp">Vector object to be added to the database</param>
