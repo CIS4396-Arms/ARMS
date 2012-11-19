@@ -22,6 +22,8 @@ var popUp = {
             BindSecondaryAntibody(id);
         } else if (type == 'openVectors') {
             BindVector(id);
+        } else {
+            BindConstruct(id);
         }
     },
 
@@ -65,6 +67,19 @@ function BindVector(id) {
     $.ajax({
         type: "POST",
         url: "Vectors.aspx/GetVector",
+        data: "{id:'" + id + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            populateFields(msg.d);
+        }
+    });
+}
+
+function BindConstruct(id) {
+    $.ajax({
+        type: "POST",
+        url: "Constructs.aspx/GetConstruct",
         data: "{id:'" + id + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",

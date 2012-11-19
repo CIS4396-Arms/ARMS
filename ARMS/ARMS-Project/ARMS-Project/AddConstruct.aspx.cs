@@ -28,16 +28,19 @@ namespace ARMS_Project
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
-            /*Construct construct = new Construct();
-            construct.name = txtName.Text;
-            construct.source = txtName.Text;
-            construct.buffer = txtName.Text;
-            construct.digestSite3 = txtDigestSite3.Text;
-            construct.digestSite5 = txtDigestSite5.Text;
+            Construct construct = new Construct();
+            construct.name = txtname.Text;
+            construct.labID = int.Parse(txtlabID.Text);
+            construct.insert = txtinsert.Text;
+            construct.species = txtSpecies.Text;
+            construct.vector = txtvector.Text;
+            construct.antibioticResistance = txtantibioticResistance.Text;
+            construct.digestSite3 = txtdigestSite3.Text;
+            construct.digestSite5 = txtdigestSite5.Text;
             if (myConn.addConstruct(construct))
             {
                 Response.Redirect("Constructs.aspx");
-            }*/
+            }
         }
     }
 }

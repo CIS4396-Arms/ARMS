@@ -13,49 +13,85 @@ namespace ARMS_Project {
     public partial class AddConstruct {
         
         /// <summary>
-        /// txtName control.
+        /// txtlabID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtlabID;
         
         /// <summary>
-        /// txtSource control.
+        /// txtname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSource;
+        protected global::System.Web.UI.WebControls.TextBox txtname;
         
         /// <summary>
-        /// txtDigestSite5 control.
+        /// txtinsert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite5;
+        protected global::System.Web.UI.WebControls.TextBox txtinsert;
         
         /// <summary>
-        /// txtDigestSite3 control.
+        /// txtvector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDigestSite3;
+        protected global::System.Web.UI.WebControls.TextBox txtvector;
         
         /// <summary>
-        /// txtBuffer control.
+        /// txtSpecies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuffer;
+        protected global::System.Web.UI.WebControls.TextBox txtSpecies;
+        
+        /// <summary>
+        /// txtantibioticResistance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtantibioticResistance;
+        
+        /// <summary>
+        /// txtdigestSite5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdigestSite5;
+        
+        /// <summary>
+        /// txtdigestSite3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdigestSite3;
+        
+        /// <summary>
+        /// txtnotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtnotes;
         
         /// <summary>
         /// btnSubmit control.

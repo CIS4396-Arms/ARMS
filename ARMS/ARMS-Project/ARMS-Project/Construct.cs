@@ -2,9 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace ARMS_Project
 {
+    public class ConstructLogic
+    {
+        // Get all constructs
+        public static DataTable GetConstructs()
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.getAllConstructs());
+        }
+
+        // Get primary antibodies that match keyword
+        public static DataTable GetConstructs(String filter, String keyword)
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return HelperMethods.ConvertArrayListToDataTable(myConn.searchForConstructs(filter, keyword));
+        }
+    }
+
+
     public class Construct
     {
         RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUsername"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);

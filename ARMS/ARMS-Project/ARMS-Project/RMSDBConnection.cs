@@ -551,7 +551,7 @@ namespace ARMS_Project
         public Boolean updateConstruct(Construct temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE dbo.Construct SET LabID='" + temp.labID + "', Name='" + temp.name + "', Insert='" + temp.insert + "', Vector='" + temp.vector + "', Species='" + temp.species + "', AntibioticResistance='" + temp.antibioticResistance + "', 3'DigestSite='" + temp.digestSite3 + "', 5'DigestSite='" + temp.digestSite5 + "', Note='" + temp.notes + "' WHERE ID=" + temp.id + ";", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.Construct SET LabID='" + temp.labID + "', Name='" + temp.name + "', [Construct].[Insert]='" + temp.insert + "', Vector='" + temp.vector + "', Species='" + temp.species + "', AntibioticResistance='" + temp.antibioticResistance + "', [Construct].[3'DigestSite]='" + temp.digestSite3 + "', [Construct].[5'DigestSite]='" + temp.digestSite5 + "', Note='" + temp.notes + "' WHERE ID=" + temp.id + ";", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
