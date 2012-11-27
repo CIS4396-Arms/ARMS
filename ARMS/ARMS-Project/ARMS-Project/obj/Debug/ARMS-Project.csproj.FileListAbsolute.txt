@@ -45,3 +45,4 @@ C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\AR
 \\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\ARMS-Project.pdb
 \\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
 \\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
+\\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\assets\css\bootstrap.css
