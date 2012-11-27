@@ -62,6 +62,8 @@
     <Content Include="assets\css\bootstrap.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\css\chosen-sprite.png" />
+    <Content Include="assets\css\chosen.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\fontawesome\css\font-awesome-ie7.css" />
     <Content Include="assets\fontawesome\css\font-awesome.css" />
@@ -73,6 +75,7 @@
     <Content Include="assets\images\icon_delete.gif" />
     <Content Include="assets\images\icon_edit.gif" />
     <Content Include="assets\images\icon_view.gif" />
+    <Content Include="assets\js\chosen.js" />
     <Content Include="assets\js\functions.js" />
     <Content Include="Constructs.aspx" />
     <Content Include="Home.aspx" />

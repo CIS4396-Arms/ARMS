@@ -8,7 +8,7 @@
         <h3>Add Antibody</h3>
         <table class="data form table table-striped table-bordered">
             <tr>
-                <td>Lab ID:</td>
+                <td>Lab:</td>
                 <td>
                     <asp:DropDownList ID="ddlLabID" runat="server"></asp:DropDownList>
                 </td>
@@ -34,11 +34,55 @@
             </tr>
             <tr>
                 <td>Host Species:</td>
-                <td><asp:TextBox ID="txtHostSpecies" runat="server" Text='<%# Eval("hostSpecies") %>' /></td>
+                <td>
+                    <asp:DropDownList ID="ddlHostSpecies" runat="server" CssClass="chzn-select">
+                        <asp:ListItem>Bovine</asp:ListItem>
+                        <asp:ListItem>Cat</asp:ListItem>
+                        <asp:ListItem>Chicken</asp:ListItem>
+                        <asp:ListItem>Dog</asp:ListItem>
+                        <asp:ListItem>Goat</asp:ListItem>
+                        <asp:ListItem>Guinea Pig</asp:ListItem>
+                        <asp:ListItem>Hamster</asp:ListItem>
+                        <asp:ListItem>Horse</asp:ListItem>
+                        <asp:ListItem>Human</asp:ListItem>
+                        <asp:ListItem>Mouse</asp:ListItem>
+                        <asp:ListItem>Mouse IgG1</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2a</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2b</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2c</asp:ListItem>
+                        <asp:ListItem>Mouse IgG3</asp:ListItem>
+                        <asp:ListItem>Rabbit</asp:ListItem>
+                        <asp:ListItem>Rat</asp:ListItem>
+                        <asp:ListItem>Sheep</asp:ListItem>
+                        <asp:ListItem>Swine</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
             </tr>
             <tr>
                 <td>Reactive Species:</td>
-                <td><asp:TextBox ID="txtReactiveSpecies" runat="server" Text='<%# Eval("reactiveSpecies") %>' /></td>
+                <td>
+                    <asp:ListBox ID="ddlReactiveSpecies" runat="server"  SelectionMode="Multiple" CssClass="chzn-select">
+                        <asp:ListItem>Bovine</asp:ListItem>
+                        <asp:ListItem>Cat</asp:ListItem>
+                        <asp:ListItem>Chicken</asp:ListItem>
+                        <asp:ListItem>Dog</asp:ListItem>
+                        <asp:ListItem>Goat</asp:ListItem>
+                        <asp:ListItem>Guinea Pig</asp:ListItem>
+                        <asp:ListItem>Hamster</asp:ListItem>
+                        <asp:ListItem>Horse</asp:ListItem>
+                        <asp:ListItem>Human</asp:ListItem>
+                        <asp:ListItem>Mouse</asp:ListItem>
+                        <asp:ListItem>Mouse IgG1</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2a</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2b</asp:ListItem>
+                        <asp:ListItem>Mouse IgG2c</asp:ListItem>
+                        <asp:ListItem>Mouse IgG3</asp:ListItem>
+                        <asp:ListItem>Rabbit</asp:ListItem>
+                        <asp:ListItem>Rat</asp:ListItem>
+                        <asp:ListItem>Sheep</asp:ListItem>
+                        <asp:ListItem>Swine</asp:ListItem>
+                    </asp:ListBox>
+                </td>
             </tr>
             <tr>
                 <td>Concentration:</td>

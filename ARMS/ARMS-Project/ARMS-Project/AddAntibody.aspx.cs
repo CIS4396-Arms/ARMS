@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections;
 
 namespace ARMS_Project
 {
@@ -24,8 +25,21 @@ namespace ARMS_Project
                 //}
             }
 
-            ddlLabID.DataSource = myConn.getAllLabs();
+            /*ArrayList labs = new ArrayList();
+            foreach (Lab l in myConn.getAllLabs())
+            {
+                labs.Add(l.name);
+                labs.Add();
+            }*/
 
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddlLabID.DataSource = labsDataSource;
+            ddlLabID.DataTextField = "name";
+            ddlLabID.DataValueField = "id";
+            ddlLabID.DataBind();
         }
 
         //  handle protocol file upload
@@ -72,8 +86,8 @@ namespace ARMS_Project
             {
                 antibody.type = "Polyclonal";
             }
-            antibody.hostSpecies = txtHostSpecies.Text;
-            antibody.reactiveSpecies = txtReactiveSpecies.Text;
+            antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            antibody.reactiveSpecies = ddlReactiveSpecies.SelectedValue;
             antibody.concentration = txtConcentration.Text;
             antibody.workingDilution = txtWorkingDilution.Text;
             antibody.isotype = txtIsotype.Text;

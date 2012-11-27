@@ -139,4 +139,6 @@ $(document).ready(function () {
         popUp.edit('#popUp', e);
     });
 
+    $(".chzn-select").chosen();
+
 });

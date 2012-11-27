@@ -2,13 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Collections;
 
 namespace ARMS_Project
 {
+
+    public class LabLogic
+    {
+        // Get all antibodies
+        public static ArrayList GetLabs()
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return myConn.getAllLabs();
+        }
+
+    }
+
     public class Lab
     {
-        public int id;
-        public String name;
+        public int id {get; set;}
+        public String name {get; set;}
 
         /// <summary>
         /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
