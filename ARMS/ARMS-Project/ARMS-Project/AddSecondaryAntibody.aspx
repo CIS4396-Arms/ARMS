@@ -4,6 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
         <h3>Add Secondary Antibody</h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <table class="data form table table-striped table-bordered">
             <tr>
                 <td>Lab:</td>
@@ -11,7 +15,7 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtName" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox ID="txtName" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Concentration:</td>
@@ -174,7 +178,7 @@
             </tr>
             <tr>
                 <td>Lot Number</td>
-                <td><asp:TextBox ID="txtLotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
+                <td><asp:TextBox ID="txtLotNumber" runat="server" CssClass="quickValidate" data-validate="required" data-name="Lot Number" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
                 <td>Antigen</td>
@@ -190,5 +194,8 @@
                 </td>
             </tr>
         </table>
+        <script type="text/javascript">
+            $('.form').quickValidate();
+        </script>
     </div>
 </asp:Content>

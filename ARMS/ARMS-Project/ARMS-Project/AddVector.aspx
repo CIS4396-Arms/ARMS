@@ -4,6 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 <div id="content">
         <h3>New Vector</h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <table class="data form table table-striped table-bordered">
             <tr>
                 <td>Lab:</td>
@@ -13,11 +17,11 @@
             </tr>
             <tr>
                 <td>Vector Name:</td>
-                <td><asp:TextBox ID="txtvectorName" runat="server" Text='<%# Eval("vectorName") %>' /></td>
+                <td><asp:TextBox ID="txtvectorName" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("vectorName") %>' /></td>
             </tr>
             <tr>
                 <td>Multiple Cloning Site:</td>
-                <td><asp:TextBox ID="txtmultipleCloningSite" runat="server" Text='<%# Eval("multipleCloningSite") %>' /></td>
+                <td><asp:TextBox ID="txtmultipleCloningSite" CssClass="quickValidate" data-validate="required" data-name="Multiple Cloning Site" runat="server" Text='<%# Eval("multipleCloningSite") %>' /></td>
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
@@ -74,5 +78,8 @@
                 </td>
             </tr>
         </table>
+        <script type="text/javascript">
+            $('.form').quickValidate();
+        </script>
     </div>
 </asp:Content>

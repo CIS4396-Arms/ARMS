@@ -5,6 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="popUp">
         <h3>Secondary Antibody<a href="#close"><i class="icon-remove-sign"></i></a></h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
@@ -17,7 +21,7 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtantibodyName" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox ID="txtantibodyName" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Concentration:</td>
@@ -174,13 +178,14 @@
                     </asp:DropDownList><p class="clearfix"><br />
                     <asp:TextBox ID="txtfluorophore" runat="server" placeholder="Other" CssClass="other" Text='<%# Eval("fluorophore") %>' /></p>
                 </td>
+            </tr>
             <tr>
                 <td>Working Dilution</td>
                 <td><asp:TextBox ID="txtworkingDilution" runat="server" Text='<%# Eval("workingDilution") %>' /></td>
             </tr>
             <tr>
                 <td>Lot Number</td>
-                <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
+                <td><asp:TextBox ID="txtlotNumber" runat="server" CssClass="quickValidate" data-validate="required" data-name="Lot Number" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
                 <td>Antigen</td>
@@ -192,7 +197,9 @@
             </tr>
         </table>
     </div>
-    
+    <script type="text/javascript">
+        $('#popUp').quickValidate();
+    </script>
     <div id="content">
         <h3>Secondary Antibodies</h3>
 

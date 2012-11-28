@@ -6,6 +6,10 @@
 
     <div id="popUp">
         <h3>Vector<a href="#close"><i class="icon-remove-sign"></i></a></h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
@@ -20,11 +24,11 @@
             </tr>
             <tr>
                 <td>Vector Name:</td>
-                <td><asp:TextBox ID="txtvectorName" runat="server" Text='<%# Eval("vectorName") %>' /></td>
+                <td><asp:TextBox ID="txtvectorName" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("vectorName") %>' /></td>
             </tr>
             <tr>
                 <td>Multiple Cloning Site:</td>
-                <td><asp:TextBox ID="txtmultipleCloningSite" runat="server" Text='<%# Eval("multipleCloningSite") %>' /></td>
+                <td><asp:TextBox ID="txtmultipleCloningSite" CssClass="quickValidate" data-validate="required" data-name="Multiple Cloning Site" runat="server" Text='<%# Eval("multipleCloningSite") %>' /></td>
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
@@ -81,7 +85,9 @@
            
         </table>
     </div>
-
+    <script type="text/javascript">
+        $('#popUp').quickValidate();
+    </script>
     <div id="content">
         <h3>Vectors</h3>
         <div class="filter">

@@ -5,6 +5,10 @@
     
     <div id="popUp">
         <h3>DNA Construct<a href="#close"><i class="icon-remove-sign"></i></a></h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
@@ -17,19 +21,19 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox CssClass="quickValidate" data-validate="required" data-name="Name" ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Insert:</td>
-                <td><asp:TextBox ID="txtinsert" runat="server" Text='<%# Eval("insert") %>' /></td>
+                <td><asp:TextBox CssClass="quickValidate" data-validate="required" data-name="Insert" ID="txtinsert" runat="server" Text='<%# Eval("insert") %>' /></td>
             </tr>
             <tr>
                 <td>Vector:</td>
-                <td><asp:TextBox ID="txtvector" runat="server" Text='<%# Eval("vector") %>' /></td>
+                <td><asp:TextBox ID="txtvector" CssClass="quickValidate" data-validate="required" data-name="Vector" runat="server" Text='<%# Eval("vector") %>' /></td>
             </tr>
             <tr>
                 <td>Species:</td>
-                <td><asp:TextBox ID="txtspecies" runat="server" Text='<%# Eval("species") %>' /></td>
+                <td><asp:TextBox ID="txtspecies" CssClass="quickValidate" data-validate="required" data-name="Species" runat="server" Text='<%# Eval("species") %>' /></td>
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
@@ -267,7 +271,10 @@
             </tr>
         </table>
     </div>
-
+    
+    <script type="text/javascript">
+        $('#popUp').quickValidate();
+    </script>
     <div id="content">
         <h3>DNA Constructs</h3>
 

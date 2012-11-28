@@ -4,6 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content">
         <h3>Add DNA Construct</h3>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
         <table class="data form table table-bordered table-striped">
             <tr>
                 <td>Lab:</td>
@@ -13,19 +17,19 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox ID="txtname" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Insert:</td>
-                <td><asp:TextBox ID="txtinsert" runat="server" Text='<%# Eval("insert") %>' /></td>
+                <td><asp:TextBox ID="txtinsert" CssClass="quickValidate" data-validate="required" data-name="Insert" runat="server" Text='<%# Eval("insert") %>' /></td>
             </tr>
             <tr>
                 <td>Vector:</td>
-                <td><asp:TextBox ID="txtvector" runat="server" Text='<%# Eval("vector") %>' /></td>
+                <td><asp:TextBox ID="txtvector" CssClass="quickValidate" data-validate="required" data-name="Vector" runat="server" Text='<%# Eval("vector") %>' /></td>
             </tr>
             <tr>
                 <td>Species:</td>
-                <td><asp:TextBox ID="txtSpecies" runat="server" Text='<%# Eval("species") %>' /></td>
+                <td><asp:TextBox ID="txtSpecies" CssClass="quickValidate" data-validate="required" data-name="Species" runat="server" Text='<%# Eval("species") %>' /></td>
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
@@ -268,4 +272,7 @@
             </tr>
         </table>
     </div>
+    <script type="text/javascript">
+        $('.form').quickValidate();
+    </script>
 </asp:Content>
