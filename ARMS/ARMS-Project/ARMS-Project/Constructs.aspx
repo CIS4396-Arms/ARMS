@@ -283,13 +283,13 @@
             <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
             <asp:DropDownList ID="ddlFilter" runat="server">
                 <asp:ListItem Value="labID">Lab ID</asp:ListItem>
-                <asp:ListItem Value="antibodyName">Name</asp:ListItem>
+                <asp:ListItem Value="name">Name</asp:ListItem>
                 <asp:ListItem Value="insert">Insert</asp:ListItem>
                 <asp:ListItem Value="vector">Vector</asp:ListItem>
                 <asp:ListItem Value="species">Species</asp:ListItem>
                 <asp:ListItem Value="antibioticResistance">Antibiotic Resistance</asp:ListItem>
-                <asp:ListItem Value="digestSite5">Digest Site 5'</asp:ListItem>
-                <asp:ListItem Value="digestSite3">Digest Site 3'</asp:ListItem>
+                <asp:ListItem Value="5'digestSite">Digest Site 5'</asp:ListItem>
+                <asp:ListItem Value="3'digestSite">Digest Site 3'</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go btn btn-success" OnClick="btnFilter_click" />
         </div>

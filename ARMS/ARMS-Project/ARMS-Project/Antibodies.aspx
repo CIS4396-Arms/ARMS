@@ -259,7 +259,7 @@
                 <asp:ListItem Value="clone">Clone</asp:ListItem>
                 <asp:ListItem Value="concentration">Concentration</asp:ListItem>
                 <asp:ListItem Value="workingDilution">Working Dilution</asp:ListItem>
-                <asp:ListItem Value="isotype">Isotype</asp:ListItem>
+                <asp:ListItem Value="antibodyIsotype">Isotype</asp:ListItem>
                 <asp:ListItem Value="applications">Applications</asp:ListItem>
                 <asp:ListItem Value="antigen">Antigen</asp:ListItem>
                 <asp:ListItem Value="fluorophore">Fluorophore</asp:ListItem>

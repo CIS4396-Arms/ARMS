@@ -499,7 +499,7 @@ namespace ARMS_Project
         public ArrayList searchForConstructs(String colName, String searchTerms)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE [Construct].[" + colName + "] LIKE '%" + searchTerms + "%';", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())
