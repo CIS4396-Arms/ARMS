@@ -99,6 +99,7 @@ function populateFields(obj) {
         $(this).attr('disabled', 'disabled');
         var attr = $(this).attr('id').replace('body_ddl', '');
         if (obj[attr] != '' && obj[attr] != 'n/a') {
+            console.log(attr);
             var value = obj[attr].toString();
             if (value.indexOf(',') != -1) {
                 value = value.split(",");

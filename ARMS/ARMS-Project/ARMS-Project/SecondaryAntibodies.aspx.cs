@@ -25,6 +25,16 @@ namespace ARMS_Project
                     //}
                 
             }
+
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddllabID.DataSource = labsDataSource;
+            ddllabID.DataTextField = "name";
+            ddllabID.DataValueField = "id";
+            ddllabID.DataBind();
+
            secondaryAntibodiesDataSource.TypeName = "ARMS_Project.SecondaryAntibodyLogic";
            secondaryAntibodiesDataSource.SelectMethod = "GetSecondaryAntibodies";
            secondaryAntibodiesDataSource.DataBind();
@@ -52,11 +62,32 @@ namespace ARMS_Project
             temp.applications = txtapplications.Text;
             temp.concentration = txtconcentration.Text;
             temp.excitation = txtexcitation.Text;
-            temp.flourophore = txtflourophore.Text;
-            temp.hostSpecies = txthostSpecies.Text;
-            temp.labID = int.Parse(txtlabID.Text);
+            if (ddlfluorophore.SelectedValue != "Other")
+            {
+                temp.fluorophore = ddlfluorophore.SelectedValue;
+            }
+            else
+            {
+                temp.fluorophore = txtfluorophore.Text;
+            }
+            temp.hostSpecies = ddlhostSpecies.SelectedValue;
+            temp.labID = int.Parse(ddllabID.SelectedValue);
             temp.lotNumber = txtlotNumber.Text;
-            temp.reactiveSpecies = txtreactiveSpecies.Text;
+            String reactiveSpecies = "";
+            int i = 0;
+            foreach (ListItem li in ddlreactiveSpecies.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        reactiveSpecies += ",";
+                    }
+                    reactiveSpecies += li.Value;
+                    i++;
+                }
+            }
+            temp.reactiveSpecies = reactiveSpecies;
             temp.workingDilution = txtworkingDilution.Text;
             myConn.updateSecondaryAntibody(temp);
             gvSecondaryAntibodies.DataBind();

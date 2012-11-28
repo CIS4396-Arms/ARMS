@@ -95,7 +95,7 @@ namespace ARMS_Project
         public Boolean addSecondaryAntibody(SecondaryAntibody temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.SecondaryAntibody VALUES(" + temp.labID + ",'" + temp.concentration + "','" + temp.excitation + "','" + temp.antibodyName + "','" + temp.hostSpecies + "','" + temp.reactiveSpecies + "','" + temp.flourophore + "','" + temp.workingDilution + "','" + temp.lotNumber + "','" + temp.antigen + "','" + temp.applications + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.SecondaryAntibody VALUES(" + temp.labID + ",'" + temp.concentration + "','" + temp.excitation + "','" + temp.antibodyName + "','" + temp.hostSpecies + "','" + temp.reactiveSpecies + "','" + temp.fluorophore + "','" + temp.workingDilution + "','" + temp.lotNumber + "','" + temp.antigen + "','" + temp.applications + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -604,7 +604,7 @@ namespace ARMS_Project
         public Boolean updateSecondaryAntibody(SecondaryAntibody temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE dbo.SecondaryAntibody SET LabID='" + temp.labID + "', Concentration='" + temp.concentration + "', Excitation='" + temp.excitation + "', AntibodyName='" + temp.antibodyName + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Fluorophore='" + temp.flourophore + "', WorkingDilution='" + temp.workingDilution + "', LotNumber='" + temp.lotNumber + "', Antigen='" + temp.antigen + "', Applications='" + temp.applications + "' WHERE ID=" + temp.id + ";", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE dbo.SecondaryAntibody SET LabID='" + temp.labID + "', Concentration='" + temp.concentration + "', Excitation='" + temp.excitation + "', AntibodyName='" + temp.antibodyName + "', HostSpecies='" + temp.hostSpecies + "', ReactiveSpecies='" + temp.reactiveSpecies + "', Fluorophore='" + temp.fluorophore + "', WorkingDilution='" + temp.workingDilution + "', LotNumber='" + temp.lotNumber + "', Antigen='" + temp.antigen + "', Applications='" + temp.applications + "' WHERE ID=" + temp.id + ";", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();

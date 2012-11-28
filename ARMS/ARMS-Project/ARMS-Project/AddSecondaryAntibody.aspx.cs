@@ -21,21 +21,44 @@ namespace ARMS_Project
                 //    Response.Redirect("Login.aspx");
                 //}
             }
+
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddlLabID.DataSource = labsDataSource;
+            ddlLabID.DataTextField = "name";
+            ddlLabID.DataValueField = "id";
+            ddlLabID.DataBind();
         }
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
             SecondaryAntibody antibody = new SecondaryAntibody();
-            antibody.labID = int.Parse(txtLabID.Text);
+            antibody.labID = int.Parse(ddlLabID.SelectedValue);
             antibody.antibodyName = txtName.Text;
             antibody.antigen = txtAntigen.Text;
             antibody.applications = txtApplications.Text;
             antibody.concentration = txtConcentration.Text;
             antibody.excitation = txtExcitation.Text;
-            antibody.flourophore = txtFlourophore.Text;
-            antibody.hostSpecies = txtHostSpecies.Text;
+            antibody.fluorophore = ddlFluorophore.SelectedValue;
+            antibody.hostSpecies = ddlHostSpecies.SelectedValue;
             antibody.lotNumber = txtLotNumber.Text;
-            antibody.reactiveSpecies = txtReactiveSpecies.Text;
+            String reactiveSpecies = "";
+            int i = 0;
+            foreach (ListItem li in ddlReactiveSpecies.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        reactiveSpecies += ",";
+                    }
+                    reactiveSpecies += li.Value;
+                    i++;
+                }
+            }
+            antibody.reactiveSpecies = reactiveSpecies;
             antibody.workingDilution = txtWorkingDilution.Text;
             if (myConn.addSecondaryAntibody(antibody))
             {

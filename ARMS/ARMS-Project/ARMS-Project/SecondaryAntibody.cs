@@ -36,7 +36,7 @@ namespace ARMS_Project
         public String antibodyName { get; set; }
         public String hostSpecies { get; set; }
         public String reactiveSpecies { get; set; }
-        public String flourophore { get; set; }
+        public String fluorophore { get; set; }
         public String workingDilution { get; set; }
         public String lotNumber { get; set; }
         public String antigen { get; set; }
@@ -54,7 +54,7 @@ namespace ARMS_Project
             antibodyName = "";
             hostSpecies = "";
             reactiveSpecies = "";
-            flourophore = "";
+            fluorophore = "";
             workingDilution = "";
             lotNumber = "";
             antigen = "";
@@ -73,7 +73,7 @@ namespace ARMS_Project
             antibodyName = newAntibodyName;
             hostSpecies = newHostSpecies;
             reactiveSpecies = newReactiveSpecies;
-            flourophore = newFlourophore;
+            fluorophore = newFlourophore;
             workingDilution = newWorkingDilution;
             lotNumber = newLotNumber;
             antigen = newAntigen;
@@ -92,7 +92,7 @@ namespace ARMS_Project
             antibodyName = newAntibodyName;
             hostSpecies = newHostSpecies;
             reactiveSpecies = newReactiveSpecies;
-            flourophore = newFlourophore;
+            fluorophore = newFlourophore;
             workingDilution = newWorkingDilution;
             lotNumber = newLotNumber;
             antigen = newAntigen;
@@ -114,7 +114,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antibody Type: Secondary || ID: " + id + " || Lab ID: " + labID + " || Concentration: " + concentration + " || Excitation: " + excitation + " || Antibody Name: " + antibodyName + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Flourophore: " + flourophore + " || Working Dilution: " + workingDilution + " || Lot Number: " + lotNumber + " || Antigen: " + antigen + " || Applications: " + applications);
+            return ("Antibody Type: Secondary || ID: " + id + " || Lab ID: " + labID + " || Concentration: " + concentration + " || Excitation: " + excitation + " || Antibody Name: " + antibodyName + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Flourophore: " + fluorophore + " || Working Dilution: " + workingDilution + " || Lot Number: " + lotNumber + " || Antigen: " + antigen + " || Applications: " + applications);
         }
     }
 }

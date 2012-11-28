@@ -13,13 +13,13 @@ namespace ARMS_Project {
     public partial class AddSecondaryAntibody {
         
         /// <summary>
-        /// txtLabID control.
+        /// ddlLabID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLabID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLabID;
         
         /// <summary>
         /// txtName control.
@@ -49,31 +49,40 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtExcitation;
         
         /// <summary>
-        /// txtHostSpecies control.
+        /// ddlHostSpecies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHostSpecies;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHostSpecies;
         
         /// <summary>
-        /// txtReactiveSpecies control.
+        /// ddlReactiveSpecies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReactiveSpecies;
+        protected global::System.Web.UI.WebControls.ListBox ddlReactiveSpecies;
         
         /// <summary>
-        /// txtFlourophore control.
+        /// ddlFluorophore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFlourophore;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFluorophore;
+        
+        /// <summary>
+        /// fluorophoreOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fluorophoreOther;
         
         /// <summary>
         /// txtWorkingDilution control.
