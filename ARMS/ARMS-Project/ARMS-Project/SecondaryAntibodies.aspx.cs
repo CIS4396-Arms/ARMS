@@ -38,6 +38,9 @@ namespace ARMS_Project
            secondaryAntibodiesDataSource.TypeName = "ARMS_Project.SecondaryAntibodyLogic";
            secondaryAntibodiesDataSource.SelectMethod = "GetSecondaryAntibodies";
            secondaryAntibodiesDataSource.DataBind();
+
+           alertNoResults.Visible = false;
+           alertResults.Visible = false;
         }
 
         //  Delete object
@@ -103,6 +106,15 @@ namespace ARMS_Project
             secondaryAntibodiesDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
             secondaryAntibodiesDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
             secondaryAntibodiesDataSource.DataBind();
+            gvSecondaryAntibodies.DataBind();
+            if (gvSecondaryAntibodies.Rows.Count == 0)
+            {
+                alertNoResults.Visible = true;
+            }
+            else
+            {
+                alertResults.Visible = true;
+            }
         }
 
         // Returns json object for ajax request

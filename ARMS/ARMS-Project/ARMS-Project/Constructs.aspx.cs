@@ -38,6 +38,10 @@ namespace ARMS_Project
             constructsDataSource.TypeName = "ARMS_Project.ConstructLogic";
             constructsDataSource.SelectMethod = "GetConstructs";
             constructsDataSource.DataBind();
+
+            alertNoResults.Visible = false;
+            alertResults.Visible = false;
+
         }
 
         //  Filter gridview with parameters
@@ -50,6 +54,15 @@ namespace ARMS_Project
             constructsDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
             constructsDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
             constructsDataSource.DataBind();
+            gvConstructs.DataBind();
+            if (gvConstructs.Rows.Count == 0)
+            {
+                alertNoResults.Visible = true;
+            }
+            else
+            {
+                alertResults.Visible = true;
+            }
         }
 
         //  Delete object

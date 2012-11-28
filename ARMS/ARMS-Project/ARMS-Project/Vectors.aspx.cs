@@ -37,6 +37,9 @@ namespace ARMS_Project
             vectorsDataSource.TypeName = "ARMS_Project.VectorLogic";
             vectorsDataSource.SelectMethod = "GetVectors";
             vectorsDataSource.DataBind();
+
+            alertNoResults.Visible = false;
+            alertResults.Visible = false;
         }
 
         //  handle protocol file upload
@@ -78,6 +81,15 @@ namespace ARMS_Project
             vectorsDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
             vectorsDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
             vectorsDataSource.DataBind();
+            gvVectors.DataBind();
+            if (gvVectors.Rows.Count == 0)
+            {
+                alertNoResults.Visible = true;
+            }
+            else
+            {
+                alertResults.Visible = true;
+            }
         }
 
         //  Delete object

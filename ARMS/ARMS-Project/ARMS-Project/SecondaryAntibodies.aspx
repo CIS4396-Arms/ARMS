@@ -221,7 +221,13 @@
             </asp:DropDownList>
             <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go btn btn-success" OnClick="btnFilter_click" />
         </div>
+        <div class="alert alert-info" runat="server" ID="alertNoResults">   
+            <p>Nothing found, <a href="SecondaryAntibodies.aspx">Clear Search</a></p>
+        </div>
 
+        <div class="alert alert-success" runat="server" ID="alertResults">   
+            <p><a href="SecondaryAntibodies.aspx">Clear Search</a></p>
+        </div>
         <asp:objectdatasource
               id="secondaryAntibodiesDataSource"
               runat="server"
@@ -242,7 +248,7 @@
                     <ItemTemplate>
                         <span id="openSecondaryAntibodies">
                             <asp:HyperLink ID="viewButton" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
-                            <asp:LinkButton ID="deleteButton" runat="server" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
+                            <asp:LinkButton ID="deleteButton" runat="server" CssClass="deleteButton" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
                         </span>
                     </ItemTemplate>
                 </asp:TemplateField>

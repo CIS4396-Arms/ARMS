@@ -40,7 +40,11 @@ namespace ARMS_Project
             antibodiesDataSource.SelectMethod = "GetPrimaryAntibodies";
             antibodiesDataSource.DataBind();
 
-            
+            gvAntibodies.DataBind();
+
+            alertResults.Visible = false;
+            alertNoResults.Visible = false;
+
         }
 
         //  handle protocol file upload
@@ -82,6 +86,16 @@ namespace ARMS_Project
             antibodiesDataSource.SelectParameters.Add("filter", TypeCode.String, ddlFilter.SelectedValue.ToString());
             antibodiesDataSource.SelectParameters.Add("keyword", TypeCode.String, txtFilterKeyword.Text);
             antibodiesDataSource.DataBind();
+            gvAntibodies.DataBind();
+            if (gvAntibodies.Rows.Count == 0)
+            {
+                alertNoResults.Visible = true;
+            }
+            else
+            {
+                alertResults.Visible = true;
+            }
+
         }
 
         //  Delete object

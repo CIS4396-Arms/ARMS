@@ -168,10 +168,19 @@ $(document).ready(function () {
         }
     });
 
-    $('.alert').hide();
+    $('.alert').not('.alert-info, .alert-success').hide();
 
     $('.close').click(function () {
         $("." + $(this).attr('data-dismiss')).hide();
+    });
+
+    $('.deleteButton').click(function () {
+        var r = confirm("Are you sure you want to delete?");
+        if (r == true) {
+            return true;
+        } else {
+            return false;
+        }
     });
 
 });
