@@ -7,8 +7,8 @@ namespace ARMS_Project
 {
     public class Lab
     {
-        public int id;
-        public String name;
+        public int id { get; set; }
+        public String name { get; set; }
 
         /// <summary>
         /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
@@ -17,6 +17,15 @@ namespace ARMS_Project
         {
             id = 0;
             name = "";
+        }
+
+        /// <summary>
+        /// Overloaded Constructor.
+        /// </summary>
+        public Lab(String newName)
+        {
+            id = 0;
+            name = newName;
         }
 
         /// <summary>

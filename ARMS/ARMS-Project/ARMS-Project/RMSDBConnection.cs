@@ -51,6 +51,24 @@ namespace ARMS_Project
         }
 
         /// <summary>
+        /// Inserts the provided lab object as a new record into the database
+        /// </summary>
+        /// <param name="temp">Construct object to be added to the database</param>
+        /// <returns>True if add is successful, false otherwise</returns>
+        public Boolean addLab(Lab temp)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Lab VALUES('" + temp.name + "');", conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+        /// <summary>
         /// Inserts the provided PrimaryAntibody object as a new record into the database
         /// </summary>
         /// <param name="temp">PrimaryAntibody object to be added to the database</param>
@@ -226,7 +244,7 @@ namespace ARMS_Project
         public ArrayList getAllLabs()
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_Lab;", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Lab;", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())

@@ -7,14 +7,14 @@
         <div class="subForm">
             <h4>Create Lab</h4>
             <label>Lab Name:</label>
-            <asp:TextBox ID="txtLabName" runat="server"></asp:TextBox>
-            <asp:Button ID="btnCreateLab" runat="server" text="Create" CssClass="btn" />
+            <asp:TextBox ID="txtLabName" runat="server" ontextchanged="txtLabName_TextChanged"></asp:TextBox>
+            <asp:Button ID="btnCreateLab" runat="server" text="Create" CssClass="btn" OnClick="btnCreateLab_Click" />
         </div>
         <div class="subForm">
             <h4>Add User to Lab</h4>
             <label>TU AccessNet Username:</label>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
-            <label>Lab Id:</label>
+            <label>Lab Name:</label>
             <asp:DropDownList ID="ddlLabs" runat="server"></asp:DropDownList>
             <asp:Button ID="btnAddUserToLab" runat="server" text="Add" CssClass="btn" />
         </div>
