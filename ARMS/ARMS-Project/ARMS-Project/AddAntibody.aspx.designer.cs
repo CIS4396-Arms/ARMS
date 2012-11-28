@@ -67,22 +67,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtClone;
         
         /// <summary>
-        /// txtHostSpecies control.
+        /// ddlHostSpecies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHostSpecies;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHostSpecies;
         
         /// <summary>
-        /// txtReactiveSpecies control.
+        /// ddlReactiveSpecies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReactiveSpecies;
+        protected global::System.Web.UI.WebControls.ListBox ddlReactiveSpecies;
         
         /// <summary>
         /// txtConcentration control.
@@ -121,13 +121,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAntigen;
         
         /// <summary>
-        /// txtFluorophore control.
+        /// ddlFluorophore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFluorophore;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFluorophore;
+        
+        /// <summary>
+        /// fluorophoreOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fluorophoreOther;
         
         /// <summary>
         /// txtApplication control.

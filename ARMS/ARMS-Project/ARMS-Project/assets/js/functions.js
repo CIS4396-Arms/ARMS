@@ -9,6 +9,8 @@ var popUp = {
         $('a[href^=#close]').click(function (e) {
             e.preventDefault();
             $(this).parents('div').first().hide();
+            $('a.edit').show();
+            $('a.save').addClass('hide');
         });
     },
 
@@ -30,9 +32,11 @@ var popUp = {
     edit: function (popup, e) {
         e.preventDefault();
 
-        $(popup).find('input').each(function () {
+        $(popup).find('input, select, button, file').each(function () {
             $(this).removeAttr('disabled');
         });
+
+        $('select').trigger("liszt:updated");
     }
 }
 
@@ -91,14 +95,29 @@ function BindConstruct(id) {
 
 //  popuplate popup fields
 function populateFields(obj) {
-    console.log(obj);
-    $('#popUp input').each(function () {
+    $('#popUp select').each(function () {
+        $(this).attr('disabled', 'disabled');
+        var attr = $(this).attr('id').replace('body_ddl', '');
+        if (obj[attr] != '' && obj[attr] != 'n/a') {
+            var value = obj[attr].toString();
+            if (value.indexOf(',') != -1) {
+                value = value.split(",");
+            }
+            $(this).val(value).trigger("liszt:updated");
+        }
+    });
+    $('#popUp input').not('.chzn-container input').each(function () {
         if ($(this).attr('type') == 'text' || $(this).attr('type') == 'hidden') {
             $(this).attr('disabled', 'disabled');
             if ($(this).attr('id').indexOf('txt') != -1) {
                 var attr = $(this).attr('id').replace('body_txt', '');
                 if (obj[attr] != '' && obj[attr] != 'n/a') {
                     $(this).val(obj[attr]);
+                    if ($(this).val() == $('#body_ddl' + attr).val()) {
+                        $(this).hide();
+                    } else {
+                        $('#body_ddl' + attr).val("Other").trigger("liszt:updated");
+                    }
                 }
             };
         }
@@ -116,7 +135,6 @@ function populateFields(obj) {
         var attr = obj.type.toLowerCase().replace(" antibody", "");
         $("#body_rb" + attr).attr('checked', 'checked');
     }
-    //console.log(obj);
 }
 
 function capitalizeFirstLetter(string) {
@@ -135,8 +153,18 @@ $(document).ready(function () {
 
     $('a.edit').click(function (e) {
         $(this).hide();
-        $(this).parent().find('.save').show();
+        $(this).parent().find('.save').removeClass('hide');
         popUp.edit('#popUp', e);
+    });
+
+    $(".chzn-select").chosen();
+
+    $("select").change(function () {
+        if ($(this).find("option:selected").val() == "Other") {
+            $(this).parent().find('input.other').removeClass("hide");
+        } else {
+            $(this).parent().find('input.other').addClass("hide");
+        }
     });
 
 });

@@ -46,7 +46,7 @@ html[xmlns] .clearfix {
 	margin:0 auto;
 }
 
-.hide {display:none;}
+.hide {display:none !important;}
 
 /* masthead */
 

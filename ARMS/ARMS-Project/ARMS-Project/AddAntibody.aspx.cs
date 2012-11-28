@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections;
 
 namespace ARMS_Project
 {
@@ -24,8 +25,14 @@ namespace ARMS_Project
                 //}
             }
 
-            ddlLabID.DataSource = myConn.getAllLabs();
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
 
+            ddlLabID.DataSource = labsDataSource;
+            ddlLabID.DataTextField = "name";
+            ddlLabID.DataValueField = "id";
+            ddlLabID.DataBind();
         }
 
         //  handle protocol file upload
@@ -72,14 +79,35 @@ namespace ARMS_Project
             {
                 antibody.type = "Polyclonal";
             }
-            antibody.hostSpecies = txtHostSpecies.Text;
-            antibody.reactiveSpecies = txtReactiveSpecies.Text;
+            antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            String reactiveSpecies = "";
+            int i = 0;
+            foreach (ListItem li in ddlReactiveSpecies.Items)
+            {  
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        reactiveSpecies += ",";
+                    }
+                    reactiveSpecies += li.Value;
+                    i++;
+                }
+            }
+            antibody.reactiveSpecies = reactiveSpecies;
             antibody.concentration = txtConcentration.Text;
             antibody.workingDilution = txtWorkingDilution.Text;
             antibody.isotype = txtIsotype.Text;
             antibody.antigen = txtAntigen.Text;
             antibody.applications = txtApplication.Text;
-            antibody.fluorophore = txtFluorophore.Text;
+            if (ddlFluorophore.SelectedValue != "Other")
+            {
+                antibody.fluorophore = ddlFluorophore.SelectedValue;
+            }
+            else
+            {
+                antibody.fluorophore = fluorophoreOther.Text;
+            }
             antibody.protocolHREF = protocolHREF.Value;
             if (myConn.addPrimaryAntibody(antibody))
             {
