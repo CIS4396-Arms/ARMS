@@ -4,10 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 <div id="content">
         <h3>New Vector</h3>
-        <table class="data form">
+        <table class="data form table table-striped table-bordered">
             <tr>
-                <td>Lab ID:</td>
-                <td><asp:TextBox ID="txtlabID" runat="server" Text='<%# Eval("labID") %>' /></td>
+                <td>Lab:</td>
+                <td>
+                    <asp:DropDownList ID="ddlLabID" runat="server"></asp:DropDownList>
+                </td>
             </tr>
             <tr>
                 <td>Vector Name:</td>
@@ -19,7 +21,19 @@
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
-                <td><asp:TextBox ID="txtantibioticResistance" runat="server" Text='<%# Eval("antibioticResistance") %>' /></td>
+                <td>
+                    <asp:DropDownList ID="ddlantibioticResistance" runat="server" CssClass="chzn-select">
+                        <asp:ListItem>Ampicillin</asp:ListItem>
+                        <asp:ListItem>Carbenicillin</asp:ListItem>
+                        <asp:ListItem>Chloramphenicol</asp:ListItem>
+                        <asp:ListItem>Kanamycin</asp:ListItem>
+                        <asp:ListItem>Rifampicin</asp:ListItem>
+                        <asp:ListItem>Tetracycline HCl</asp:ListItem>
+                        <asp:ListItem>Streptomycin</asp:ListItem>
+                        <asp:ListItem>Other</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:TextBox ID="txtantibioticResistance" runat="server" placeholder="Other" CssClass="other hide" />
+                </td>
             </tr>
             <tr>
                 <td>Promoter:</td>
@@ -46,8 +60,8 @@
                    <asp:Button id="btnSpecUpload" 
                        Text="Upload file"
                        OnClick="SpecUpload_Click"
-                       runat="server">
-                   </asp:Button>
+                       runat="server"
+                       CssClass="btn btn-primary" />
                    
                    <asp:Label ID="lblSpecUpload" runat="server"></asp:Label>
 
@@ -56,7 +70,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_click" Text="Submit" />
+                    <asp:Button ID="btnSubmit" CssClass="btn btn-success" runat="server" OnClick="btnSubmit_click" Text="Submit" />
                 </td>
             </tr>
         </table>

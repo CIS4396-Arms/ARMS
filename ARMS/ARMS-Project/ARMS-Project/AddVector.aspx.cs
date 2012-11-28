@@ -22,6 +22,14 @@ namespace ARMS_Project
                 //    Response.Redirect("Login.aspx");
                 //}
             }
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddlLabID.DataSource = labsDataSource;
+            ddlLabID.DataTextField = "name";
+            ddlLabID.DataValueField = "id";
+            ddlLabID.DataBind();
         }
 
         //  handle protocol file upload
@@ -56,8 +64,15 @@ namespace ARMS_Project
         protected void btnSubmit_click(Object sender, EventArgs e)
         {
             Vector vector = new Vector();
-            vector.antibioticResistance = txtantibioticResistance.Text;
-            vector.labID = int.Parse(txtlabID.Text);
+            if (ddlantibioticResistance.SelectedValue != "Other")
+            {
+                vector.antibioticResistance = ddlantibioticResistance.SelectedValue;
+            }
+            else
+            {
+                vector.antibioticResistance = txtantibioticResistance.Text;
+            }
+            vector.labID = int.Parse(ddlLabID.SelectedValue);
             vector.multipleCloningSite = txtmultipleCloningSite.Text;
             vector.notes = txtnotes.Text;
             vector.promoter = txtpromter.Text;

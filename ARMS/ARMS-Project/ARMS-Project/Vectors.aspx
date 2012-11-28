@@ -10,11 +10,13 @@
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
         </div>
-        <table class="data form">
+        <table class="data form table table-striped table-bordered"">
            <asp:HiddenField ID="txtid" runat="server" />
            <tr>
-                <td>Lab ID:</td>
-                <td><asp:TextBox ID="txtlabID" runat="server" Text='<%# Eval("labID") %>' /></td>
+                <td>Lab:</td>
+                <td>
+                    <asp:DropDownList ID="ddllabID" runat="server"></asp:DropDownList>
+                </td>
             </tr>
             <tr>
                 <td>Vector Name:</td>
@@ -26,7 +28,19 @@
             </tr>
             <tr>
                 <td>Antibiotic Resistance</td>
-                <td><asp:TextBox ID="txtantibioticResistance" runat="server" Text='<%# Eval("antibioticResistance") %>' /></td>
+                <td>
+                    <asp:DropDownList ID="ddlantibioticResistance" runat="server" CssClass="chzn-select">
+                        <asp:ListItem>Ampicillin</asp:ListItem>
+                        <asp:ListItem>Carbenicillin</asp:ListItem>
+                        <asp:ListItem>Chloramphenicol</asp:ListItem>
+                        <asp:ListItem>Kanamycin</asp:ListItem>
+                        <asp:ListItem>Rifampicin</asp:ListItem>
+                        <asp:ListItem>Tetracycline HCl</asp:ListItem>
+                        <asp:ListItem>Streptomycin</asp:ListItem>
+                        <asp:ListItem>Other</asp:ListItem>
+                    </asp:DropDownList><p class="clearfix"><br />
+                    <asp:TextBox ID="txtantibioticResistance" runat="server" placeholder="Other" CssClass="other" /></p>
+                </td>
             </tr>
             <tr>
                 <td>Promoter:</td>
@@ -45,7 +59,8 @@
                 <td>
 
                     <asp:FileUpload id="SpecUpload"                 
-                       runat="server">
+                       runat="server"
+                       enabled="false">
                    </asp:FileUpload>
 
                    <br /><br />
@@ -53,8 +68,10 @@
                    <asp:Button id="btnSpecUpload" 
                        Text="Upload file"
                        OnClick="SpecUpload_Click"
-                       runat="server">
-                   </asp:Button>
+                       runat="server"
+                       CssClass="btn btn-primary"
+                       Enabled="false"
+                       />
                    
                    <asp:Label ID="lblSpecUpload" runat="server"></asp:Label>
 
@@ -78,13 +95,13 @@
                 <asp:ListItem Value="promoter">Promoter</asp:ListItem>
                 <asp:ListItem Value="vectorSize">Size</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go" OnClick="btnFilter_click" />
+            <asp:Button ID="btnFilter" runat="server" Text="Go" CssClass="go btn btn-success" OnClick="btnFilter_click" />
         </div>
         <asp:objectdatasource
               id="vectorsDataSource"
               runat="server"
                />
-        <asp:GridView ID="gvVectors" runat="server" DataSourceID="vectorsDataSource" AutoGenerateColumns="False" CssClass="data" AllowPaging="true" AllowSorting="true">
+        <asp:GridView ID="gvVectors" runat="server" DataSourceID="vectorsDataSource" AutoGenerateColumns="False" CssClass="data table" AllowPaging="true" AllowSorting="true">
             <SortedAscendingHeaderStyle CssClass="sortAsc" />
             <SortedAscendingCellStyle CssClass="cellAsc" />
             <SortedDescendingHeaderStyle CssClass="sortDesc" />
@@ -114,8 +131,6 @@
                 height="30px"
                 verticalalign="Bottom"
                 horizontalalign="Center"/>
-        </asp:GridView>
-
         </asp:GridView>
     </div>
 </asp:Content>

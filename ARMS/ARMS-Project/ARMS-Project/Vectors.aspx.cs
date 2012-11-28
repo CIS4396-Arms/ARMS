@@ -24,6 +24,16 @@ namespace ARMS_Project
                     //}
                 
             }
+
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddllabID.DataSource = labsDataSource;
+            ddllabID.DataTextField = "name";
+            ddllabID.DataValueField = "id";
+            ddllabID.DataBind();
+
             vectorsDataSource.TypeName = "ARMS_Project.VectorLogic";
             vectorsDataSource.SelectMethod = "GetVectors";
             vectorsDataSource.DataBind();
@@ -87,8 +97,15 @@ namespace ARMS_Project
         {
             Vector temp = new Vector();
             temp.id = int.Parse(txtid.Value);
-            temp.labID = int.Parse(txtlabID.Text);
-            temp.antibioticResistance = txtantibioticResistance.Text;
+            temp.labID = int.Parse(ddllabID.SelectedValue);
+            if (ddlantibioticResistance.SelectedValue != "Other")
+            {
+                temp.antibioticResistance = ddlantibioticResistance.SelectedValue;
+            }
+            else
+            {
+                temp.antibioticResistance = txtantibioticResistance.Text;
+            }
             temp.multipleCloningSite = txtmultipleCloningSite.Text;
             temp.notes = txtnotes.Text;
             temp.promoter = txtpromter.Text;
