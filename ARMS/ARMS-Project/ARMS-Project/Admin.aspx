@@ -7,8 +7,9 @@
 
         <div class="alert alert-error">
           <button type="button" class="close" data-dismiss="alert">×</button>
-          <p>Warning!</p>
+          <p></p>
         </div>
+
         <fieldset id="createLab" class="form-horizontal">
             <legend>Create Lab</legend>
             <label>Lab Name:</label>

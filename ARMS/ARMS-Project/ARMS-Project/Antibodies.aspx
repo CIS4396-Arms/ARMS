@@ -5,6 +5,12 @@
 
     <div id="popUp">
         <h3>Antibody<a href="#close"><i class="icon-remove-sign"></i></a></h3>
+
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
+
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
@@ -19,11 +25,11 @@
             </tr>
             <tr>
                 <td>Lot Number:</td>
-                <td><asp:TextBox ID="txtlotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
+                <td><asp:TextBox ID="txtlotNumber" CssClass="quickValidate" data-validate="required" data-name="Lot Number" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtname" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox ID="txtname" runat="server" CssClass="quickValidate" data-validate="required" data-name="Name" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Type:</td>
@@ -223,7 +229,7 @@
                        Text="Upload file"
                        OnClick="ProtcolUpload_Click"
                        runat="server"
-                       CssClass="btn btn-success"
+                       CssClass="btn btn-success upload"
                        Enabled="false" />
                    
                    <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
@@ -235,6 +241,9 @@
            
         </table>
     </div>
+    <script type="text/javascript">
+        $('#popUp').quickValidate();
+    </script>
     <div id="content">
         <h3>Primary Antibodies</h3>
         <div class="filter">

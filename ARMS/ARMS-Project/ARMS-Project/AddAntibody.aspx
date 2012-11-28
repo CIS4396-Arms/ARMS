@@ -6,7 +6,13 @@
     
     <div id="content">
         <h3>Add Antibody</h3>
-        <table class="data form table table-striped table-bordered">
+
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <p></p>
+        </div>
+        
+        <table class="data form table table-striped table-bordered form-inline">
             <tr>
                 <td>Lab:</td>
                 <td>
@@ -15,11 +21,11 @@
             </tr>
             <tr>
                 <td>Lot Number:</td>
-                <td><asp:TextBox ID="txtLotNumber" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
+                <td><asp:TextBox ID="txtLotNumber" CssClass="quickValidate" data-validate="required" data-name="Lot Number" runat="server" Text='<%# Eval("lotNumber") %>' /></td>
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><asp:TextBox ID="txtName" runat="server" Text='<%# Eval("name") %>' /></td>
+                <td><asp:TextBox ID="txtName" CssClass="quickValidate" data-validate="required" data-name="Name" runat="server" Text='<%# Eval("name") %>' /></td>
             </tr>
             <tr>
                 <td>Type:</td>
@@ -218,7 +224,7 @@
                        Text="Upload file"
                        OnClick="ProtcolUpload_Click"
                        runat="server" 
-                       CssClass="btn btn-primary" />
+                       CssClass="btn btn-primary upload" />
                    
                    
                    <asp:Label ID="lblProtcolUpload" runat="server"></asp:Label>
@@ -232,6 +238,8 @@
                 </td>
             </tr>
         </table>
-
+        <script type="text/javascript">
+            $('.form').quickValidate();
+        </script>
     </div>
 </asp:Content>

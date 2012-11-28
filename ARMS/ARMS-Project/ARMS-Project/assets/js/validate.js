@@ -195,7 +195,7 @@
 
             }
 
-            $(obj).find("input[type='submit']").click(function () {
+            $(obj).find("input[type='submit'], a.save").not("input.upload").click(function () {
                 if (!form.init()) {
                     $('.alert').find('p').html(form.error);
                     $('.alert').show();
