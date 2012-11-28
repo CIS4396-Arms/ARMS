@@ -5,6 +5,18 @@ using System.Web;
 
 namespace ARMS_Project
 {
+
+    public class LabLogic
+    {
+        // Get all antibodies
+        public static ArrayList GetLabs()
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return myConn.getAllLabs();
+        }
+
+    }
+
     public class Lab
     {
         public int id { get; set; }
