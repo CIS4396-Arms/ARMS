@@ -168,4 +168,10 @@ $(document).ready(function () {
         }
     });
 
+    $('.alert').hide();
+
+    $('.close').click(function () {
+        $("." + $(this).attr('data-dismiss')).hide();
+    });
+
 });
