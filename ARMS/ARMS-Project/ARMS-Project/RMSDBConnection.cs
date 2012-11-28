@@ -113,7 +113,7 @@ namespace ARMS_Project
         public Boolean addUser(User temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO ARMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.RMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();

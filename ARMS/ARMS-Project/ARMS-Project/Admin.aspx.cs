@@ -30,6 +30,7 @@ namespace ARMS_Project
                 tempLabs = myConn.getAllLabs().Cast<Lab>().ToList();
                 ddlLabs.DataSource = tempLabs;
                 ddlLabs.DataTextField = "name";
+                ddlLabs.DataValueField = "id";
                 ddlLabs.DataBind();
 
             }
@@ -54,6 +55,11 @@ namespace ARMS_Project
         protected void txtLabName_TextChanged(object sender, EventArgs e)
         {
             txtLabName.ForeColor = System.Drawing.Color.Black;
+        }
+
+        protected void btnAddUserToLab_Click(object sender, EventArgs e)
+        {
+            myConn.addUser(new User(txtUserName.Text, Convert.ToInt16(ddlLabs.SelectedValue), txtFullName.Text));
         }
     }
 }

@@ -4,7 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <div id="content" class="validate">
         <h3>Admin</h3>
-
         <div class="alert alert-error">
           <button type="button" class="close" data-dismiss="alert">×</button>
           <p></p>
@@ -20,9 +19,14 @@
             <legend>Add User to Lab</legend>
             <label>TU AccessNet Username:</label>
             <asp:TextBox ID="txtUserName" CssClass="quickValidate" data-validate="required" data-name="AccessNet Name" runat="server"></asp:TextBox>
+            <br /><br />
+             <label>Full Name:</label>
+            <asp:TextBox ID="txtFullName" CssClass="quickValidate" data-validate="required" data-name="Full Name" runat="server"></asp:TextBox>
+            <br /><br />
             <label>Lab Name:</label>
             <asp:DropDownList ID="ddlLabs" runat="server"></asp:DropDownList>
-            <asp:Button ID="btnAddUserToLab" runat="server" text="Add" CssClass="btn" />
+            <asp:Button ID="btnAddUserToLab" runat="server" text="Add" CssClass="btn" 
+                onclick="btnAddUserToLab_Click" />
         </fieldset>
         <script type="text/javascript">
             $('#createLab, #addUser').quickValidate();
