@@ -25,6 +25,16 @@ namespace ARMS_Project
                     //}
 
             }
+
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddllabID.DataSource = labsDataSource;
+            ddllabID.DataTextField = "name";
+            ddllabID.DataValueField = "id";
+            ddllabID.DataBind();
+
             constructsDataSource.TypeName = "ARMS_Project.ConstructLogic";
             constructsDataSource.SelectMethod = "GetConstructs";
             constructsDataSource.DataBind();
@@ -59,10 +69,45 @@ namespace ARMS_Project
         {
             Construct temp = new Construct();
             temp.id = int.Parse(txtid.Value);
-            temp.labID = int.Parse(txtlabID.Text);
-            temp.antibioticResistance = txtantibioticResistance.Text;
-            temp.digestSite3 = txtdigestSite3.Text;
-            temp.digestSite5 = txtdigestSite5.Text;
+            temp.labID = int.Parse(ddllabID.SelectedValue);
+            if (ddlantibioticResistance.SelectedValue != "Other")
+            {
+               temp.antibioticResistance = ddlantibioticResistance.SelectedValue;
+            }
+            else
+            {
+                temp.antibioticResistance = txtantibioticResistance.Text;
+            }
+            String digestSite5 = "";
+            int i = 0;
+            foreach (ListItem li in ddldigestSite5.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        digestSite5 += ",";
+                    }
+                    digestSite5 += li.Value;
+                    i++;
+                }
+            }
+            temp.digestSite5 = digestSite5;
+            String digestSite3 = "";
+            i = 0;
+            foreach (ListItem li in ddldigestSite3.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        digestSite3 += ",";
+                    }
+                    digestSite3 += li.Value;
+                    i++;
+                }
+            }
+            temp.digestSite3 = digestSite3;
             temp.insert = txtinsert.Text;
             temp.name = txtname.Text;
             temp.notes = txtnotes.Text;

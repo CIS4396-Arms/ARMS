@@ -23,6 +23,14 @@ namespace ARMS_Project
                 //    Response.Redirect("Login.aspx");
                 //}
             }
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddlLabID.DataSource = labsDataSource;
+            ddlLabID.DataTextField = "name";
+            ddlLabID.DataValueField = "id";
+            ddlLabID.DataBind();
         }
 
         //  submit
@@ -30,13 +38,48 @@ namespace ARMS_Project
         {
             Construct construct = new Construct();
             construct.name = txtname.Text;
-            construct.labID = int.Parse(txtlabID.Text);
+            construct.labID = int.Parse(ddlLabID.SelectedValue);
             construct.insert = txtinsert.Text;
             construct.species = txtSpecies.Text;
             construct.vector = txtvector.Text;
-            construct.antibioticResistance = txtantibioticResistance.Text;
-            construct.digestSite3 = txtdigestSite3.Text;
-            construct.digestSite5 = txtdigestSite5.Text;
+            if (ddlantibioticResistance.SelectedValue != "Other")
+            {
+                construct.antibioticResistance = ddlantibioticResistance.SelectedValue;
+            }
+            else
+            {
+                construct.antibioticResistance = txtantibioticResistance.Text;
+            }
+            String digestSite5 = "";
+            int i = 0;
+            foreach (ListItem li in ddldigestSite5.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        digestSite5 += ",";
+                    }
+                    digestSite5 += li.Value;
+                    i++;
+                }
+            }
+            construct.digestSite5 = digestSite5;
+            String digestSite3 = "";
+            i = 0;
+            foreach (ListItem li in ddldigestSite3.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        digestSite3 += ",";
+                    }
+                    digestSite3 += li.Value;
+                    i++;
+                }
+            }
+            construct.digestSite3 = digestSite3;
             if (myConn.addConstruct(construct))
             {
                 Response.Redirect("Constructs.aspx");

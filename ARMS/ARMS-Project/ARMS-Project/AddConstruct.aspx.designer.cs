@@ -13,13 +13,13 @@ namespace ARMS_Project {
     public partial class AddConstruct {
         
         /// <summary>
-        /// txtlabID control.
+        /// ddlLabID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlabID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLabID;
         
         /// <summary>
         /// txtname control.
@@ -58,6 +58,15 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtSpecies;
         
         /// <summary>
+        /// ddlantibioticResistance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlantibioticResistance;
+        
+        /// <summary>
         /// txtantibioticResistance control.
         /// </summary>
         /// <remarks>
@@ -67,22 +76,22 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtantibioticResistance;
         
         /// <summary>
-        /// txtdigestSite5 control.
+        /// ddldigestSite5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdigestSite5;
+        protected global::System.Web.UI.WebControls.ListBox ddldigestSite5;
         
         /// <summary>
-        /// txtdigestSite3 control.
+        /// ddldigestSite3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdigestSite3;
+        protected global::System.Web.UI.WebControls.ListBox ddldigestSite3;
         
         /// <summary>
         /// txtnotes control.
