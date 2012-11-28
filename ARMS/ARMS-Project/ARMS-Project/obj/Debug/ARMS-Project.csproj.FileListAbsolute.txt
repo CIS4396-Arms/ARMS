@@ -47,3 +47,5 @@ C:\Users\tuc03728\Documents\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\AR
 \\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
 \\vmware-host\Shared Folders\Windows\RMS\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\assets\css\bootstrap.css
 D:\AJ\Documents\ARMS Repository\ARMS\ARMS\ARMS-Project\ARMS-Project\bin\assets\css\bootstrap.css
+Z:\Windows\RMS_Project\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.dll
+Z:\Windows\RMS_Project\ARMS\ARMS\ARMS-Project\ARMS-Project\obj\Debug\ARMS-Project.pdb
