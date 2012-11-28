@@ -25,13 +25,6 @@ namespace ARMS_Project
                 //}
             }
 
-            /*ArrayList labs = new ArrayList();
-            foreach (Lab l in myConn.getAllLabs())
-            {
-                labs.Add(l.name);
-                labs.Add();
-            }*/
-
             ObjectDataSource labsDataSource = new ObjectDataSource();
             labsDataSource.TypeName = "ARMS_Project.LabLogic";
             labsDataSource.SelectMethod = "GetLabs";
@@ -87,13 +80,34 @@ namespace ARMS_Project
                 antibody.type = "Polyclonal";
             }
             antibody.hostSpecies = ddlHostSpecies.SelectedValue;
-            antibody.reactiveSpecies = ddlReactiveSpecies.SelectedValue;
+            String reactiveSpecies = "";
+            int i = 0;
+            foreach (ListItem li in ddlReactiveSpecies.Items)
+            {  
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        reactiveSpecies += ",";
+                    }
+                    reactiveSpecies += li.Value;
+                    i++;
+                }
+            }
+            antibody.reactiveSpecies = reactiveSpecies;
             antibody.concentration = txtConcentration.Text;
             antibody.workingDilution = txtWorkingDilution.Text;
             antibody.isotype = txtIsotype.Text;
             antibody.antigen = txtAntigen.Text;
             antibody.applications = txtApplication.Text;
-            antibody.fluorophore = txtFluorophore.Text;
+            if (ddlFluorophore.SelectedValue != "Other")
+            {
+                antibody.fluorophore = ddlFluorophore.SelectedValue;
+            }
+            else
+            {
+                antibody.fluorophore = fluorophoreOther.Text;
+            }
             antibody.protocolHREF = protocolHREF.Value;
             if (myConn.addPrimaryAntibody(antibody))
             {

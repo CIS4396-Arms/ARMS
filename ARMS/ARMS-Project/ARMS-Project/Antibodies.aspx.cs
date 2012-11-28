@@ -27,9 +27,20 @@ namespace ARMS_Project
 
             }
 
+            ObjectDataSource labsDataSource = new ObjectDataSource();
+            labsDataSource.TypeName = "ARMS_Project.LabLogic";
+            labsDataSource.SelectMethod = "GetLabs";
+
+            ddllabID.DataSource = labsDataSource;
+            ddllabID.DataTextField = "name";
+            ddllabID.DataValueField = "id";
+            ddllabID.DataBind();
+
             antibodiesDataSource.TypeName = "ARMS_Project.PrimaryAntibodyLogic";
             antibodiesDataSource.SelectMethod = "GetPrimaryAntibodies";
             antibodiesDataSource.DataBind();
+
+            
         }
 
         //  handle protocol file upload
@@ -94,13 +105,34 @@ namespace ARMS_Project
             temp.applications = txtapplications.Text;
             temp.clone = txtclone.Text;
             temp.concentration = txtconcentration.Text;
-            temp.fluorophore = txtfluorophore.Text;
-            temp.hostSpecies = txthostSpecies.Text;
+            if (ddlfluorophore.SelectedValue != "Other")
+            {
+                temp.fluorophore = ddlfluorophore.SelectedValue;
+            }
+            else
+            {
+                temp.fluorophore = txtfluorophore.Text;
+            }
+            temp.hostSpecies = ddlhostSpecies.SelectedValue;
             temp.isotype = txtisotype.Text;
             temp.lotNumber = txtlotNumber.Text;
-            temp.labID = int.Parse(txtlabID.Text);
+            temp.labID = int.Parse(ddllabID.SelectedValue);
             temp.name = txtname.Text;
-            temp.reactiveSpecies = txtreactiveSpecies.Text;
+            String reactiveSpecies = "";
+            int i = 0;
+            foreach (ListItem li in ddlreactiveSpecies.Items)
+            {
+                if (li.Selected == true)
+                {
+                    if (i > 0)
+                    {
+                        reactiveSpecies += ",";
+                    }
+                    reactiveSpecies += li.Value;
+                    i++;
+                }
+            }
+            temp.reactiveSpecies = reactiveSpecies;
             temp.workingDilution = txtworkingDilution.Text;
             if (rbmonoclonal.Checked)
             {
