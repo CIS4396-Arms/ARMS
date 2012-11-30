@@ -6,14 +6,18 @@
 
         <h3>Login</h3>
         <asp:Label ID="LabelIP" runat="server" Visible="False" /><br /><br />
-        <asp:Label ID="Label1" runat="server" Text="AccessNet Username"/><br /> 
+        <asp:Label ID="Label1" runat="server" Text="RMS Username"/><br /> 
         
         <asp:TextBox ID="TextBoxUID" runat="server" Width="100%"/><br /><br />
-        <asp:Label ID="Label2" runat="server" Text="TUSecure Password"/><br />
-        <asp:TextBox ID="TextBoxPWD" runat="server" TextMode="Password" Width="100%"/><br /><br /><br />
+        <asp:Label ID="Label2" runat="server" Text="RMS Password"/><br />
+        <asp:TextBox ID="TextBoxPWD" runat="server" TextMode="Password" Width="100%"/><br /><br />
+        
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="ButtonLogin" runat="server" Text="Login"  
-            onclick="ButtonLogin_Click" Width="111px"/><br />
-
+            onclick="ButtonLogin_Click" Width="111px"/><br /><br />
+            <asp:Label ID="lblNewPass1" runat="server" Text="Enter New Password" Visible="false" /><br />
+            <asp:TextBox ID="txtNewPass1" runat="server" TextMode="Password" Width="100%" Visible="false"/><br />
+            <asp:Label ID="lblNewPass2" runat="server" Text="Enter New Password Again" Visible="false" /><br />
+            <asp:TextBox ID="txtNewPass2" runat="server" TextMode="Password" Width="100%" Visible="false"/><br />
     </div>
 </asp:Content>

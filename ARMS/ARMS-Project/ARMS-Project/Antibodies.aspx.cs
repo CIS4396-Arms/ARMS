@@ -18,12 +18,12 @@ namespace ARMS_Project
         {
             if (!IsPostBack)
             {
-                ////Check if User is logged in
-                //if (string.IsNullOrEmpty(Session["UserID"] as string))
-                //{
-                //    //if user not logged in, redirect to Login page
-                //    Response.Redirect("Login.aspx");
-                //}
+                //Check if User is logged in
+                if (string.IsNullOrEmpty(Session["UserID"] as string))
+                {
+                    //if user not logged in, redirect to Login page
+                    Response.Redirect("Login.aspx");
+                }
 
             }
 

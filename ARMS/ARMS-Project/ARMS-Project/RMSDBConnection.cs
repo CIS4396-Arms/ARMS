@@ -106,14 +106,14 @@ namespace ARMS_Project
         }
 
         /// <summary>
-        /// Inserts the provided User object as a new record into the database
+        /// Inserts the provided User object as a new record into the database with temporary password
         /// </summary>
         /// <param name="temp">User object to be added to the database</param>
         /// <returns>True if add is successful, false otherwise</returns>
         public Boolean addUser(User temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.RMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.RMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "', 'DEFAULT');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -481,7 +481,7 @@ namespace ARMS_Project
         public int getLab(String accessNetID)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Lab FROM Authentication WHERE AccessNet='"+accessNetID+"';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT Lab_ID FROM RMS_USER WHERE AccessNet_ID='"+accessNetID+"';", conn);
             object tempObj = cmd.ExecuteScalar();
             conn.Close();
             if (tempObj == null)
@@ -630,5 +630,49 @@ namespace ARMS_Project
             else
                 return false;
         }
+
+        /// <summary>
+        /// Updates user password
+        /// </summary>
+        /// <param name="uname">Username</param>
+        /// <param name="upass">new Passwords</param>
+        /// <returns>true if successful update, false if unsuccesful</returns>
+        public Boolean updatePassword(String upass, String uname)
+        {
+            string sql;
+            conn.Open();
+            sql = "UPDATE dbo.RMS_User SET Password='" + upass + "' WHERE AccessNet_ID='" + uname + "';";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.Text;
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (i > 0)
+                return true;
+            else
+                return false;
+        }
+
+
+        /// <summary>
+        /// Validates user login name and pass. 
+        /// </summary>
+        /// <param name="uname">Username</param>
+        /// <param name="upass">Password</param>
+        /// <returns>1 if valid, -1 if invalid, 0 if password needs to be changed</returns>
+        public int CheckLogin(String uname, String upass)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM RMS_USER WHERE AccessNet_ID='" + uname + "' AND Password='" + upass + "';", conn);
+            object tempObj = cmd.ExecuteScalar();
+            conn.Close();
+            if (tempObj == null)
+                return -1;
+            else
+                if (upass != "DEFAULT")
+                    return 1;
+                else
+                    return 0;            
+        }
+     
     }
 }

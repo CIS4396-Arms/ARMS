@@ -21,18 +21,18 @@ namespace ARMS_Project
             }
 
             //Detect User Access Level
-            String accessNet = (Session["UserID"]).ToString();
-            int labNum = myConn.getLab(accessNet);
+            //String accessNet = (Session["UserID"]).ToString();
+            //int labNum = myConn.getLab(accessNet);
             //save User Lab in Session
-            Session["Lab"] = labNum;
-            if (labNum == -1)
-            {
-                lblMisc.Text = "You are not assigned to a lab.";
-            }
-            else
-            {
-                lblMisc.Text = "Logged in as " + Session["UserID"].ToString();
-            }
+            //Session["Lab"] = labNum;
+            //if (labNum == -1)
+            //{
+            //    lblMisc.Text = "You are not assigned to a lab.";
+            //}
+            //else
+            //{
+            //    lblMisc.Text = "Logged in as " + Session["UserID"].ToString();
+            //}
 
         }
     }
