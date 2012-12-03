@@ -17,7 +17,7 @@
         </fieldset>
         <fieldset id="addUser" class="form-horizontal">
             <legend>Add User to Lab</legend>
-            <label>Username:</label>
+            <label>TU AccessNet Username:</label>
             <asp:TextBox ID="txtUserName" CssClass="quickValidate" data-validate="required" data-name="AccessNet Name" runat="server"></asp:TextBox>
             <br /><br />
              <label>Full Name:</label>
