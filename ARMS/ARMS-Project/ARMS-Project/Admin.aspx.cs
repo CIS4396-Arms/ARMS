@@ -33,6 +33,7 @@ namespace ARMS_Project
                 ddlLabs.DataValueField = "id";
                 ddlLabs.DataBind();
 
+                //gvLabUsers.DataBind();
             }
         }
 

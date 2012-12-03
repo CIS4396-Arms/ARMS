@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Collections;
 
 namespace ARMS_Project
 {
+
+    public class UserLogic
+    {
+        // Get all users
+        public static ArrayList GetUsers()
+        {
+            RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
+            return myConn.getAllLabUsers();
+        }
+    }
+
     public class User
     {
         public String AccessnetID;

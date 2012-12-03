@@ -9,6 +9,7 @@
           <button type="button" class="close" data-dismiss="alert">×</button>
           <p></p>
         </div>
+
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>

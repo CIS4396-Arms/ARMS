@@ -31,5 +31,21 @@
         <script type="text/javascript">
             $('#createLab, #addUser').quickValidate();
         </script>
+        <!--
+        <asp:ObjectDataSource
+            id="labUserDataSource"
+            runat="server"
+            selectmethod="GetUsers"
+            typename="ARMS_Project.UserLogic"
+        />
+
+        <asp:GridView ID="gvLabUsers" runat="server" AutoGenerateColumns="False" CssClass="data table" DataSourceID="labUserDataSource">
+            <Columns>
+                <asp:BoundField DataField="labID" HeaderText="Lab ID" />
+                <asp:BoundField DataField="fullName" HeaderText="Name" />
+                <asp:BoundField DataField="AccessnetID" HeaderText="Username" />
+            </Columns>
+        </asp:GridView>
+        -->
     </div>
 </asp:Content>
