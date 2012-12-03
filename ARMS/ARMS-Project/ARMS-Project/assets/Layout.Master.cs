@@ -11,21 +11,24 @@ namespace ARMS_Project.assets
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (!string.IsNullOrEmpty(Request.QueryString["Logout"]))
+            {
+                Session.Clear();
+                Session.Abandon();
+                Response.Redirect("Login.aspx");
+            }
+
+            /*if (!IsPostBack)
             {
                //Check if User is logged in
                 if (string.IsNullOrEmpty(Session["UserID"] as string))
                 {
-                    btnLogout.Visible = false;
+
                 }
-                else
-                {
-                    btnLogout.Visible = true;
-                }
-            }
+            }*/
         }
 
-        protected void btnLogout_Click(object sender, EventArgs e)
+       /* protected void btnLogout_Click(object sender, EventArgs e)
         {
             //Check if User is logged in
             if (!(string.IsNullOrEmpty(Session["UserID"] as string)))
@@ -35,6 +38,6 @@ namespace ARMS_Project.assets
                 Session.Abandon();
                 Response.Redirect("Login.aspx");
             }
-        }
+        }*/
     }
 }
