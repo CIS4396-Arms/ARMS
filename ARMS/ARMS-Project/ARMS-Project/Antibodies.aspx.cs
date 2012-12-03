@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace ARMS_Project
 {
@@ -45,6 +47,37 @@ namespace ARMS_Project
             alertResults.Visible = false;
             alertNoResults.Visible = false;
 
+        }
+
+        protected void createPDF(Stream output)
+        {
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition","attachment; filename=antibody.pdf");
+            iTextSharp.text.Document document = new iTextSharp.text.Document();
+            PdfWriter writer = PdfWriter.GetInstance(document, Response.OutputStream);
+            document.Open();
+                iTextSharp.text.Rectangle page = document.PageSize;
+            PdfPTable head = new PdfPTable(1);
+            head.TotalWidth = page.Width;
+            iTextSharp.text.Phrase phrase = new iTextSharp.text.Phrase(
+              DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + " GMT",
+              new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.COURIER, 8)
+            );    
+            PdfPCell c = new PdfPCell(phrase);
+            c.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            c.VerticalAlignment = iTextSharp.text.Element.ALIGN_TOP;
+            c.HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER;
+            head.AddCell(c);
+            head.WriteSelectedRows(
+                // first/last row; -1 writes all rows
+              0, -1,
+                // left offset
+              0,
+                // ** bottom** yPos of the table
+              page.Height - document.TopMargin + head.TotalHeight + 20,
+              writer.DirectContent
+            );
+            document.Close();
         }
 
         //  handle protocol file upload
@@ -110,6 +143,12 @@ namespace ARMS_Project
             gvAntibodies.DataBind();
         }
 
+        //  Enable PDF printing
+        protected void btnPrint_Click(Object sender, EventArgs e)
+        {
+            createPDF(new MemoryStream());
+        }
+
         //  Save changes of object
         protected void btnSave_click(Object sender, EventArgs e)
         {
@@ -134,7 +173,7 @@ namespace ARMS_Project
             temp.name = txtname.Text;
             String reactiveSpecies = "";
             int i = 0;
-            foreach (ListItem li in ddlreactiveSpecies.Items)
+            foreach (System.Web.UI.WebControls.ListItem li in ddlreactiveSpecies.Items)
             {
                 if (li.Selected == true)
                 {
