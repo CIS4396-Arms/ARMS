@@ -240,7 +240,7 @@ namespace ARMS_Project
             {
                 Session["UserID"] = TextBoxUID.Text;
                 Session["Lab"] = myConn.getLab(TextBoxUID.Text);
-                Response.Redirect("Antibodies.aspx");
+                Response.Redirect("Home.aspx");
             }
             else
             {
