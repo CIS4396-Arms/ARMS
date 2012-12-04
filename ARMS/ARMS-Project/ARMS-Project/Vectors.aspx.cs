@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using iTextSharp.text.pdf;
 
 namespace ARMS_Project
 {
@@ -22,7 +24,7 @@ namespace ARMS_Project
                     //if user not logged in, redirect to Login page
                     Response.Redirect("Login.aspx");
                 }
-                
+
             }
 
             ObjectDataSource labsDataSource = new ObjectDataSource();
@@ -40,6 +42,72 @@ namespace ARMS_Project
 
             alertNoResults.Visible = false;
             alertResults.Visible = false;
+        }
+
+        protected void createPDF(Stream output)
+        {
+            //Vector tempVector = myConn.getVectorByID(Convert.ToInt16(Request.QueryString["id"]));
+            Vector tempVector = myConn.getVectorByID(2);
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", "attachment; filename=vector_" + tempVector.id + ".pdf");
+            iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER, 72, 72, 72, 72);
+            PdfWriter writer = PdfWriter.GetInstance(document, Response.OutputStream);
+            document.Open();
+            //Page title and spacing
+            iTextSharp.text.Chunk pageTitle = new iTextSharp.text.Chunk("Vector Record", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20));
+            document.Add(pageTitle);
+            iTextSharp.text.Paragraph spacing = new iTextSharp.text.Paragraph(" ");
+            document.Add(spacing);
+
+            //Name
+            iTextSharp.text.Paragraph tempParagraph = new iTextSharp.text.Paragraph();
+            iTextSharp.text.Chunk tempLabel = new iTextSharp.text.Chunk("Vector Name: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            iTextSharp.text.Chunk tempValue = new iTextSharp.text.Chunk(tempVector.vectorName, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Multiple Cloning Site
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Multiple Cloning Site: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempVector.multipleCloningSite, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Antibiotic Resistance
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Antibiotic Resistance: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempVector.antibioticResistance, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Vector Size
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Vector Size: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempVector.vectorSize, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Promoter
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Promoter: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempVector.promoter, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Notes
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Notes: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempVector.notes, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            document.Close();
         }
 
         //  handle protocol file upload
@@ -102,6 +170,12 @@ namespace ARMS_Project
                 // Delete error
             }
             gvVectors.DataBind();
+        }
+
+        //  Enable PDF printing
+        protected void btnPrint_Click(Object sender, EventArgs e)
+        {
+            createPDF(new MemoryStream());
         }
 
         //  Save changes of object

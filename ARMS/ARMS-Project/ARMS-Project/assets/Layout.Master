@@ -21,9 +21,22 @@
     <div id="masthead" class="container clearfix">
         <div class="clearfix">
             <h1>Research Management System</h1>
+<<<<<<< HEAD
             <h2>Shriners Hospital<br /><span>Version 1.0</span></h2>
+=======
+            <h2>
+            
+                <a href="?Logout=1" class="btn btn-inverse">Logout</a><br />
+           
+            Shriners Hospital<br /><span>Version 1.0</span></h2>
+            
+>>>>>>> AJ-with-errors
         </div>
         <div id="nav" class="clearfix">
+<<<<<<< HEAD
+=======
+            
+>>>>>>> AJ-with-errors
             <ul>
                 <li><a href="Antibodies.aspx">Antibodies</a>
                     <ul>
@@ -43,18 +56,20 @@
                 </li>
                 <li><a href="Admin.aspx">Admin</a></li>
             </ul>
+<<<<<<< HEAD
              <form id="form1" runat="server">
      
            <asp:Button ID="btnLogout" Text="Log Out" runat="server" 
                  onclick="btnLogout_Click" />
+=======
+              
+>>>>>>> AJ-with-errors
         </div>
     </div>
     <div id="content" class="container clearfix">
-            <asp:ContentPlaceHolder ID="body" runat="server">
-        
-            </asp:ContentPlaceHolder>
-        </form>
+            <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
     </div>
+    </form>
     <div id="footer" class="container clearfix">
         Research Management System &copy; 2012, All rights reserved.
     </div>
