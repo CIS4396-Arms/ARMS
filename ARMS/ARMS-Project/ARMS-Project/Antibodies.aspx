@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/assets/Layout.Master" AutoEventWireup="True" CodeBehind="Antibodies.aspx.cs" Inherits="ARMS_Project.view" %>
+﻿﻿<%@ Page Language="C#" MasterPageFile="~/assets/Layout.Master" AutoEventWireup="True" CodeBehind="Antibodies.aspx.cs" Inherits="ARMS_Project.view" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -13,6 +13,7 @@
 
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
+            <asp:LinkButton runat="server" id="btnPrint" class="icon-button" Text="Print" OnClick="btnPrint_Click"></asp:LinkButton>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
         </div>
         <table class="data form table table-striped table-bordered"">
@@ -294,7 +295,7 @@
                 <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions" HeaderStyle-CssClass="actionsHeader">
                     <ItemTemplate>
                         <span id="openAntibodies">
-                            <asp:HyperLink ID="openAntibodies" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
+                            <asp:HyperLink ID="openAntibodies" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>' />
                         </span>
                         <asp:LinkButton ID="deleteButton" CssClass="deleteButton" runat="server" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
                     </ItemTemplate>
