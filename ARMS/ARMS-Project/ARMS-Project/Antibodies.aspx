@@ -295,7 +295,7 @@
                 <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions" HeaderStyle-CssClass="actionsHeader">
                     <ItemTemplate>
                         <span id="openAntibodies">
-                            <asp:HyperLink ID="openAntibodies" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>'/>
+                            <asp:HyperLink ID="openAntibodies" runat="server" CssClass="view" Text="<i class='icon-search'></i>" NavigateUrl='<%# Eval("id") %>' />
                         </span>
                         <asp:LinkButton ID="deleteButton" CssClass="deleteButton" runat="server" Text="<i class='icon-trash'></i>" PostBackUrl='<%# string.Format("?Delete={0}", Eval("id")) %>' OnClick="btnDelete_click" />
                     </ItemTemplate>
