@@ -49,31 +49,49 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.DropDownList ddllabID;
         
         /// <summary>
-        /// txtantibodyName control.
+        /// txtlotNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtantibodyName;
+        protected global::System.Web.UI.WebControls.TextBox txtlotNumber;
         
         /// <summary>
-        /// txtconcentration control.
+        /// txtname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtconcentration;
+        protected global::System.Web.UI.WebControls.TextBox txtname;
         
         /// <summary>
-        /// txtexcitation control.
+        /// rbmonoclonal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtexcitation;
+        protected global::System.Web.UI.WebControls.RadioButton rbmonoclonal;
+        
+        /// <summary>
+        /// rbpolyclonal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbpolyclonal;
+        
+        /// <summary>
+        /// txtclone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtclone;
         
         /// <summary>
         /// ddlhostSpecies control.
@@ -94,6 +112,42 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.ListBox ddlreactiveSpecies;
         
         /// <summary>
+        /// txtconcentration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtconcentration;
+        
+        /// <summary>
+        /// txtworkingDilution control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtworkingDilution;
+        
+        /// <summary>
+        /// txtisotype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtisotype;
+        
+        /// <summary>
+        /// txtantigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtantigen;
+        
+        /// <summary>
         /// ddlfluorophore control.
         /// </summary>
         /// <remarks>
@@ -112,33 +166,6 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtfluorophore;
         
         /// <summary>
-        /// txtworkingDilution control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkingDilution;
-        
-        /// <summary>
-        /// txtlotNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlotNumber;
-        
-        /// <summary>
-        /// txtantigen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtantigen;
-        
-        /// <summary>
         /// txtapplications control.
         /// </summary>
         /// <remarks>
@@ -146,6 +173,42 @@ namespace ARMS_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtapplications;
+        
+        /// <summary>
+        /// ProtcolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ProtcolUpload;
+        
+        /// <summary>
+        /// btnProtocolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnProtocolUpload;
+        
+        /// <summary>
+        /// lblProtcolUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProtcolUpload;
+        
+        /// <summary>
+        /// txtprotocolHREF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtprotocolHREF;
         
         /// <summary>
         /// txtFilterKeyword control.
@@ -175,6 +238,15 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.Button btnFilter;
         
         /// <summary>
+        /// antibodiesDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource antibodiesDataSource;
+        
+        /// <summary>
         /// alertNoResults control.
         /// </summary>
         /// <remarks>
@@ -193,21 +265,12 @@ namespace ARMS_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertResults;
         
         /// <summary>
-        /// secondaryAntibodiesDataSource control.
+        /// gvAntibodies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource secondaryAntibodiesDataSource;
-        
-        /// <summary>
-        /// gvSecondaryAntibodies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSecondaryAntibodies;
+        protected global::System.Web.UI.WebControls.GridView gvAntibodies;
     }
 }

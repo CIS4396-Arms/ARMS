@@ -1,4 +1,5 @@
-﻿﻿<%@ Page Language="C#" MasterPageFile="~/assets/Layout.Master" AutoEventWireup="True" CodeBehind="Antibodies.aspx.cs" Inherits="ARMS_Project.view" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/assets/Layout.Master" AutoEventWireup="true" CodeBehind="Antibodies.aspx.cs" Inherits="ARMS_Project.Antibodies" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
@@ -13,7 +14,7 @@
 
         <div class="controls">
             <a href="#" class="edit icon-button"><i class="icon-edit"></i><span>Edit</span></a>
-            <asp:LinkButton runat="server" id="btnPrint" class="icon-button" Text="Print" OnClick="btnPrint_Click"></asp:LinkButton>
+            <asp:LinkButton runat="server" ID="btnPrint" class="icon-button" Text="<i class='icon-print'></i><span>Print</span>" OnClick="btnPrint_Click"></asp:LinkButton>
             <asp:LinkButton ID="btnSave" runat="server" OnClick="btnSave_click" class="save icon-button hide" Text="<i class='icon-save'></i><span>Save</span>"></asp:LinkButton>
         </div>
         <table class="data form table table-striped table-bordered"">

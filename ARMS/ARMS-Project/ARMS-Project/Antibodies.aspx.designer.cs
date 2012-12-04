@@ -10,7 +10,7 @@
 namespace ARMS_Project {
     
     
-    public partial class view {
+    public partial class Antibodies {
         
         /// <summary>
         /// btnPrint control.

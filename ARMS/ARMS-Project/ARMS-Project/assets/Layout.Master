@@ -22,15 +22,15 @@
         <div class="clearfix">
             <h1>Research Management System</h1>
             <h2>
-            <%if (!string.IsNullOrEmpty(Session["UserID"] as string)) {%>
+            
                 <a href="?Logout=1" class="btn btn-inverse">Logout</a><br />
-            <%}%>
+           
             Shriners Hospital<br /><span>Version 1.0</span></h2>
             
         </div>
         
         <div id="nav" class="clearfix">
-            <%if (!string.IsNullOrEmpty(Session["UserID"] as string)) {%>
+            
             <ul>
                 <li><a href="Antibodies.aspx">Antibodies</a>
                     <ul>
@@ -50,17 +50,15 @@
                 </li>
                 <li><a href="Admin.aspx">Admin</a></li>
             </ul>
-            <%}%>     
+              
         </div>
     </div>
     
     <form id="form1" runat="server">
     <div id="content" class="container clearfix">
-            <asp:ContentPlaceHolder ID="body" runat="server">
-        
-            </asp:ContentPlaceHolder>
-        </form>
+            <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
     </div>
+    </form>
     <div id="footer" class="container clearfix">
         Research Management System &copy; 2012, All rights reserved.
     </div>

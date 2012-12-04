@@ -11,7 +11,7 @@ using System.IO;
 
 namespace ARMS_Project
 {
-    public partial class view : System.Web.UI.Page
+    public partial class Antibodies : System.Web.UI.Page
     {
         RMSDBConnection myConn = new RMSDBConnection(System.Configuration.ConfigurationManager.AppSettings["dbUserName"], System.Configuration.ConfigurationManager.AppSettings["dbPassword"], System.Configuration.ConfigurationManager.AppSettings["dbServer"], System.Configuration.ConfigurationManager.AppSettings["database"]);
 
