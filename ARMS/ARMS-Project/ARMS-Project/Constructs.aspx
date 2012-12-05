@@ -316,8 +316,9 @@
             <Columns>
                 <asp:BoundField DataField="labID" HeaderText="ID" SortExpression="labID" />
                 <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" />
-                <asp:BoundField DataField="species" HeaderText="Species" SortExpression="species" />
+                <asp:BoundField DataField="vector" HeaderText="Vector" SortExpression="vector" />
                 <asp:BoundField DataField="insert" HeaderText="Insert" SortExpression="insert" />
+                <asp:BoundField DataField="species" HeaderText="Species" SortExpression="species" />
                 <asp:BoundField DataField="antibioticResistance" HeaderText="Antibiotic Resistance" SortExpression="antibioticResistance" />
                 <asp:TemplateField HeaderText="Actions" ItemStyle-CssClass="actions">
                     <ItemTemplate>

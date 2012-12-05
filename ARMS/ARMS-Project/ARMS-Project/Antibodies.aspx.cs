@@ -129,7 +129,14 @@ namespace ARMS_Project
             {
                 temp.fluorophore = txtfluorophore.Text;
             }
-            temp.hostSpecies = ddlhostSpecies.SelectedValue;
+            if (ddlhostSpecies.SelectedValue != "Other")
+            {
+                temp.hostSpecies = ddlhostSpecies.SelectedValue;
+            }
+            else
+            {
+                temp.hostSpecies = txthostSpecies.Text;
+            }
             temp.isotype = txtisotype.Text;
             temp.lotNumber = txtlotNumber.Text;
             temp.labID = int.Parse(ddllabID.SelectedValue);

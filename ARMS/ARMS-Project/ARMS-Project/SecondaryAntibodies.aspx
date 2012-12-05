@@ -56,7 +56,9 @@
                         <asp:ListItem>Rat</asp:ListItem>
                         <asp:ListItem>Sheep</asp:ListItem>
                         <asp:ListItem>Swine</asp:ListItem>
+                        <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
+                    <p class="clearfix"><br /><asp:TextBox ID="txthostSpecies" runat="server" CssClass="other"></asp:TextBox></p>
                 </td>
             </tr>
             <tr>

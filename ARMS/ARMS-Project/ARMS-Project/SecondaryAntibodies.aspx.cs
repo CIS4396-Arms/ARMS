@@ -75,7 +75,14 @@ namespace ARMS_Project
             {
                 temp.fluorophore = txtfluorophore.Text;
             }
-            temp.hostSpecies = ddlhostSpecies.SelectedValue;
+            if (ddlhostSpecies.SelectedValue != "Other")
+            {
+                temp.hostSpecies = ddlhostSpecies.SelectedValue;
+            }
+            else
+            {
+                temp.hostSpecies = txthostSpecies.Text;
+            }
             temp.labID = int.Parse(ddllabID.SelectedValue);
             temp.lotNumber = txtlotNumber.Text;
             String reactiveSpecies = "";

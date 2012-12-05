@@ -42,7 +42,14 @@ namespace ARMS_Project
             antibody.concentration = txtConcentration.Text;
             antibody.excitation = txtExcitation.Text;
             antibody.fluorophore = ddlFluorophore.SelectedValue;
-            antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            if (ddlHostSpecies.SelectedValue != "Other")
+            {
+                antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            }
+            else
+            {
+                antibody.hostSpecies = txthostSpecies.Text;
+            }
             antibody.lotNumber = txtLotNumber.Text;
             String reactiveSpecies = "";
             int i = 0;
