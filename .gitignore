@@ -1,11 +1,19 @@
-.DS_Store
 *.suo
 *.user
 *.cache
 *.jpg
 
 *.cache
-
+[Oo]bj
+[Bb]in
 /TestResults
 *.vspscc
 *.vssscc
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
+*.resharper
+Ankh.NoLoad
