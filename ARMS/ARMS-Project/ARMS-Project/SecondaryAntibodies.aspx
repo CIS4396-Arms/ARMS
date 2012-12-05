@@ -243,7 +243,7 @@
             <SortedDescendingHeaderStyle CssClass="sortDesc" />
             <SortedDescendingCellStyle CssClass="cellDesc" />
             <Columns>
-                <asp:BoundField DataField="labID" HeaderText="Lab ID" SortExpression="labID" />
+                <asp:BoundField DataField="labName" HeaderText="Lab Name" SortExpression="labName" />
                 <asp:BoundField DataField="antibodyName" HeaderText="Name" SortExpression="antibodyName" />
                 <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" SortExpression="hostSpecies" />
                 <asp:BoundField DataField="reactiveSpecies" HeaderText="Reactive Species" SortExpression="reactiveSpecies" />

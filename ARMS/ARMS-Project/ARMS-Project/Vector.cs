@@ -38,6 +38,7 @@ namespace ARMS_Project
         public String promoter { get; set; }
         public String notes { get; set; }
         public String specSheetHREF { get; set; }
+        public String labName { get; set; }
 
         /// <summary>
         /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
@@ -53,12 +54,13 @@ namespace ARMS_Project
             promoter = "";
             notes = "";
             specSheetHREF = "";
+            labName = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Vector objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Vector(int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF)
+        public Vector(int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF, String newLabName)
         {
             id = 0;
             labID = newLabID;
@@ -69,12 +71,13 @@ namespace ARMS_Project
             promoter = newPromoter;
             notes = newNotes;
             specSheetHREF = newSpecSheetHREF;
+            labName = newLabName;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Vector records from the database (accounts for autonumbered ID).
         /// </summary>
-        public Vector(int newID, int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF)
+        public Vector(int newID, int newLabID, String newVectorName, String newMultipleCloningSite, String newAntibioticResistance, String newVectorSize, String newPromoter, String newNotes, String newSpecSheetHREF, String newLabName)
         {
             id = newID;
             labID = newLabID;
@@ -85,6 +88,7 @@ namespace ARMS_Project
             promoter = newPromoter;
             notes = newNotes;
             specSheetHREF = newSpecSheetHREF;
+            labName = newLabName;
         }
 
         /// <summary>
@@ -102,7 +106,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Vector || ID: " + id + " || Lab ID: " + labID + " || Vector Name: " + vectorName + " || Multiple Cloning Site: " + multipleCloningSite + " || Antibiotic Resistance: " + antibioticResistance + " || Vector Size: " + vectorSize + " || Promoter: " + promoter + " || Notes: " + notes + " || Spec Sheet HREF: " + specSheetHREF);
+            return ("Vector || ID: " + id + " || Lab ID: " + labID + " || Vector Name: " + vectorName + " || Multiple Cloning Site: " + multipleCloningSite + " || Antibiotic Resistance: " + antibioticResistance + " || Vector Size: " + vectorSize + " || Promoter: " + promoter + " || Notes: " + notes + " || Spec Sheet HREF: " + specSheetHREF + " || Lab Name: " + labName);
         }
     }
 }

@@ -288,7 +288,7 @@
             <SortedDescendingHeaderStyle CssClass="sortDesc" />
             <SortedDescendingCellStyle CssClass="cellDesc" />
             <Columns>
-                <asp:BoundField DataField="labID" SortExpression="labID" HeaderText="Lab ID" />
+                <asp:BoundField DataField="labName" SortExpression="labName" HeaderText="Lab Name" />
                 <asp:BoundField DataField="name" SortExpression="name" HeaderText="Name"  />
                 <asp:BoundField DataField="type" SortExpression="type" HeaderText="Type" />
                 <asp:BoundField DataField="hostSpecies" HeaderText="Host Species" SortExpression="hostSpecies" />

@@ -41,6 +41,7 @@ namespace ARMS_Project
         public String lotNumber { get; set; }
         public String antigen { get; set; }
         public String applications { get; set; }
+        public String labName { get; set; }
 
         /// <summary>
         /// Default constructor
@@ -59,12 +60,13 @@ namespace ARMS_Project
             lotNumber = "";
             antigen = "";
             applications = "";
+            labName = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Secondary Antibody objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public SecondaryAntibody(int newLabID, String newConcentration, String newExcitation, String newAntibodyName, String newHostSpecies, String newReactiveSpecies, String newFlourophore, String newWorkingDilution, String newLotNumber, String newAntigen, String newApplications)
+        public SecondaryAntibody(int newLabID, String newConcentration, String newExcitation, String newAntibodyName, String newHostSpecies, String newReactiveSpecies, String newFlourophore, String newWorkingDilution, String newLotNumber, String newAntigen, String newApplications, String newLabName)
         {
             id = 0;
             labID = newLabID;
@@ -78,12 +80,13 @@ namespace ARMS_Project
             lotNumber = newLotNumber;
             antigen = newAntigen;
             applications = newApplications;
+            labName = newLabName;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Secondary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public SecondaryAntibody(int newID, int newLabID, String newConcentration, String newExcitation, String newAntibodyName, String newHostSpecies, String newReactiveSpecies, String newFlourophore, String newWorkingDilution, String newLotNumber, String newAntigen, String newApplications)
+        public SecondaryAntibody(int newID, int newLabID, String newConcentration, String newExcitation, String newAntibodyName, String newHostSpecies, String newReactiveSpecies, String newFlourophore, String newWorkingDilution, String newLotNumber, String newAntigen, String newApplications, String newLabName)
         {
             id = newID;
             labID = newLabID;
@@ -97,6 +100,7 @@ namespace ARMS_Project
             lotNumber = newLotNumber;
             antigen = newAntigen;
             applications = newApplications;
+            labName = newLabName;
         }
 
         /// <summary>
@@ -114,7 +118,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antibody Type: Secondary || ID: " + id + " || Lab ID: " + labID + " || Concentration: " + concentration + " || Excitation: " + excitation + " || Antibody Name: " + antibodyName + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Flourophore: " + fluorophore + " || Working Dilution: " + workingDilution + " || Lot Number: " + lotNumber + " || Antigen: " + antigen + " || Applications: " + applications);
+            return ("Antibody Type: Secondary || ID: " + id + " || Lab ID: " + labID + " || Concentration: " + concentration + " || Excitation: " + excitation + " || Antibody Name: " + antibodyName + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Flourophore: " + fluorophore + " || Working Dilution: " + workingDilution + " || Lot Number: " + lotNumber + " || Antigen: " + antigen + " || Applications: " + applications + " || Lab Name: " + labName);
         }
     }
 }

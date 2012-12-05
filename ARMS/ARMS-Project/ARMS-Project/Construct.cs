@@ -38,6 +38,7 @@ namespace ARMS_Project
         public String digestSite5 { get; set; }
         public String digestSite3 { get; set; }
         public String notes { get; set; }
+        public String labName { get; set; }
 
         /// <summary>
         /// Default constructor
@@ -54,12 +55,13 @@ namespace ARMS_Project
             digestSite5 = "";
             digestSite3 = "";
             notes = "";
+            labName = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Construct objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public Construct(int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes)
+        public Construct(int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes, String newLabName)
         {
             id = 0;
             labID = newLabID;
@@ -70,13 +72,14 @@ namespace ARMS_Project
             antibioticResistance = newAntibioticResistance;
             digestSite5 = newDigestSite5;
             digestSite3 = newDigestSite3;
-            notes = newNotes; 
+            notes = newNotes;
+            labName = newLabName;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Construct records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public Construct(int newID, int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes)
+        public Construct(int newID, int newLabID, String newName, String newInsert, String newVector, String newSpecies, String newAntibioticResistance, String newDigestSite5, String newDigestSite3, String newNotes, String newLabName)
         {
             id = newID;
             labID = newLabID;
@@ -88,6 +91,7 @@ namespace ARMS_Project
             digestSite5 = newDigestSite5;
             digestSite3 = newDigestSite3;
             notes = newNotes;
+            labName = newLabName;
         }
 
         /// <summary>
@@ -105,7 +109,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Construct || ID: " + id + " || Lab ID: " + labID + " || Name: " + name + " || Insert: " + insert + " || Vector: " + vector + " || Species: " + species + " || Antibiotic Resistance: " + antibioticResistance + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Notes: " + notes);
+            return ("Construct || ID: " + id + " || Lab ID: " + labID + " || Name: " + name + " || Insert: " + insert + " || Vector: " + vector + " || Species: " + species + " || Antibiotic Resistance: " + antibioticResistance + " || 5' Digest Site: " + digestSite5 + " || 3' Digest Site: " + digestSite3 + " || Notes: " + notes + " || Lab Name: " + labName);
         }
     }
 }

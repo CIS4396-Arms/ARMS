@@ -47,6 +47,7 @@ namespace ARMS_Project
         public String fluorophore { get; set; }
         public String protocolHREF { get; set; }
         public String specSheetHREF { get; set; }
+        public String labName { get; set; }
 
         /// <summary>
         /// Default constructor
@@ -68,12 +69,13 @@ namespace ARMS_Project
             fluorophore = "";
             protocolHREF = "";
             specSheetHREF = "";
+            labName = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for creation of new Primary Antibody objects (does not assign value to ID, which is autonumbered in the database).
         /// </summary>
-        public PrimaryAntibody(int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF)
+        public PrimaryAntibody(int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF, String newLabName)
         {
             lotNumber = newLotNumber;
             name = newName;
@@ -89,12 +91,13 @@ namespace ARMS_Project
             fluorophore = newFluorophore;
             protocolHREF = newProtocolHREF;
             specSheetHREF = newSpecSheetHREF;
+            labName = newLabName;
         }
 
         /// <summary>
         /// Overloaded Constructor.  Used for retrieval and storage of Primary Antibody records from the database (accounts for autonumbered ID). 
         /// </summary>
-        public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF)
+        public PrimaryAntibody(int newID, int newLabID, String newLotNumber, String newName, String newType, String newClone, String newHostSpecies, String newReactiveSpecies, String newConcentration, String newWorkingDilution, String newApplications, String newIsotype, String newAntigen, String newFluorophore, String newProtocolHREF, String newSpecSheetHREF, String newLabName)
         {
             id = newID;
             labID = newLabID;
@@ -112,6 +115,7 @@ namespace ARMS_Project
             fluorophore = newFluorophore;
             protocolHREF = newProtocolHREF;
             specSheetHREF = newSpecSheetHREF;
+            labName = newLabName;
         }
 
         /// <summary>
@@ -129,7 +133,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot Number: " + lotNumber + " || Name: " + name + " || Type: " + type + " || Clone:  " + clone + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Applications: " + applications + " || Isotype: " + isotype + " || Antigen: " + antigen + " || Fluorophore: " + fluorophore + " || Protocol Location: " + protocolHREF + " || Spec Sheet Location : " + specSheetHREF);
+            return ("Antobody Type: Primary || ID: " + id + " || Lab ID: " + labID + " || Lot Number: " + lotNumber + " || Name: " + name + " || Type: " + type + " || Clone:  " + clone + " || Host Species: " + hostSpecies + " || Reactive Species: " + reactiveSpecies + " || Concentration: " + concentration + " || Working Dilution: " + workingDilution + " || Applications: " + applications + " || Isotype: " + isotype + " || Antigen: " + antigen + " || Fluorophore: " + fluorophore + " || Protocol Location: " + protocolHREF + " || Spec Sheet Location : " + specSheetHREF + " || Lab Name : " + labName);
         }
     }
 }
