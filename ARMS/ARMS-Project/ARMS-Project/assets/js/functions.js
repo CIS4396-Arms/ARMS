@@ -108,8 +108,10 @@ function populateFields(obj) {
         }
     });
     $('#popUp input').not('.chzn-container input').each(function () {
-        if ($(this).attr('type') == 'text' || $(this).attr('type') == 'hidden') {
+        if ($(this).attr('type') != 'hidden') {
             $(this).attr('disabled', 'disabled');
+        }
+        if ($(this).attr('type') == 'text' || $(this).attr('type') == 'hidden') {
             if ($(this).attr('id').indexOf('txt') != -1) {
                 var attr = $(this).attr('id').replace('body_txt', '');
                 if (obj[attr] != '' && obj[attr] != 'n/a') {

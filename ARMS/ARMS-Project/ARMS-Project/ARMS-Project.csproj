@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.3.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>assets\dlls\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
@@ -65,6 +69,7 @@
     <Content Include="assets\css\chosen-sprite.png" />
     <Content Include="assets\css\chosen.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\dlls\itextsharp.dll" />
     <Content Include="assets\fontawesome\css\font-awesome-ie7.css" />
     <Content Include="assets\fontawesome\css\font-awesome.css" />
     <Content Include="assets\images\body_bg.jpg" />
@@ -78,12 +83,14 @@
     <Content Include="assets\js\chosen.js" />
     <Content Include="assets\js\functions.js" />
     <Content Include="assets\js\validate.js" />
+    <Content Include="bin\itextsharp.dll" />
     <Content Include="Constructs.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Antibodies.aspx" />
     <Content Include="LoginFailure.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="obj\Debug\ARMS-Project.csproj.FileListAbsolute.txt" />
     <Content Include="SecondaryAntibodies.aspx" />
     <Content Include="Vectors.aspx" />
     <Content Include="Web.config">
@@ -209,6 +216,7 @@
     <Content Include="assets\Layout.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\assets\css\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +224,13 @@
     <Content Include="assets\fontawesome\font\fontawesome-webfont.svg" />
     <Content Include="assets\fontawesome\font\fontawesome-webfont.ttf" />
     <Content Include="assets\fontawesome\font\fontawesome-webfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\desktop.ini" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\desktop.ini" />
+    <None Include="obj\Debug\TempPE\desktop.ini" />
+    <None Include="obj\desktop.ini" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

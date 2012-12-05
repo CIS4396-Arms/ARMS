@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using iTextSharp.text.pdf;
 
 namespace ARMS_Project
 {
@@ -158,6 +160,118 @@ namespace ARMS_Project
             }
             myConn.updatePrimaryAntibody(temp);
             gvAntibodies.DataBind();
+        }
+
+        protected void createPDF(Stream output)
+        {
+            //PrimaryAntibody tempAntibody = myConn.getPrimaryAntibodyByID(Convert.ToInt16(Request.QueryString["id"]));
+            PrimaryAntibody tempAntibody = myConn.getPrimaryAntibodyByID(int.Parse(txtid.Value));
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("Content-Disposition", "attachment; filename=primary_antibody_" + tempAntibody.id + ".pdf");
+            iTextSharp.text.Document document = new iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER, 72, 72, 72, 72);
+            PdfWriter writer = PdfWriter.GetInstance(document, Response.OutputStream);
+            document.Open();
+            //Page title and spacing
+            iTextSharp.text.Chunk pageTitle = new iTextSharp.text.Chunk("Primary Antibody Record", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 20));
+            document.Add(pageTitle);
+            iTextSharp.text.Paragraph spacing = new iTextSharp.text.Paragraph(" ");
+            document.Add(spacing);
+
+            //Name
+            iTextSharp.text.Paragraph tempParagraph = new iTextSharp.text.Paragraph();
+            iTextSharp.text.Chunk tempLabel = new iTextSharp.text.Chunk("Name: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            iTextSharp.text.Chunk tempValue = new iTextSharp.text.Chunk(tempAntibody.name, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Type
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Type: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.type, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Clone
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Clone: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.clone, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Host Species
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Host Species: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.hostSpecies, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Reactive Species
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Reactive Species: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.reactiveSpecies, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Concentration
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Concentration: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.concentration, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Working Dilution
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Working Dilution: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.workingDilution, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Applications
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Applications: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.applications, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Isotype
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Isotype: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.isotype, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Antigen
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Antigen: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.antigen, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            //Fluorophore
+            tempParagraph = new iTextSharp.text.Paragraph();
+            tempLabel = new iTextSharp.text.Chunk("Fluorophore: ", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempValue = new iTextSharp.text.Chunk(tempAntibody.fluorophore, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10));
+            tempParagraph.Add(tempLabel);
+            tempParagraph.Add(tempValue);
+            document.Add(tempParagraph);
+
+            document.Close();
+        }
+
+        //  Enable PDF printing
+        protected void btnPrint_Click(Object sender, EventArgs e)
+        {
+            createPDF(new MemoryStream());
         }
 
         // Returns json object for ajax request
