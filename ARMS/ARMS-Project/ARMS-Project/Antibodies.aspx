@@ -253,7 +253,7 @@
             <h4>Filter Antibodies</h4>
             <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
             <asp:DropDownList ID="ddlFilter" runat="server">
-                <asp:ListItem Value="labID">Lab ID</asp:ListItem>
+                <asp:ListItem Value="Lab_Name">Lab Name</asp:ListItem>
                 <asp:ListItem Value="antibodyName">Name</asp:ListItem>
                 <asp:ListItem Value="hostSpecies">Host Species</asp:ListItem>
                 <asp:ListItem Value="reactiveSpecies">Reactive Species</asp:ListItem>

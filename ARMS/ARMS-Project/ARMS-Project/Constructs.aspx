@@ -283,7 +283,7 @@
             <h4>Filter Constructs</h4>
             <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
             <asp:DropDownList ID="ddlFilter" runat="server">
-                <asp:ListItem Value="labID">Lab ID</asp:ListItem>
+                <asp:ListItem Value="Lab_Name">Lab Name</asp:ListItem>
                 <asp:ListItem Value="name">Name</asp:ListItem>
                 <asp:ListItem Value="insert">Insert</asp:ListItem>
                 <asp:ListItem Value="vector">Vector</asp:ListItem>

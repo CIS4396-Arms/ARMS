@@ -499,7 +499,7 @@ namespace ARMS_Project
         public ArrayList searchForConstructs(String colName, String searchTerms)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct WHERE [Construct].[" + colName + "] LIKE '%" + searchTerms + "%';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Construct JOIN Lab ON [Construct].[LabID]=[Lab].[Lab_ID] WHERE [" + colName + "] LIKE '%" + searchTerms + "%';", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())
@@ -517,7 +517,7 @@ namespace ARMS_Project
         public ArrayList searchForPrimaryAntibodies(String colName, String searchTerms)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM PrimaryAntibody JOIN Lab ON PrimaryAntibody.LabID=Lab.Lab_ID WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())
@@ -535,7 +535,7 @@ namespace ARMS_Project
         public ArrayList searchForSecondaryAntibodies(String colName, String searchTerms)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SecondaryAntibody JOIN Lab ON SecondaryAntibody.LabID=Lab.Lab_ID WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())
@@ -554,7 +554,7 @@ namespace ARMS_Project
         {
             conn.Open();
             ArrayList tempList = new ArrayList();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Vector JOIN Lab ON Vector.LabID=Lab.Lab_ID WHERE " + colName + " LIKE '%" + searchTerms + "%';", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
                 tempList.Add(new Vector(Convert.ToInt32(rdr.GetValue(0)), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), rdr.GetValue(6).ToString(), rdr.GetValue(7).ToString(), rdr.GetValue(8).ToString(), rdr.GetValue(10).ToString()));

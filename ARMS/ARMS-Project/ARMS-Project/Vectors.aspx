@@ -95,7 +95,7 @@
             <h4>Filter Vectors</h4>
             <asp:TextBox ID="txtFilterKeyword" runat="server" placeholder="Keyword"></asp:TextBox>
             <asp:DropDownList ID="ddlFilter" runat="server">
-                <asp:ListItem Value="labID">Lab ID</asp:ListItem>
+                <asp:ListItem Value="Lab_Name">Lab Name</asp:ListItem>
                 <asp:ListItem Value="vectorName">Name</asp:ListItem>
                 <asp:ListItem Value="multipleCloningSite">Multiple Cloning Site</asp:ListItem>
                 <asp:ListItem Value="antibioticResistance">Antibiotic Resistance</asp:ListItem>
@@ -121,7 +121,7 @@
             <SortedDescendingHeaderStyle CssClass="sortDesc" />
             <SortedDescendingCellStyle CssClass="cellDesc" />
             <Columns>
-                <asp:BoundField DataField="labID" HeaderText="Lab ID" SortExpression="labID" />
+                <asp:BoundField DataField="labName" HeaderText="Lab Name" SortExpression="labName" />
                 <asp:BoundField DataField="vectorName" HeaderText="Name" SortExpression="vectorName" />
                 <asp:BoundField DataField="multipleCloningSite" HeaderText="MCS" SortExpression="multipleCloningSite" />
                 <asp:BoundField DataField="antibioticResistance" HeaderText="AR" SortExpression="antibioticResistance" />
