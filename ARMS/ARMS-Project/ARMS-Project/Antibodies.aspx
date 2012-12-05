@@ -66,7 +66,9 @@
                         <asp:ListItem>Rat</asp:ListItem>
                         <asp:ListItem>Sheep</asp:ListItem>
                         <asp:ListItem>Swine</asp:ListItem>
+                        <asp:ListItem>Other</asp:ListItem>
                     </asp:DropDownList>
+                    <p class="clearfix"><br /><asp:TextBox ID="txthostSpecies" runat="server" placeholder="Other" CssClass="other" Text='<%# Eval("hostSpecies") %>' /></p>
                 </td>
             </tr>
             <tr>

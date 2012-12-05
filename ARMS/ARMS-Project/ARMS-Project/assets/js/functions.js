@@ -164,9 +164,9 @@ $(document).ready(function () {
 
     $("select").change(function () {
         if ($(this).find("option:selected").val() == "Other") {
-            $(this).parent().find('input.other').removeClass("hide");
+            $(this).parent().find('input.other').removeClass("hide").show();
         } else {
-            $(this).parent().find('input.other').addClass("hide");
+            $(this).parent().find('input.other').addClass("hide").hide();
         }
     });
 

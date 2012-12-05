@@ -150,7 +150,7 @@
                         <asp:ListItem>Xho I</asp:ListItem>
                         <asp:ListItem>Xho II</asp:ListItem>
                         <asp:ListItem>Xma I</asp:ListItem>
-                        <asp:ListItem>Xmn I</asp:ListItem>                      
+                        <asp:ListItem>Xmn I</asp:ListItem>                   
                     </asp:ListBox>
                 </td>
             </tr>

@@ -85,6 +85,14 @@ namespace ARMS_Project
                 antibody.type = "Polyclonal";
             }
             antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            if (ddlHostSpecies.SelectedValue != "Other")
+            {
+                antibody.hostSpecies = ddlHostSpecies.SelectedValue;
+            }
+            else
+            {
+                antibody.hostSpecies = txthostSpecies.Text;
+            }
             String reactiveSpecies = "";
             int i = 0;
             foreach (ListItem li in ddlReactiveSpecies.Items)
