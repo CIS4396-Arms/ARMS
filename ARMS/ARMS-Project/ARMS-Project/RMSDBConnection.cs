@@ -113,7 +113,7 @@ namespace ARMS_Project
         public Boolean addUser(User temp)
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.RMS_User VALUES('" + temp.AccessnetID+ "'," + temp.labID + ",'" + temp.fullName + "', 'DEFAULT');", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO dbo.RMS_User VALUES('" + temp.AccessnetID + "'," + temp.labID + ",'" + temp.fullName + "', 'DEFAULT'" + ",'" + temp.email + "');", conn);
             cmd.CommandType = CommandType.Text;
             int i = cmd.ExecuteNonQuery();
             conn.Close();
@@ -300,11 +300,11 @@ namespace ARMS_Project
         public ArrayList getAllLabUsers()
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM ARMS_User;", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM RMS_User;", conn);
             SqlDataReader rdr = cmd.ExecuteReader();
             ArrayList tempList = new ArrayList();
             while (rdr.Read())
-                tempList.Add(new User(rdr.GetValue(0).ToString(), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString()));
+                tempList.Add(new User(rdr.GetValue(0).ToString(), Convert.ToInt32(rdr.GetValue(1)), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString()));
             conn.Close();
             return tempList;
         }
@@ -668,10 +668,41 @@ namespace ARMS_Project
             if (tempObj == null)
                 return -1;
             else
-                if (upass != "DEFAULT")
+                if (upass != "DEFAULT" && !upass.Contains("TEMP"))
                     return 1;
                 else
-                    return 0;            
+                    return 0;
+        }
+
+        /// <summary>
+        /// Checks to see if the specified user exists
+        /// </summary>
+        /// <param name="uname">Username</param>
+        /// <returns>True if user exists, false otherwise</returns>
+        public Boolean UserExists(String uname)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM RMS_USER WHERE AccessNet_ID='" + uname + "';", conn);
+            object tempObj = cmd.ExecuteScalar();
+            conn.Close();
+            if (tempObj == null)
+                return false;
+            else
+                return true;
+        }
+
+        /// <summary>
+        /// Gets the associated email address
+        /// </summary>
+        /// <param name="uname">Username</param>
+        /// <returns>Email address of the associated user</returns>
+        public String GetUserEmail(String uname)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("SELECT Email FROM RMS_USER WHERE AccessNet_ID='" + uname + "';", conn);
+            String tempObj = cmd.ExecuteScalar().ToString();
+            conn.Close();
+            return tempObj;
         }
      
     }

@@ -60,7 +60,7 @@ namespace ARMS_Project
 
         protected void btnAddUserToLab_Click(object sender, EventArgs e)
         {
-            myConn.addUser(new User(txtUserName.Text, Convert.ToInt16(ddlLabs.SelectedValue), txtFullName.Text));
+            myConn.addUser(new User(txtUserName.Text, Convert.ToInt16(ddlLabs.SelectedValue), txtFullName.Text, txtEmail.Text));
         }
     }
 }

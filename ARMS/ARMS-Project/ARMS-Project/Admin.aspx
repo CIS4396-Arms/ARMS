@@ -18,10 +18,13 @@
         <fieldset id="addUser" class="form-horizontal">
             <legend>Add User to Lab</legend>
             <label>Username:</label>
-            <asp:TextBox ID="txtUserName" CssClass="quickValidate" data-validate="required" data-name="AccessNet Name" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtUserName" CssClass="quickValidate" data-validate="required" data-name="Username" runat="server"></asp:TextBox>
             <br /><br />
              <label>Full Name:</label>
             <asp:TextBox ID="txtFullName" CssClass="quickValidate" data-validate="required" data-name="Full Name" runat="server"></asp:TextBox>
+            <br /><br />
+            <label>Email Address:</label>
+            <asp:TextBox ID="txtEmail" CssClass="quickValidate" data-validate="required" data-name="Email Address" runat="server"></asp:TextBox>
             <br /><br />
             <label>Lab Name:</label>
             <asp:DropDownList ID="ddlLabs" runat="server"></asp:DropDownList>
@@ -31,7 +34,7 @@
         <script type="text/javascript">
             $('#createLab, #addUser').quickValidate();
         </script>
-        <!--
+        <%-- 
         <asp:ObjectDataSource
             id="labUserDataSource"
             runat="server"
@@ -46,6 +49,6 @@
                 <asp:BoundField DataField="AccessnetID" HeaderText="Username" />
             </Columns>
         </asp:GridView>
-        -->
+        --%>
     </div>
 </asp:Content>

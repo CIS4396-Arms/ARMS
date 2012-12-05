@@ -22,6 +22,7 @@ namespace ARMS_Project
         public String AccessnetID;
         public int labID;
         public String fullName;
+        public String email;
 
         /// <summary>
         /// Default constructor.  Auto-assigns the id based on next available autonumber integer in the database.
@@ -31,16 +32,18 @@ namespace ARMS_Project
             AccessnetID = "";
             labID = 0;
             fullName = "";
+            email = "";
         }
 
         /// <summary>
         /// Overloaded Constructor.
         /// </summary>
-        public User(String newAccessnetID, int newLabID, String newFullName)
+        public User(String newAccessnetID, int newLabID, String newFullName, String newEmail)
         {
             AccessnetID = newAccessnetID;
             labID = newLabID;
             fullName = newFullName;
+            email = newEmail;
         }
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace ARMS_Project
         /// </summary>
         public String toString()
         {
-            return("Accessnet ID: " + AccessnetID + " || Name: " + fullName + " || Lab ID: " + labID);
+            return ("Accessnet ID: " + AccessnetID + " || Name: " + fullName + " || Lab ID: " + labID + " || Email: " + email);
         }
     }
 }

@@ -49,6 +49,15 @@ namespace ARMS_Project {
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
         
         /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        
+        /// <summary>
         /// ddlLabs control.
         /// </summary>
         /// <remarks>
@@ -65,23 +74,5 @@ namespace ARMS_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddUserToLab;
-        
-        /// <summary>
-        /// labUserDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource labUserDataSource;
-        
-        /// <summary>
-        /// gvLabUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvLabUsers;
     }
 }

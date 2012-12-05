@@ -10,8 +10,12 @@
         
         <asp:TextBox ID="TextBoxUID" runat="server"/><br /><br />
         <asp:Label ID="Label2" runat="server" Text="RMS Password"/><br />
-        <asp:TextBox ID="TextBoxPWD" runat="server" TextMode="Password" /><br /><br />
-        
+        <asp:TextBox ID="TextBoxPWD" runat="server" TextMode="Password" />
+        <br /><br />
+        <asp:LinkButton runat="server" ID="btnForgotPassword" Text="Forgot Password?" onclick="btnForgotPassword_Click" ></asp:LinkButton>
+        <br />
+        <asp:Label runat="server" ID="lblForgotPassword" Text="Your password has been reset and been sent to the email address associated with the provided username." Visible="false"></asp:Label>
+        <br /><br />  
         <asp:Button ID="ButtonLogin" runat="server" Text="Login"  
             onclick="ButtonLogin_Click" CssClass="btn btn-primary" /><br /><br />
             <asp:Label ID="lblNewPass1" runat="server" Text="Enter New Password" Visible="false" /><br />
