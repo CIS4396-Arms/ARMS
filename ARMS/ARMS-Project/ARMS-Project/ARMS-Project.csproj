@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.5.9.0, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>assets\dlls\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.3.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>assets\dlls\itextsharp.dll</HintPath>
@@ -69,6 +73,7 @@
     <Content Include="assets\css\chosen-sprite.png" />
     <Content Include="assets\css\chosen.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\dlls\AWSSDK.dll" />
     <Content Include="assets\dlls\itextsharp.dll" />
     <Content Include="assets\fontawesome\css\font-awesome-ie7.css" />
     <Content Include="assets\fontawesome\css\font-awesome.css" />

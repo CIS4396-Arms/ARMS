@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
+using Amazon.S3;
 
 namespace ARMS_Project
 {
@@ -21,7 +22,7 @@ namespace ARMS_Project
                 if (string.IsNullOrEmpty(Session["UserID"] as string))
                 {
                     //if user not logged in, redirect to Login page
-                    Response.Redirect("Login.aspx");
+                   //Response.Redirect("Login.aspx");
                 }
             }
 
@@ -38,6 +39,10 @@ namespace ARMS_Project
         //  handle protocol file upload
         protected void ProtcolUpload_Click(object sender, EventArgs e)
         {
+
+
+            string filePath = HelperMethods.UploadToS3(ProtcolUpload.FileName, ProtcolUpload.FileContent);
+
             string saveDir = @"\Uploads\";
 
             // Get the physical file system path for the currently

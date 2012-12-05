@@ -17,27 +17,7 @@ namespace ARMS_Project.assets
                 Session.Abandon();
                 Response.Redirect("Login.aspx");
             }
-
-            /*if (!IsPostBack)
-            {
-               //Check if User is logged in
-                if (string.IsNullOrEmpty(Session["UserID"] as string))
-                {
-
-                }
-            }*/
         }
 
-       /* protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            //Check if User is logged in
-            if (!(string.IsNullOrEmpty(Session["UserID"] as string)))
-            {
-                //if empty, drop session
-                Session.Clear();
-                Session.Abandon();
-                Response.Redirect("Login.aspx");
-            }
-        }*/
     }
 }
