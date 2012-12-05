@@ -32,7 +32,7 @@
         <div id="nav" class="clearfix">
             <%if (!string.IsNullOrEmpty(Session["UserID"] as string)) {%>
             <ul>
-                <li><a href="Antibodies.aspx">Antibodies</a>
+                <li><a>Antibodies</a>
                     <ul>
                         <li><a href="Antibodies.aspx">View Primary Antibodies</a></li>
                         <li><a href="AddAntibody.aspx">New Primary Antibody</a></li>
@@ -40,7 +40,7 @@
                         <li><a href="AddSecondaryAntibody.aspx">New Secondary Antibody</a></li>
                     </ul>
                 </li>
-                <li><a href="Constructs.aspx">Constructs</a>
+                <li><a>Constructs</a>
                     <ul>
                         <li><a href="Vectors.aspx">View Vectors</a></li>
                         <li><a href="AddVector.aspx">New Vector</a></li>
