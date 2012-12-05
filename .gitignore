@@ -5,3 +5,9 @@
 *.jpg
 
 *.cache
+
+[Oo]bj/
+[Bb]in/
+/TestResults
+*.vspscc
+*.vssscc
