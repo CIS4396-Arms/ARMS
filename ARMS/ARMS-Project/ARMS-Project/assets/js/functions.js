@@ -149,6 +149,8 @@ $(document).ready(function () {
 
     popUp.init('#popUp');
 
+    $('.other').hide();
+
     // open popup
     $('a.view').click(function (e) {
         popUp.open('#popUp', $(this).parent().attr('id'), $(this).attr('href'), e);

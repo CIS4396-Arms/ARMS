@@ -22,18 +22,18 @@ namespace ARMS_Project
                 if (string.IsNullOrEmpty(Session["UserID"] as string))
                 {
                     //if user not logged in, redirect to Login page
-                   //Response.Redirect("Login.aspx");
+                   Response.Redirect("Login.aspx");
                 }
+                ObjectDataSource labsDataSource = new ObjectDataSource();
+                labsDataSource.TypeName = "ARMS_Project.LabLogic";
+                labsDataSource.SelectMethod = "GetLabs";
+
+                ddlLabID.DataSource = labsDataSource;
+                ddlLabID.DataTextField = "name";
+                ddlLabID.DataValueField = "id";
+                ddlLabID.DataBind();
             }
-
-            ObjectDataSource labsDataSource = new ObjectDataSource();
-            labsDataSource.TypeName = "ARMS_Project.LabLogic";
-            labsDataSource.SelectMethod = "GetLabs";
-
-            ddlLabID.DataSource = labsDataSource;
-            ddlLabID.DataTextField = "name";
-            ddlLabID.DataValueField = "id";
-            ddlLabID.DataBind();
+            
         }
 
         //  handle protocol file upload

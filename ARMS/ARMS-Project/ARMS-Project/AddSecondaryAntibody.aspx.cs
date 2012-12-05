@@ -20,16 +20,17 @@ namespace ARMS_Project
                     //if user not logged in, redirect to Login page
                     Response.Redirect("Login.aspx");
                 }
+                ObjectDataSource labsDataSource = new ObjectDataSource();
+                labsDataSource.TypeName = "ARMS_Project.LabLogic";
+                labsDataSource.SelectMethod = "GetLabs";
+
+                ddlLabID.DataSource = labsDataSource;
+                ddlLabID.DataTextField = "name";
+                ddlLabID.DataValueField = "id";
+                ddlLabID.DataBind();
             }
 
-            ObjectDataSource labsDataSource = new ObjectDataSource();
-            labsDataSource.TypeName = "ARMS_Project.LabLogic";
-            labsDataSource.SelectMethod = "GetLabs";
-
-            ddlLabID.DataSource = labsDataSource;
-            ddlLabID.DataTextField = "name";
-            ddlLabID.DataValueField = "id";
-            ddlLabID.DataBind();
+            
         }
         //  submit
         protected void btnSubmit_click(Object sender, EventArgs e)
